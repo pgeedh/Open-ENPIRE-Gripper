@@ -1,64 +1,59 @@
 # 3D Printing & Fabrication Guide
 
-This guide provides optimal slicing parameters, print orientations, material selections, and post-processing instructions for manufacturing **ENPIRE Gripper** components on modern FDM and SLA/Resin 3D printers.
+This guide details the recommended materials, slicing profiles, and hardware assembly steps for manufacturing the **Open-ENPIRE-Gripper** finger adapters.
+
+All components have been printed, fitted, and tested on a **Bambu Lab P1S** using **Bambu Studio / OrcaSlicer**.
 
 ---
 
-## 1. Print Orientation & Layer Adhesion
+## 1. Material Recommendations
 
-To ensure maximum shear and tensile strength under high gripping forces:
-- **Structural Fingers**: Print oriented **flat on their side** (lateral surface) rather than vertically standing. Printing horizontally aligns the layer lines along the direction of bending tension, preventing delamination along layer boundaries under clamping loads.
-- **TPU Grip Pads**: Print flat on the build plate with the textured/ridged contact face pointing **upward**.
-- **Silicone Molds**: Print vertically with a layer height of $0.12\text{ mm}$ or $0.16\text{ mm}$ to ensure smooth inner cavity walls with minimal stepping.
+### A. Rigid Structural Outer Frame
+* **Primary Recommendation**: **PETG-CF** or **PLA-CF** (Carbon Fiber reinforced).
+* **High-End Industrial Option**: **PA12-CF (Nylon-CF)**.
+* **Why CF Filament?**: Carbon fiber infill significantly increases tensile modulus, prevents bending under 130 N clamping forces, and provides clean dimensional accuracy for M3/M4 bolt counterbores.
 
-```
-      Horizontal Orientation (RECOMMENDED)
-      ┌──────────────────────────────────────────────┐
-      │  Mounting Base  ======> Structural Beam Tip  │  <-- Layer lines run parallel to tension
-      └──────────────────────────────────────────────┘
-      ════════════════════════════════════════════════ (Build Plate)
-
-      Vertical Orientation (AVOID for high-force fingers)
-             ▲  Tip
-             │
-             │  (Shear stress splits layer lines)
-             │
-             ▼  Mount
-      ═════════════════ (Build Plate)
-```
+### B. High-Friction Compliant Grip Core
+* **Primary Recommendation**: **TPU 85A** or **TPU 95A** (Thermoplastic Polyurethane).
+* **Why TPU?**: Offers exceptional surface friction ($\mu > 0.8$) and elasticity, allowing the fingertips to conform passively around micro-pins, deformable cables, and delicate PCBs without marring surfaces.
 
 ---
 
-## 2. Recommended Slicer Profiles (FDM / FFF)
+## 2. Tested Slicer Profiles (Bambu Lab P1S)
 
-| Parameter | Structural Parts (PLA-CF / PETG-CF / PA-CF) | Flexible Pads (TPU 85A/95A) | Silicone Molds (PLA / PETG) |
-| :--- | :--- | :--- | :--- |
-| **Layer Height** | 0.16mm – 0.20mm | 0.16mm – 0.20mm | 0.12mm – 0.16mm |
-| **First Layer Height** | 0.20mm | 0.20mm | 0.20mm |
-| **Wall Loops (Perimeters)** | **5 to 6 walls** (Critical for strength) | 4 walls | 4 walls |
-| **Top / Bottom Solid Layers** | 5 top, 5 bottom | 4 top, 4 bottom | 5 top, 5 bottom |
-| **Infill Density** | 40% – 60% (or 100% solid) | 30% – 50% | 25% |
-| **Infill Pattern** | Gyroid or Cubic | Gyroid | Grid / Gyroid |
-| **Print Speed** | 60 – 150 mm/s (per filament spec) | 20 – 40 mm/s | 60 – 100 mm/s |
-| **Nozzle Temperature** | PETG: 245°C–255°C / PA-CF: 275°C–290°C | 225°C – 235°C | 210°C – 220°C |
-| **Bed Temperature** | PETG: 75°C–80°C / PA-CF: 100°C | 50°C – 60°C (PEI textured) | 55°C – 65°C |
-| **Supports** | Tree / Organic supports (Overhang angle: 45°) | None needed | None needed |
-
----
-
-## 3. Bambu Lab, PrusaSlicer & OrcaSlicer 3MF Notes
-
-- When using **Bambu Studio** or **OrcaSlicer**, select the `0.16mm Optimal @BBL X1C` or `0.20mm Standard` profile.
-- Enable `Fuzzy Skin` on outer contact surfaces (Contour thickness: 0.1mm, Point distance: 0.2mm) if you want a high-grip tactile texture directly off the print bed without TPU inserts.
+| Parameter | Rigid Frame (PETG-CF / PA-CF) | Compliant Grip Core (TPU 85A/95A) |
+| :--- | :--- | :--- |
+| **Tested Machine** | **Bambu Lab P1S** | **Bambu Lab P1S** |
+| **Layer Height** | **0.16 mm** | **0.16 mm – 0.20 mm** |
+| **Wall Loops / Perimeters** | **5 – 6 walls** (Critical for strength) | **4 walls** |
+| **Top / Bottom Solid Layers** | **5 Top, 5 Bottom** | **4 Top, 4 Bottom** |
+| **Infill Pattern** | **Gyroid (50% – 60%)** | **Gyroid (30% – 40%)** |
+| **Nozzle Temperature** | 255°C (PETG-CF) / 285°C (PA-CF) | 225°C – 235°C (TPU) |
+| **Bed Temperature** | 70°C – 80°C (Textured PEI Plate) | 45°C – 55°C (Engineering Plate) |
+| **Printing Speed** | 80 – 160 mm/s | 20 – 35 mm/s |
+| **Supports** | Tree Auto (40° threshold, 0.2mm Top-Z) | None needed |
 
 ---
 
-## 4. Post-Processing & Heat-Set Insert Installation
+## 3. Infill Geometry & Support Details
 
-1. **Clean Support Material**: Remove tree supports using needle-nose pliers and deburr mounting faces with a hobby knife.
-2. **Install Heat-Set Brass Inserts**:
-   - Set soldering iron temperature to **230°C** for PETG / PLA-CF, or **275°C** for PA-CF.
-   - Place the brass insert into the pilot hole.
-   - Lightly press the soldering iron tip into the insert bore until the brass softens the surrounding plastic and sinks flush with the surface.
-   - Allow cooling for 60 seconds before applying screw torque.
-3. **Inspect Thread Clearances**: Thread an M3 screw by hand to verify smooth travel without plastic obstruction.
+### Infill Pattern
+* **Gyroid**: Strongly recommended over Grid or Triangles. Gyroid distributes compression and shear stresses isotropically in 3D, preventing internal shear fractures when clamping under high motor current.
+
+### Support Settings (Bambu Studio / OrcaSlicer)
+* **Support Type**: Tree (Auto) / Tree Slim
+* **Threshold Angle**: 35° – 45°
+* **Top Z Distance**: **0.20 mm** (enables clean interface release with zero surface scarring)
+* **Bottom Z Distance**: 0.20 mm
+* **Support Wall Loops**: 1
+
+---
+
+## 4. Hardware Assembly Tips
+
+1. **Heat-Set Threaded Inserts**:
+   * Set your soldering iron to **230°C** for PETG/PLA or **275°C** for PA-CF.
+   * Press M3 or M4 brass inserts straight and flush with the plastic face.
+2. **Fastener Torquing & Threadlocker**:
+   * Use Grade 12.9 M3/M4 socket head cap screws.
+   * Apply medium blue threadlocker (Loctite 243) to prevent bolts from loosening under high-speed robotic cycles.

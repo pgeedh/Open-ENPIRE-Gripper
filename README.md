@@ -115,40 +115,42 @@ Our primary physical adaptation mounts the ENPIRE fingertip geometry directly on
 
 ---
 
-## 3D Printing Specifications & Guide
+## 3D Printing Specifications & Tested Slicer Profile
 
-To achieve maximum grasping friction, layer adhesion, and durability:
+All parts shown were printed and verified on a **Bambu Lab P1S** using **Bambu Studio / OrcaSlicer**.
 
-### 1. Print Orientation (Critical for Structural Integrity)
-```
-      [RECOMMENDED]: Print flat on lateral side (Layer lines run parallel to tension)
-      +----------------------------------------------------------+
-      |  Base Mount  =================> Structural Fingertip     |
-      +----------------------------------------------------------+
-      ============================================================ (Build Plate)
+### 1. Infill Geometry & Wall Parameters (Bambu Lab P1S)
+* **Infill Pattern**: **Gyroid** is strongly recommended. Gyroid provides uniform, isotropic load resistance in all axes ($X, Y, Z$), preventing internal shear fracture when the gripper applies peak clamping torque.
+* **Infill Density**:
+  * **50% – 60% Gyroid** for the rigid structural frame.
+  * **30% – 40% Gyroid** for the compliant grip insert (provides elastic compliance to conform around delicate components).
+* **Wall Loops / Perimeters**: **5 to 6 walls** (ensures solid M3/M4 mounting hole walls and maximum beam bending stiffness).
+* **Top & Bottom Shells**: **5 solid layers** for zero flex at fastener interfaces.
 
-      [AVOID]: Print standing vertically (Shear forces will cause layer delamination)
-```
+### 2. Support Configuration (Bambu Studio / OrcaSlicer)
+* **Support Type**: **Tree (Auto)** / Tree Slim.
+* **Threshold Angle**: **35° – 45°**.
+* **Top Z Distance**: **0.20 mm** (clean surface separation with zero scarring).
+* **Bottom Z Distance**: **0.20 mm**.
+* **Support Wall Loops**: **1**.
+* **Support Infill**: 15% Grid / Tree Branch.
 
-### 2. Dual-Material & Multi-Color Recommendations
-* **Blue Outer Frame (Rigid)**: Print in **PETG-CF**, **PLA-CF**, or **PA12-CF (Nylon-CF)** for extreme beam stiffness and sharp mounting tolerances.
-* **Orange Grip Core (Compliant)**: Print in **TPU 85A** or **TPU 95A** (flexible filament) for high-friction tactile compliance ($\mu > 0.8$) against smooth or irregular objects.
-* *Single-Extruder Printers*: The design can also be printed as a single solid piece in PETG or PLA with 100% mechanical functionality.
+### 3. Slicer Parameter Table
 
-### 3. Slicer Parameter Table (Bambu Studio / PrusaSlicer / OrcaSlicer)
-
-| Parameter | Rigid Frame (PETG-CF / PA-CF) | Compliant Grip Ribs (TPU 85A/95A) |
+| Parameter | Rigid Frame (PETG-CF / PA-CF) | Compliant Grip Core (TPU 85A/95A) |
 | :--- | :--- | :--- |
-| **Layer Height** | **0.16 mm** (Optimal for fine screw counterbores) | **0.16 mm – 0.20 mm** |
-| **Wall Loops / Perimeters** | **5 to 6 walls** (Critical for shear load resistance) | **4 walls** |
-| **Top / Bottom Solid Layers** | **5 Top, 5 Bottom** | **4 Top, 4 Bottom** |
-| **Infill Density & Pattern** | **50% – 60% Gyroid or Cubic** | **30% – 40% Gyroid** |
-| **Printing Speed** | Standard (60 – 120 mm/s) | Slow (20 – 35 mm/s) |
-| **Supports** | Tree / Organic supports (Overhang angle: 45°) | None needed |
+| **Tested Machine** | **Bambu Lab P1S** | **Bambu Lab P1S** |
+| **Layer Height** | **0.16 mm** (Optimal for screw counterbores) | **0.16 mm – 0.20 mm** |
+| **Wall Loops** | **5 – 6 walls** (Critical for strength) | **4 walls** |
+| **Infill Pattern** | **Gyroid (50% – 60%)** | **Gyroid (30% – 40%)** |
+| **Nozzle Temp** | 255°C (PETG-CF) / 285°C (PA-CF) | 225°C – 235°C (TPU) |
+| **Bed Temp** | 70°C – 80°C (Textured PEI Plate) | 45°C – 55°C (Engineering Plate) |
+| **Print Speed** | 80 – 160 mm/s | 20 – 35 mm/s (Slow for TPU flow) |
+| **Supports** | Tree Auto (40° threshold, 0.2mm Top-Z) | None needed |
 
-### 4. Fastener Assembly Tips
-* **Heat-Set Brass Inserts**: Set soldering iron to **230°C** for PETG/PLA or **275°C** for PA-CF. Press M3/M4 threaded inserts until flush with the plastic face.
-* **Threadlocker**: Apply a small drop of medium-strength blue threadlocker (Loctite 243) to prevent fastener loosening under high-frequency robotic vibration.
+### 4. Hardware Assembly & Fastener Notes
+* **Heat-Set Brass Inserts**: Press M3/M4 threaded inserts flush into mounting pockets using a soldering iron set to **230°C** for PETG/PLA or **275°C** for PA-CF.
+* **Fasteners**: Use ISO 4762 Grade 12.9 M3/M4 socket head cap screws with medium blue threadlocker (Loctite 243) to prevent vibration-induced loosening.
 
 ---
 
