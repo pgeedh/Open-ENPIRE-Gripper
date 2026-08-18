@@ -3,16 +3,16 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "enpire-gripper"
+name = "open-enpire-gripper-nvidia"
 version = "1.0.0"
-description = "Multi-Robot Arm 3D CAD, STL, and URDF Ecosystem for the ENPIRE Gripper"
+description = "Multi-Robot Arm 3D Printable STL Model Ecosystem for the ENPIRE Gripper"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "Apache-2.0"}
 authors = [
-    {name = "ENPIRE Gripper Open Source Community"}
+    {name = "Open-ENPIRE-Gripper-NVIDIA Community"}
 ]
-keywords = ["robotics", "gripper", "enpire", "nvidia-gear", "3d-printing", "cad", "stl", "urdf", "isaac-sim"]
+keywords = ["robotics", "gripper", "enpire", "nvidia-gear", "3d-printing", "stl", "physical-ai"]
 dependencies = [
     "numpy>=1.22.0",
 ]

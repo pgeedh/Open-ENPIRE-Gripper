@@ -1,17 +1,20 @@
 ## Summary of Changes
-Provide a brief summary of CAD or software changes.
+Provide a brief summary of the 3D printable STL model changes or additions.
 
 ## Robot Platforms Impacted
-- [ ] I2RT YAM
-- [ ] AgileX Piper
+- [ ] Robotiq Hand-E
+- [ ] ALOHA / Mobile ALOHA
+- [ ] Open Arm
+- [ ] AgileX (Piper)
+- [ ] Seeed Studio reBot
 - [ ] Robotiq 2F-85 / 2F-140
 - [ ] Franka Emika Panda / FR3
-- [ ] Mobile ALOHA / SO-100
 - [ ] ARX5
 - [ ] Other: 
 
 ## Verification Checklist
-- [ ] Executed `python3 scripts/generate_stls.py` without errors.
-- [ ] Executed `python3 scripts/validate_mesh.py` and confirmed all meshes pass watertight validation.
-- [ ] Verified physical test print or CAD assembly clearances.
-- [ ] Updated corresponding documentation in `docs/` and `README.md`.
+- [ ] Verified STL files are binary STL in millimeters.
+- [ ] Executed `python3 scripts/validate_mesh.py` and confirmed `[PASS]` status.
+- [ ] Physically 3D-printed and mounted on the robot arm.
+- [ ] Verified full stroke closure without binding or mechanical interference.
+- [ ] Attached photo(s) of the 3D-printed part installed on the arm.

@@ -11,8 +11,7 @@ This directory is dedicated to the **Robotiq Hand-E** adaptive parallel gripper 
 - **Ideal Applications**: High-precision manipulation, electronic assembly, machine tending, and Physical AI benchmark tasks.
 
 ## Uploading Your Files
-Drop your custom 3D printable `.stl` or CAD `.step` files for Robotiq Hand-E here:
+Drop your 3D printable `.stl` files for Robotiq Hand-E here:
 - `hand_e_enpire_finger_left.stl`
 - `hand_e_enpire_finger_right.stl`
 - `hand_e_enpire_finger_grooved.stl`
-- `hand_e_finger_assembly.step`

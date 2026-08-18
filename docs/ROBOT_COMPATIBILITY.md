@@ -25,5 +25,6 @@ The **Open-ENPIRE-Gripper-NVIDIA** project aims to establish an open standard ac
 ## 2. Contributing New Arm Adapters
 
 To add an adapter for an unlisted robot arm or gripper:
-1. Export your CAD models as **STEP** in `cad/step/` and binary **STL** in `stl/<arm_folder>/`.
-2. Open a Pull Request referencing the robot arm platform!
+1. Export high-resolution binary **STL** files into `stl/<arm_folder>/`.
+2. Follow the rules in [CONTRIBUTING.md](file:///CONTRIBUTING.md).
+3. Open a Pull Request referencing the robot arm platform!

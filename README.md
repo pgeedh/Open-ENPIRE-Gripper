@@ -10,9 +10,9 @@
 [![Physical AI](https://img.shields.io/badge/Robotics-Generalist_Arm_Standard-purple.svg)](docs/ROBOT_COMPATIBILITY.md)
 [![3D Print Ready](https://img.shields.io/badge/3D_Printing-FDM_%7C_SLA_%7C_TPU-orange.svg)](docs/3D_PRINTING_GUIDE.md)
 
-**An open-source, multi-arm adaptation of the high-performance NVIDIA GEAR ENPIRE gripper design, engineered to make frontier physical AI contact mechanics accessible to generalist robotic arms.**
+**An open-source, multi-arm 3D printable adaptation of the high-performance NVIDIA GEAR ENPIRE gripper design, engineered to make frontier physical AI contact mechanics accessible to generalist robotic arms.**
 
-[Quick Links](#-quick-links) • [Why This Project Exists](#-why-this-project-exists) • [Original Design & Credits](#-original-design--credits) • [NVIDIA Research & Jim Fan](#-nvidia-gear-enpire-research--dr-jim-fan) • [Robotiq Hand-E](#-robotiq-hand-e-adapter) • [Multi-Arm Ecosystem](#-multi-arm-ecosystem) • [3D Printing Guide](#-3d-printing-guide) • [Contributing](#-contributing)
+[Quick Links](#-quick-links) • [Why This Project Exists](#-why-this-project-exists) • [Original Design & Credits](#-original-design--credits) • [NVIDIA Research & Jim Fan](#-nvidia-gear-enpire-research--dr-jim-fan) • [Robotiq Hand-E](#-robotiq-hand-e-adapter) • [Multi-Arm STL Folders](#-multi-arm-stl-ecosystem) • [Rules for Contributing](#-rules-for-contributing) • [Printing Guide](#-3d-printing-guide)
 
 </div>
 
@@ -52,7 +52,7 @@ Without modular adapters, this exceptional fingertip geometry remains inaccessib
 
 We take the proven contact mechanics, high-friction ridged surface, and compliant fingertip geometry from Wenli Xiao's original design and adapt it into a modular, 3D-printable standard for generalist robot arms.
 
-We start by providing custom adapter models for the **Robotiq Hand-E**, while organizing dedicated open-source slots for the entire robotics community to contribute matching tips for every popular parallel-jaw gripper.
+We start by providing custom adapter STL models for the **Robotiq Hand-E**, while organizing dedicated open-source slots for the entire robotics community to contribute matching STL files for every popular parallel-jaw gripper.
 
 ---
 
@@ -111,34 +111,47 @@ Our primary focus begins with adapting the ENPIRE high-friction finger profile t
 
 ---
 
-## 📁 Multi-Arm Ecosystem
+## 📁 Multi-Arm STL Ecosystem
 
-To establish an open standard across all platforms, clean folder structures are organized for manual STL uploads and community CAD contributions:
+To establish an open standard across all platforms, clean folder structures are organized for manual STL uploads and community contributions:
 
 ```
 Open-ENPIRE-Gripper-NVIDIA/
 ├── stl/
 │   ├── hand_e_gripper/         # 🌟 Robotiq Hand-E ENPIRE adapter STL files (Main target)
-│   ├── aloha/                  # ALOHA & Mobile ALOHA bimanual gripper adapters
-│   ├── open_arm/               # Open Arm robotics platform adapters
-│   ├── agilex_piper/           # AgileX (Piper) bimanual robot arm adapters
-│   ├── seeed_rebot/            # Seeed Studio reBot AI robotic arm adapters
-│   ├── robotiq_2f85_2f140/     # Robotiq 2F-85 and 2F-140 bracket adapters
-│   ├── franka_panda/           # Franka Emika Panda / FR3 dovetail slider fingers
-│   ├── arx5/                   # ARX5 bimanual robotic arm fingers
-│   ├── enpire_i2rt_yam/        # I2RT YAM baseline finger STLs (Wenli Xiao original)
+│   ├── aloha/                  # ALOHA & Mobile ALOHA bimanual gripper STL files
+│   ├── open_arm/               # Open Arm robotics platform STL files
+│   ├── agilex_piper/           # AgileX (Piper) bimanual robot arm STL files
+│   ├── seeed_rebot/            # Seeed Studio reBot AI robotic arm STL files
+│   ├── robotiq_2f85_2f140/     # Robotiq 2F-85 and 2F-140 bracket STL files
+│   ├── franka_panda/           # Franka Emika Panda / FR3 dovetail slider STL files
+│   ├── arx5/                   # ARX5 bimanual robotic arm STL files
+│   ├── enpire_i2rt_yam/        # I2RT YAM baseline finger STL files (Wenli Xiao original)
 │   ├── iso_flange_adapters/    # Universal ISO 9409-1 (UR3e/5e/10e, xArm) flange plates
 │   └── accessories_and_pads/   # TPU friction snap-pads & silicone casting molds
-├── cad/
-│   └── step/                   # Raw STEP / CAD assemblies for community exchange
 ├── docs/
 │   ├── HARDWARE_BOM.md         # Fasteners, inserts, torque specifications
 │   ├── 3D_PRINTING_GUIDE.md    # Slicer profiles, layer heights, materials
 │   └── ROBOT_COMPATIBILITY.md  # Dimensional specs and mounting standards
 ├── scripts/
 │   └── validate_mesh.py        # Automated STL watertightness & bounding box validator
+├── CONTRIBUTING.md             # Rules for contributing STL files
 └── README.md
 ```
+
+---
+
+## 📋 Rules for Contributing
+
+To ensure that every 3D model in this repository is reliable, physically functional, and ready to print, all contributions must follow these rules:
+
+1. **Watertight Mesh**: STL files must be exported in **Millimeters (mm)** as solid, binary STLs with **zero non-manifold edges** and correct outward normals. Run `python3 scripts/validate_mesh.py` to confirm.
+2. **Standard Orientation**: Coordinate axes must follow standard robotics conventions ($+Z$ along finger extension, $+Y$ inward contact normal). Fingers should be export-oriented to print flat on their lateral side for maximum layer shear strength.
+3. **Hardware Standards**: Fasteners must follow metric ISO/DIN specifications (M2.5, M3, M4, M5) with proper counterbore depth and heat-set insert tolerances ($+0.1\text{ mm}$ to $+0.2\text{ mm}$ print expansion).
+4. **Physical Test Print Required**: You must physically print the part and verify smooth mounting, full stroke closure, and zero mechanical binding before opening a Pull Request.
+5. **PR Checklist**: Include clear photos of the 3D-printed part installed on the robot arm and list your slicer settings (material, walls, infill).
+
+*See [CONTRIBUTING.md](CONTRIBUTING.md) for full contribution guidelines and naming conventions.*
 
 ---
 
@@ -155,19 +168,6 @@ For optimal mechanical shear strength and grasping friction:
 | **Print Orientation** | Lay flat on lateral side | Flat on bed |
 
 *For complete slicer details, hardware lists, and assembly tips, see [docs/3D_PRINTING_GUIDE.md](docs/3D_PRINTING_GUIDE.md) and [docs/HARDWARE_BOM.md](docs/HARDWARE_BOM.md).*
-
----
-
-## 🤝 Contributing
-
-This project is under active development, and community contributions are warmly welcomed.
-
-If you design or test adapters for additional robotic arms:
-1. Export your adapter CAD model as **STEP** (`cad/step/`) and high-resolution binary **STL** (`stl/<arm_folder>/`).
-2. Run `python3 scripts/validate_mesh.py` to verify mesh integrity.
-3. Open a Pull Request so the entire robotics community can access your design!
-
-> *This field still has plenty of unsolved problems in physical AI and dexterous contact manipulation, and we are confident the open-source robotics community can contribute a great deal toward getting robots to perform tasks we currently think are impossible for them.*
 
 ---
 

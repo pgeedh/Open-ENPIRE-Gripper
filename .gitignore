@@ -38,7 +38,7 @@ Thumbs.db
 *.swp
 *.swo
 
-# Slicer and CAD temporary files
+# Slicer temporary files
 *.gcode
 *.3mf.bak
 *~
