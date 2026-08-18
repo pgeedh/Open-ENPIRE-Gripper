@@ -92,7 +92,7 @@ Our primary contribution adapts the ENPIRE fingertip geometry to the **Robotiq H
 ```
 
 ### Design Specifications
-* **Target Directory**: [`stl/hand_e_gripper/`](stl/hand_e_gripper/)
+* **Target Directory**: [`stl/hand_e_stl/`](stl/hand_e_stl/)
 * **Mounting Standard**: 2× M4 / M3 socket head cap screws per finger (standard Robotiq bracket)
 * **Stroke & Force**: 50 mm parallel stroke | 20 N to 130 N programmable grip force
 * **Contact Surface**: Integrated anti-slip ridges + pocket for snap-in TPU flexible friction pads
@@ -103,18 +103,45 @@ Our primary contribution adapts the ENPIRE fingertip geometry to the **Robotiq H
 
 | Robot Platform | Arm Type | Status | Precision | Bimanual Support | High-Force Grip | Ease of 3D Print | Target STL Folder |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **Robotiq Hand-E** | Precision Electric Gripper | 🟢 **Active** | 🟢 High | 🟢 Full | 🟢 130 N | 🟢 Easy | [`stl/hand_e_gripper/`](stl/hand_e_gripper/) |
-| **ALOHA / Mobile ALOHA** | Bimanual Imitation Rig | 🟡 *In Progress* | 🟢 High | 🟢 Dual | 🟡 40 N | 🟢 Easy | [`stl/aloha/`](stl/aloha/) |
-| **Open Arm** | Open-Source Robotic Arm | 🟡 *In Progress* | 🟡 Med | 🟡 Dual | 🟡 35 N | 🟢 Easy | [`stl/open_arm/`](stl/open_arm/) |
-| **AgileX (Piper)** | Lightweight Bimanual Arm | 🟡 *In Progress* | 🟢 High | 🟢 Dual | 🟡 35 N | 🟢 Easy | [`stl/agilex_piper/`](stl/agilex_piper/) |
-| **Seeed Studio reBot** | AI Robotic Arm | 🟡 *In Progress* | 🟡 Med | 🟡 Dual | 🟡 25 N | 🟢 Easy | [`stl/seeed_rebot/`](stl/seeed_rebot/) |
-| **Robotiq 2F-85 / 2F-140** | Industrial Cobot Gripper | 🟡 *In Progress* | 🟢 High | 🟡 Single | 🟢 235 N | 🟢 Easy | [`stl/robotiq_2f85_2f140/`](stl/robotiq_2f85_2f140/) |
-| **Franka Panda / FR3** | 7-DoF AI Research Cobot | 🟡 *In Progress* | 🟢 High | 🟡 Single | 🟢 70 N | 🟢 Easy | [`stl/franka_panda/`](stl/franka_panda/) |
-| **ARX5** | Bimanual Research Arm | 🟡 *In Progress* | 🟢 High | 🟢 Dual | 🟡 40 N | 🟢 Easy | [`stl/arx5/`](stl/arx5/) |
-| **I2RT YAM** | AI Research Arm | 🟢 *Original* | 🟢 High | 🟢 Dual | 🟡 45 N | 🟢 Easy | [`stl/enpire_i2rt_yam/`](stl/enpire_i2rt_yam/) |
-| **ISO 9409-1 (UR / xArm)** | Universal Tool Flanges | 🟡 *In Progress* | 🟢 High | 🟡 Single | 🟢 150 N | 🟢 Easy | [`stl/iso_flange_adapters/`](stl/iso_flange_adapters/) |
+| **Robotiq Hand-E** | Precision Electric Gripper | 🟢 **Active** | 🟢 High | 🟢 Full | 🟢 130 N | 🟢 Easy | [`stl/hand_e_stl/`](stl/hand_e_stl/) |
+| **ALOHA / Mobile ALOHA** | Bimanual Imitation Rig | 🟡 *In Progress* | 🟢 High | 🟢 Dual | 🟡 40 N | 🟢 Easy | [`stl/aloha_stl/`](stl/aloha_stl/) |
+| **Open Arm** | Open-Source Robotic Arm | 🟡 *In Progress* | 🟡 Med | 🟡 Dual | 🟡 35 N | 🟢 Easy | [`stl/open_arm_stl/`](stl/open_arm_stl/) |
+| **AgileX (Piper)** | Lightweight Bimanual Arm | 🟡 *In Progress* | 🟢 High | 🟢 Dual | 🟡 35 N | 🟢 Easy | [`stl/agilex_stl/`](stl/agilex_stl/) |
+| **Seeed Studio reBot** | AI Robotic Arm | 🟡 *In Progress* | 🟡 Med | 🟡 Dual | 🟡 25 N | 🟢 Easy | [`stl/seeed_rebot_stl/`](stl/seeed_rebot_stl/) |
+| **Robotiq 2F-85 / 2F-140** | Industrial Cobot Gripper | 🟡 *In Progress* | 🟢 High | 🟡 Single | 🟢 235 N | 🟢 Easy | [`stl/robotiq_2f85_2f140_stl/`](stl/robotiq_2f85_2f140_stl/) |
+| **Franka Panda / FR3** | 7-DoF AI Research Cobot | 🟡 *In Progress* | 🟢 High | 🟡 Single | 🟢 70 N | 🟢 Easy | [`stl/franka_panda_stl/`](stl/franka_panda_stl/) |
+| **ARX5** | Bimanual Research Arm | 🟡 *In Progress* | 🟢 High | 🟢 Dual | 🟡 40 N | 🟢 Easy | [`stl/arx5_stl/`](stl/arx5_stl/) |
+| **I2RT YAM** | AI Research Arm | 🟢 *Original* | 🟢 High | 🟢 Dual | 🟡 45 N | 🟢 Easy | [`stl/enpire_i2rt_yam_stl/`](stl/enpire_i2rt_yam_stl/) |
+| **ISO 9409-1 (UR / xArm)** | Universal Tool Flanges | 🟡 *In Progress* | 🟢 High | 🟡 Single | 🟢 150 N | 🟢 Easy | [`stl/iso_flange_adapters_stl/`](stl/iso_flange_adapters_stl/) |
 
 *Legend: 🟢 Excellent / Available &nbsp;|&nbsp; 🟡 Moderate / Community Slot &nbsp;|&nbsp; 🔵 Planned*
+
+---
+
+## 📁 Repository STL Ecosystem
+
+```
+Open-ENPIRE-Gripper-NVIDIA/
+├── stl/
+│   ├── hand_e_stl/                 # 🌟 Robotiq Hand-E ENPIRE adapter STLs (Main target)
+│   ├── agilex_stl/                 # AgileX (Piper) bimanual robot arm STLs
+│   ├── aloha_stl/                  # ALOHA & Mobile ALOHA bimanual gripper STLs
+│   ├── open_arm_stl/               # Open Arm robotics platform STLs
+│   ├── seeed_rebot_stl/            # Seeed Studio reBot AI robotic arm STLs
+│   ├── robotiq_2f85_2f140_stl/     # Robotiq 2F-85 and 2F-140 bracket STLs
+│   ├── franka_panda_stl/           # Franka Emika Panda / FR3 dovetail slider STLs
+│   ├── arx5_stl/                   # ARX5 bimanual robotic arm STLs
+│   ├── enpire_i2rt_yam_stl/        # I2RT YAM baseline finger STLs (Wenli Xiao original)
+│   ├── iso_flange_adapters_stl/    # Universal ISO 9409-1 (UR3e/5e/10e, xArm) flange plates
+│   └── accessories_and_pads_stl/   # TPU friction snap-pads & silicone casting molds
+├── docs/
+│   ├── 3D_PRINTING_GUIDE.md        # Slicer profiles, layer heights, materials
+│   └── ROBOT_COMPATIBILITY.md      # Dimensional specs and mounting standards
+├── scripts/
+│   └── validate_mesh.py            # Automated STL watertightness & bounding box validator
+├── CONTRIBUTING.md                 # Rules for contributing STL files
+└── README.md
+```
 
 ---
 
