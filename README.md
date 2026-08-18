@@ -15,7 +15,7 @@
 
 <table align="center" border="0">
   <tr>
-    <th align="center" width="50%">🎬 NVIDIA GEAR ENPIRE Research Video</th>
+    <th align="center" width="50%">🎬 NVIDIA GEAR ENPIRE Research</th>
     <th align="center" width="50%">🦾 Robotiq Hand-E Physical Adapter</th>
   </tr>
   <tr>
@@ -34,55 +34,42 @@
   </tr>
 </table>
 
-[Video & Research](#-nvidia-gear-enpire-research--video) • [The Story](#-the-story--mission) • [Robotiq Hand-E Design](#-robotiq-hand-e-adapter-design) • [Compatibility Heatmap](#-robot-compatibility-heatmap) • [Printing Instructions](#-printing-instructions-for-best-results) • [Contributing](#-rules-for-contributing)
-
 </div>
 
 ---
 
-## 🎬 NVIDIA GEAR ENPIRE Research & Video
+## 🎯 Purpose & Mission
 
-This project builds upon the groundbreaking research **ENPIRE: Agentic Robot Policy Self-Improvement in the Real World**, developed by the **NVIDIA GEAR** lab led by **Dr. Jim Fan** ([@DrJimFan](https://twitter.com/DrJimFan)) and **Dr. Yuke Zhu**.
+### Why This Project Exists
+In physical AI manipulation research, grasping success often comes down to hardware contact mechanics—surface friction, structural compliance, and tactile geometry. When NVIDIA's GEAR lab published **ENPIRE** (*Agentic Robot Policy Self-Improvement in the Real World*), co-led by **Dr. Jim Fan** ([@DrJimFan](https://twitter.com/DrJimFan)) and **Dr. Yuke Zhu**, the physical robot achieved remarkable grasping reliability using a custom-engineered 3D-printable finger designed by **Wenli Xiao** (CMU & NVIDIA GEAR) for the **I2RT YAM** robotic arm.
 
-```
-       ┌─────────────────────────────────────────────────────────────┐
-       │             NVIDIA GEAR Lab: Project ENPIRE                 │
-       │     Agentic Robot Policy Self-Improvement in the Real World │
-       └──────────────────────────────┬──────────────────────────────┘
-                                      │
-    ┌─────────────────────────────────┼─────────────────────────────────┐
-    ▼                                 ▼                                 ▼
-[ Autonomous AI Agents ]       [ Closed-Loop Feedback ]   [ Extreme Contact Dexterity ]
-  Literature Search & Code       Physical Self-Correction    Zip-Ties, GPUs, Precision Micro-Sorting
-```
+However, the I2RT YAM is a specialized research arm that very few universities, startups, independent makers, or robotics labs own.
 
-### 📺 Research Highlights
-* **Autonomous Policy Improvement**: LLM coding agents write robot policies, run physical trials, inspect video logs, and autonomously self-improve manipulation skills without human intervention.
-* **99% Success on Extreme Tasks**: Leveraging high-friction compliant finger tips, robots mastered demanding contact tasks including **threading cable zip-ties, seating GPU/PCIe boards into motherboards, and micro-pin sorting**.
-* **24/7 Self-Resetting Loops**: Robots recover and reset their own environments after failed trials for uninterrupted continuous learning.
+In the real world, the robotics community builds and trains policies on **generalist robotic arms** and industry-standard parallel grippers:
+* **Robotiq Hand-E** (Precision electric parallel gripper)
+* **ALOHA / Mobile ALOHA** (Bimanual imitation learning standard)
+* **Open Arm** (Open-source accessible robotics)
+* **AgileX (Piper)** (Lightweight bimanual research arms)
+* **Seeed Studio reBot** (Accessible AI robotics)
+* **Franka Emika Panda / FR3** (7-DoF research standard)
+* **Robotiq 2F-85 & 2F-140** (Universal Robots, Kinova, AUBO)
+* **ARX5** (Bimanual manipulation arms)
 
-> *"The bottleneck in robot learning has always been human babysitting. ENPIRE demonstrates that AI agents can run end-to-end robotics research in the physical world—writing code, debugging runs, and self-improving physical manipulation."*  
-> — **Dr. Jim Fan** ([@DrJimFan](https://twitter.com/DrJimFan)), Director of AI / Embodied AI at NVIDIA
+### Our Mission: Democratizing Frontier Gripper Design
+> **Hardware breakthroughs in robotics should not be locked to a single proprietary arm.**
+> 
+> The mission of **Open-ENPIRE-Gripper-NVIDIA** is to bridge the gap between frontier physical AI research and the global robotics community:
+> 1. **Universal Accessibility**: Translate the proven high-friction, compliant contact profile into 3D-printable STL adapters for popular generalist robotic arms.
+> 2. **Physical AI for Everyone**: Enable anyone with a standard 3D printer to achieve frontier-grade contact mechanics on their existing robot without purchasing expensive custom end-effectors.
+> 3. **Community-Driven Standardization**: Establish this geometry as an open-source standard across all parallel-jaw robotic grippers, starting with our physical adaptation for the **Robotiq Hand-E**.
 
----
-
-## 📖 The Story & Mission
-
-### The Problem
-The original ENPIRE research demonstrated the immense power of high-friction fingertip geometry, created by **Wenli Xiao** (CMU & NVIDIA GEAR) for the **I2RT YAM** arm. 
-
-However, very few roboticists have access to an I2RT YAM arm. Most of the robotics community builds on **generalist robotic arms** and industry-standard parallel grippers: **Robotiq Hand-E, ALOHA, Open Arm, AgileX Piper, Seeed Studio reBot, Franka Panda, and ARX5**.
-
-### The Mission
-**Great robotics hardware should belong to everyone.** This project adapts the proven ENPIRE contact geometry into modular 3D-printable STL models for generalist arms—starting with our custom **Robotiq Hand-E** adapter—so anyone with a 3D printer can achieve frontier physical AI grasping.
-
-*Original MakerWorld Model: [Gripper Finger for Robot Arm](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm) / [Profile #3349177](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm#profileId-3349177) by Wenli Xiao.*
+*Original MakerWorld Project: [Gripper Finger for Robot Arm](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm) / [Profile #3349177](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm#profileId-3349177) by Wenli Xiao.*
 
 ---
 
 ## 🦾 Robotiq Hand-E Adapter Design
 
-Our primary contribution adapts the ENPIRE fingertip geometry to the **Robotiq Hand-E** precision parallel electric gripper:
+Our primary physical adaptation mounts the ENPIRE fingertip geometry directly onto the **Robotiq Hand-E** parallel electric gripper:
 
 <div align="center">
   <img src="docs/images/hand_e_enpire_fingers_detail.jpg" alt="Hand-E ENPIRE Finger Detail" width="300" />
@@ -112,8 +99,8 @@ Our primary contribution adapts the ENPIRE fingertip geometry to the **Robotiq H
 
 ### Design Specifications
 * **Target Directory**: [`stl/hand_e_stl/`](stl/hand_e_stl/)
-* **Mounting Standard**: 2× M4 / M3 socket head cap screws per finger (standard Robotiq bracket)
-* **Stroke & Force**: 50 mm parallel stroke | 20 N to 130 N programmable grip force
+* **Mounting Interface**: Standard 2× M4 / M3 counterbore bracket per finger
+* **Stroke & Force**: 50 mm linear parallel stroke | 20 N to 130 N programmable grip force
 * **Contact Surface**: Dual-material structural beam with integrated anti-slip compliant friction inserts
 
 ---
@@ -154,7 +141,7 @@ Open-ENPIRE-Gripper-NVIDIA/
 │   ├── iso_flange_adapters_stl/    # Universal ISO 9409-1 (UR3e/5e/10e, xArm) flange plates
 │   └── accessories_and_pads_stl/   # TPU friction snap-pads & silicone casting molds
 ├── docs/
-│   ├── images/                     # Hardware photos & diagrams
+│   ├── images/                     # Hardware photos & animated demos
 │   ├── 3D_PRINTING_GUIDE.md        # Slicer profiles, layer heights, materials
 │   └── ROBOT_COMPATIBILITY.md      # Dimensional specs and mounting standards
 ├── scripts/
