@@ -1,55 +1,29 @@
 # Robot Arm Compatibility Matrix & Specifications
 
-The **ENPIRE Gripper Ecosystem** is designed to provide high-performance physical AI grasping across humanoid arms, bimanual learning rigs, collaborative robots, and low-cost hobbyist platforms.
+The **Open-ENPIRE-Gripper-NVIDIA** project aims to establish an open standard across generalist robotic arms, bimanual learning platforms, collaborative cobots, and open-source hardware.
 
 ---
 
-## 1. Supported Robot Platforms
+## 1. Supported Robot Platforms & Adapter Directories
 
-| Platform | Arm Type | Gripper Interface | Pitch / Spacing | Target STL Folder | Status |
-| :--- | :--- | :--- | :--- | :--- | :---: |
-| **I2RT YAM** | 6-DoF AI Research Arm | Native Dual M3 Clamp | 12.0 mm PCD | `stl/enpire_i2rt_yam/` | **Verified** (NVIDIA Baseline) |
-| **AgileX Piper** | 6-DoF Lightweight Bimanual | Dual Pin + M3 Fastener | 14.0 mm width | `stl/agilex_piper/` | **Verified** |
-| **Robotiq 2F-85** | Industrial 2-Finger Gripper | 2× M4 Bracket Mount | 10.0 mm spacing | `stl/robotiq_2f85_2f140/` | **Verified** |
-| **Robotiq 2F-140** | Industrial Long-Stroke Gripper | 2× M4 Bracket Mount | 10.0 mm spacing | `stl/robotiq_2f85_2f140/` | **Verified** |
-| **Franka Emika Panda / FR3** | 7-DoF Research Cobot | Quick-mount Dovetail / M4 | Franka Slider spec | `stl/franka_panda/` | **Verified** |
-| **Universal Robots (UR3e / UR5e / UR10e)** | 6-DoF Industrial Cobot | ISO 9409-1-50-4-M6 | 50.0 mm PCD (4× M6) | `stl/iso_flange_adapters/` | **Verified** |
-| **UFactory xArm 6 / 7** | 6/7-DoF Collaborative Arm | ISO 9409-1-50-4-M6 | 50.0 mm PCD (4× M6) | `stl/iso_flange_adapters/` | **Verified** |
-| **SO-100 / Mobile ALOHA** | Low-Cost 3D Printed Arm | Servo Horn / Spline Clamp | Standard STS3215 | `stl/mobile_aloha_so100/` | **Verified** |
-| **ARX5 / ARX Series** | 5/6-DoF Bimanual Arm | Direct M3 Dual Lug | 12.0 mm spacing | `stl/arx5/` | **Verified** |
-
----
-
-## 2. Mechanical & Gripping Specifications
-
-```
-                     ◄──────── Total Stroke (60 - 140 mm) ────────►
-               ┌──────────┐                               ┌──────────┐
-               │  Left    │◄─── Gripping Contact Force ──►│  Right   │
-               │  Finger  │                               │  Finger  │
-               └────┬─────┘                               └─────┬────┘
-                    │                                           │
-             ┌──────┴───────────────────────────────────────────┴──────┐
-             │                  Gripper Base Actuator                  │
-             └─────────────────────────┬───────────────────────────────┘
-                                       │
-                              [ Robot Wrist Flange ]
-```
-
-| Parameter | I2RT YAM Native | AgileX Piper | Robotiq 2F-85 Mount | Franka Panda | SO-100 / ALOHA |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Max Continuous Grip Force** | 45 N | 35 N | 85 N | 70 N | 15 N |
-| **Max Stroke Range** | 80 mm | 70 mm | 85 mm | 80 mm | 60 mm |
-| **Finger Weight (Pair)** | 90 g | 80 g | 100 g | 84 g | 50 g |
-| **Fastener Specification** | 4× M3 × 12mm | 4× M3 × 10mm | 4× M4 × 16mm | 4× M4 × 12mm | 4× M2.5 / Servo |
-| **Grip Face Options** | Grooved / Smooth / TPU | V-Groove / Slim | Extended / Heavy | Soft-Tip / TPU | Standard / Wide |
+| Platform | Arm Type | Gripper Interface | Target Folder | Status |
+| :--- | :--- | :--- | :--- | :---: |
+| **Robotiq Hand-E** | Precision Electric Parallel Gripper | 2× M4/M3 standard bracket | [`stl/hand_e_gripper/`](file:///stl/hand_e_gripper/) | **Primary Upload** |
+| **ALOHA / Mobile ALOHA** | Bimanual Imitation Learning Rig | ViperX / Parallel jaw slider | [`stl/aloha/`](file:///stl/aloha/) | Ready for STLs |
+| **Open Arm** | Open-Source Robotic Arm | Modular parallel gripper mount | [`stl/open_arm/`](file:///stl/open_arm/) | Ready for STLs |
+| **AgileX Piper** | 6-DoF Lightweight Bimanual Arm | Dual Pin + M3 Fasteners | [`stl/agilex_piper/`](file:///stl/agilex_piper/) | Ready for STLs |
+| **Seeed Studio reBot** | AI Robotic Arm Platform | Parallel gripper interface | [`stl/seeed_rebot/`](file:///stl/seeed_rebot/) | Ready for STLs |
+| **Robotiq 2F-85 / 2F-140** | Industrial 2-Finger Gripper | 2× M4 Bracket Mount | [`stl/robotiq_2f85_2f140/`](file:///stl/robotiq_2f85_2f140/) | Ready for STLs |
+| **Franka Emika Panda / FR3** | 7-DoF AI Research Cobot | Quick-Mount Dovetail / M4 | [`stl/franka_panda/`](file:///stl/franka_panda/) | Ready for STLs |
+| **ARX5 / ARX Series** | 5/6-DoF Bimanual Arm | Direct Dual Lug M3 | [`stl/arx5/`](file:///stl/arx5/) | Ready for STLs |
+| **I2RT YAM** | AI Research Arm | Native Dual M3 Clamp | [`stl/enpire_i2rt_yam/`](file:///stl/enpire_i2rt_yam/) | Wenli Xiao Baseline |
+| **Universal Robots (UR3e/5e/10e)** | Industrial Cobots | ISO 9409-1-50-4-M6 Flange | [`stl/iso_flange_adapters/`](file:///stl/iso_flange_adapters/) | Flange Adapter |
+| **UFactory xArm 6 / 7** | Collaborative Arm | ISO 9409-1-50-4-M6 Flange | [`stl/iso_flange_adapters/`](file:///stl/iso_flange_adapters/) | Flange Adapter |
 
 ---
 
-## 3. Adapting to Custom Robot Arms
+## 2. Contributing New Arm Adapters
 
-To fit an unlisted robot arm flange:
-1. Measure the **Pitch Circle Diameter (PCD)** and bolt hole size on your robot's tool flange.
-2. Open `cad/open_scad/enpire_universal_adapter.scad` in [OpenSCAD](https://openscad.org).
-3. Adjust `pcd_diameter` and `bolt_hole_diam` to match your arm.
-4. Render (`F6`) and export as `.stl`.
+To add an adapter for an unlisted robot arm or gripper:
+1. Export your CAD models as **STEP** in `cad/step/` and binary **STL** in `stl/<arm_folder>/`.
+2. Open a Pull Request referencing the robot arm platform!

@@ -37,11 +37,13 @@ A silent hero of that breakthrough was the custom-designed, high-friction 3D-pri
 
 However, the vast majority of robotics labs, startups, universities, and independent makers do not have an I2RT YAM arm. Instead, the robotics ecosystem builds and tests policies on **generalist robotic arms** and industry-standard parallel grippers:
 * **Robotiq Hand-E** (High-precision parallel electric gripper)
-* **AgileX Piper** (Lightweight bimanual research arm)
+* **ALOHA / Mobile ALOHA** (Bimanual physical AI imitation learning standard)
+* **Open Arm** (Open-source robotic arm platforms)
+* **AgileX (Piper)** (Lightweight bimanual research arms)
+* **Seeed Studio reBot** (Accessible AI robotic arms)
 * **Franka Emika Panda / FR3** (7-DoF research standard)
 * **Robotiq 2F-85 & 2F-140** (Universal Robots, Kinova, AUBO)
-* **SO-100 / Mobile ALOHA / Lerobot** (Open-source low-cost robotics)
-* **ARX5** (Bimanual manipulation arm)
+* **ARX5** (Bimanual manipulation arms)
 
 Without modular adapters, this exceptional fingertip geometry remains inaccessible to 99% of researchers and builders in the field.
 
@@ -117,12 +119,14 @@ To establish an open standard across all platforms, clean folder structures are 
 Open-ENPIRE-Gripper-NVIDIA/
 ├── stl/
 │   ├── hand_e_gripper/         # 🌟 Robotiq Hand-E ENPIRE adapter STL files (Main target)
-│   ├── enpire_i2rt_yam/        # I2RT YAM baseline finger STLs (Wenli Xiao original)
-│   ├── agilex_piper/           # AgileX Piper bimanual robot arm adapters
+│   ├── aloha/                  # ALOHA & Mobile ALOHA bimanual gripper adapters
+│   ├── open_arm/               # Open Arm robotics platform adapters
+│   ├── agilex_piper/           # AgileX (Piper) bimanual robot arm adapters
+│   ├── seeed_rebot/            # Seeed Studio reBot AI robotic arm adapters
 │   ├── robotiq_2f85_2f140/     # Robotiq 2F-85 and 2F-140 bracket adapters
 │   ├── franka_panda/           # Franka Emika Panda / FR3 dovetail slider fingers
-│   ├── mobile_aloha_so100/     # Low-cost SO-100 / Mobile ALOHA servo horn fingers
 │   ├── arx5/                   # ARX5 bimanual robotic arm fingers
+│   ├── enpire_i2rt_yam/        # I2RT YAM baseline finger STLs (Wenli Xiao original)
 │   ├── iso_flange_adapters/    # Universal ISO 9409-1 (UR3e/5e/10e, xArm) flange plates
 │   └── accessories_and_pads/   # TPU friction snap-pads & silicone casting molds
 ├── cad/
