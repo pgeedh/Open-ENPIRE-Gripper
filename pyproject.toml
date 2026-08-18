@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "enpire-gripper"
+version = "1.0.0"
+description = "Multi-Robot Arm 3D CAD, STL, and URDF Ecosystem for the ENPIRE Gripper"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "ENPIRE Gripper Open Source Community"}
+]
+keywords = ["robotics", "gripper", "enpire", "nvidia-gear", "3d-printing", "cad", "stl", "urdf", "isaac-sim"]
+dependencies = [
+    "numpy>=1.22.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/pgeedh/robot_Rave"
+Documentation = "https://github.com/pgeedh/robot_Rave/tree/main/docs"
+Repository = "https://github.com/pgeedh/robot_Rave"

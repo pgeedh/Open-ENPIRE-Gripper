@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="enpire_robotiq_gripper">
+  <!-- Gripper Base -->
+  <link name="gripper_base_link">
+    <inertial>
+      <origin xyz="0 0 0.02" rpy="0 0 0"/>
+      <mass value="0.25"/>
+      <inertia ixx="0.0002" ixy="0" ixz="0" iyy="0.0002" iyz="0" izz="0.0001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.02" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.04 0.08 0.04"/>
+      </geometry>
+      <material name="dark_gray">
+        <color rgba="0.2 0.2 0.2 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.02" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.04 0.08 0.04"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Left Finger Joint -->
+  <joint name="left_finger_joint" type="prismatic">
+    <origin xyz="0 0.02 0.04" rpy="0 0 0"/>
+    <parent link="gripper_base_link"/>
+    <child link="left_finger_link"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0.0" upper="0.0425" effort="50" velocity="0.2"/>
+    <dynamics damping="1.0" friction="0.1"/>
+  </joint>
+
+  <!-- Left Finger Link -->
+  <link name="left_finger_link">
+    <inertial>
+      <origin xyz="0 0.01 0.035" rpy="0 0 0"/>
+      <mass value="0.05"/>
+      <inertia ixx="0.00003" ixy="0" ixz="0" iyy="0.00003" iyz="0" izz="0.00001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../stl/robotiq_2f85_2f140/robotiq_enpire_bracket_left.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="nvidia_green">
+        <color rgba="0.45 0.75 0.15 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../stl/robotiq_2f85_2f140/robotiq_enpire_bracket_left.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Right Finger Joint -->
+  <joint name="right_finger_joint" type="prismatic">
+    <origin xyz="0 -0.02 0.04" rpy="0 0 0"/>
+    <parent link="gripper_base_link"/>
+    <child link="right_finger_link"/>
+    <axis xyz="0 -1 0"/>
+    <limit lower="0.0" upper="0.0425" effort="50" velocity="0.2"/>
+    <dynamics damping="1.0" friction="0.1"/>
+    <mimic joint="left_finger_joint" multiplier="1.0" offset="0.0"/>
+  </joint>
+
+  <!-- Right Finger Link -->
+  <link name="right_finger_link">
+    <inertial>
+      <origin xyz="0 -0.01 0.035" rpy="0 0 0"/>
+      <mass value="0.05"/>
+      <inertia ixx="0.00003" ixy="0" ixz="0" iyy="0.00003" iyz="0" izz="0.00001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../stl/robotiq_2f85_2f140/robotiq_enpire_bracket_right.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="nvidia_green">
+        <color rgba="0.45 0.75 0.15 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../stl/robotiq_2f85_2f140/robotiq_enpire_bracket_right.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Tool Center Point (TCP) Frame -->
+  <joint name="tcp_joint" type="fixed">
+    <origin xyz="0 0 0.075" rpy="0 0 0"/>
+    <parent link="gripper_base_link"/>
+    <child link="tcp_link"/>
+  </joint>
+  <link name="tcp_link"/>
+</robot>
