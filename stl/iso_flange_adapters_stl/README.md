@@ -9,8 +9,8 @@
 ---
 
 ## Flange Standards Supported
-* **ISO 9409-1-50-4-M6**: 50 mm PCD (4× M6 screws) — Universal Robots (UR3e/5e/10e), UFactory xArm 6/7, Doosan, Elite.
-* **ISO 9409-1-31.5-4-M5**: 31.5 mm PCD (4× M5 screws) — Compact cobots.
+* **ISO 9409-1-50-4-M6**: 50 mm PCD (4× M6 screws), used by Universal Robots (UR3e/5e/10e), UFactory xArm 6/7, Doosan, Elite.
+* **ISO 9409-1-31.5-4-M5**: 31.5 mm PCD (4× M5 screws), used by compact cobots.
 
 ---
 

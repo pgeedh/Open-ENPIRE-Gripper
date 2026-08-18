@@ -35,7 +35,7 @@
 ## Purpose & Mission
 
 ### Why This Project Exists
-In physical AI manipulation research, grasping reliability is fundamentally determined by hardware contact mechanics—surface friction, passive compliance, and tactile geometry. When NVIDIA's GEAR lab published **ENPIRE** (*Agentic Robot Policy Self-Improvement in the Real World*), co-led by **Dr. Jim Fan** ([@DrJimFan](https://twitter.com/DrJimFan)) and **Dr. Yuke Zhu**, the physical robot achieved remarkable grasping reliability using a custom-engineered 3D-printable finger designed by **Wenli Xiao** (CMU & NVIDIA GEAR) for the **I2RT YAM** robotic arm.
+In physical AI manipulation research, grasping reliability is fundamentally determined by hardware contact mechanics, including surface friction, passive compliance, and tactile geometry. When NVIDIA's GEAR lab published **ENPIRE** (*Agentic Robot Policy Self-Improvement in the Real World*), co-led by **Dr. Jim Fan** ([@DrJimFan](https://twitter.com/DrJimFan)) and **Dr. Yuke Zhu**, the physical robot achieved remarkable grasping reliability using a custom-engineered 3D-printable finger designed by **Wenli Xiao** (CMU & NVIDIA GEAR) for the **I2RT YAM** robotic arm.
 
 <p align="center">
   <img src="docs/images/original_enpire_yam_gripper.jpg" alt="Original NVIDIA ENPIRE I2RT YAM Gripper" width="380" />
@@ -46,12 +46,12 @@ In physical AI manipulation research, grasping reliability is fundamentally dete
 However, the I2RT YAM is a specialized research arm that very few universities, startups, independent makers, or robotics labs own.
 
 ### The Rise of Generalist Grippers in Physical AI
-Across the frontier robotics industry, leading physical AI labs and humanoid teams—including **[Physical Intelligence (Pi)](https://twitter.com/Physical_Int)**, **[Figure AI](https://twitter.com/Figure_robot)**, **[1X Technologies](https://twitter.com/1x_tech)**, **[Skild AI](https://twitter.com/Skild_AI)**, **[Tesla Optimus](https://twitter.com/Tesla_Optimus)**, **[AgileX Robotics](https://twitter.com/AgilexRobotics)**, and **[Toyota Research Institute (TRI)](https://www.tri.global/)**—are converging on a shared principle: **generalist manipulation requires versatile, compliant, high-friction parallel fingertips that can handle diverse, delicate, and high-force tasks without tool-changers**.
+Across the frontier robotics industry, leading physical AI labs and humanoid teams (including **[Physical Intelligence (Pi)](https://twitter.com/Physical_Int)**, **[Figure AI](https://twitter.com/Figure_robot)**, **[1X Technologies](https://twitter.com/1x_tech)**, **[Skild AI](https://twitter.com/Skild_AI)**, **[Tesla Optimus](https://twitter.com/Tesla_Optimus)**, **[AgileX Robotics](https://twitter.com/AgilexRobotics)**, and **[Toyota Research Institute (TRI)](https://www.tri.global/)**) are converging on a shared principle: **generalist manipulation requires versatile, compliant, high-friction parallel fingertips that can handle diverse, delicate, and high-force tasks without tool-changers**.
 
 ### Empowering Robot Learning: VLAs, VLMs, & World Models
-Modern robotic foundation models—**Vision-Language-Action (VLA) models** (e.g., OpenVLA, Octo, RT-2), **Vision-Language Models (VLMs)**, and **World Models / Physical AI Dynamics**—are fundamentally bottlenecked by real-world contact mechanics. When training generalist policies, robots encounter an extremely diverse spectrum of objects: deformable cables, slippery connectors, micro-pins, delicate zip-ties, rigid PCBs, and heavy tools.
+Modern robotic foundation models, including **Vision-Language-Action (VLA) models** (e.g., OpenVLA, Octo, RT-2), **Vision-Language Models (VLMs)**, and **World Models / Physical AI Dynamics**, are fundamentally bottlenecked by real-world contact mechanics. When training generalist policies, robots encounter an extremely diverse spectrum of objects: deformable cables, slippery connectors, micro-pins, delicate zip-ties, rigid PCBs, and heavy tools.
 
-The aim of this project is to deliver a **gripper finger architecture diverse and versatile enough to handle an expansive range of manipulation tasks**—**enhancing the capabilities of existing robot hardware** and **democratizing frontier physical AI for everyone**.
+The aim of this project is to deliver a **gripper finger architecture diverse and versatile enough to handle an expansive range of manipulation tasks** to **enhance the capabilities of existing robot hardware** and **democratize frontier physical AI for everyone**.
 
 In the open-source community, researchers and builders train policies across diverse robotic arms:
 * **Robotiq Hand-E**: Precision electric parallel gripper for industrial and research cobots.
