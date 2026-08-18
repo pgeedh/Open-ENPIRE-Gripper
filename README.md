@@ -13,8 +13,7 @@
 [![X/Twitter](https://img.shields.io/badge/X%2FTwitter-@DrJimFan-black.svg?logo=x)](https://twitter.com/DrJimFan)
 [![X/Twitter](https://img.shields.io/badge/X%2FTwitter-@YukeZhu-black.svg?logo=x)](https://twitter.com/YukeZhu)
 
-### Democratizing the NVIDIA GEAR ENPIRE Gripper Design for more diverse Robot Arms
-*Robotiq Hand-E • ALOHA • Open Arm • AgileX Piper • Seeed Studio reBot • Franka Panda • ARX5*
+### Democratizing the NVIDIA GEAR ENPIRE Gripper Design for Diverse Robot Arms
 
 <br>
 
