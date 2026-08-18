@@ -1,6 +1,10 @@
 # Robotiq Hand-E STL Models
 
-This directory contains the 3D printable STL models for the **Robotiq Hand-E** adaptive electric parallel gripper.
+<div align="center">
+  <img src="../../docs/images/robotiq_hand_e_enpire_gripper.jpg" alt="Robotiq Hand-E ENPIRE Gripper" width="320" />
+  <br>
+  <em>Robotiq Hand-E gripper equipped with custom ENPIRE-style compliant fingers and wrist perception mount.</em>
+</div>
 
 ---
 
@@ -24,7 +28,7 @@ Drop your 3D printable `.stl` files here:
 ---
 
 ## 3D Printing Recommendations
-* **Material**: PETG-CF, PLA-CF, or PA12-CF
+* **Material**: PETG-CF, PLA-CF, or PA12-CF (Structural body) + TPU 85A/95A (Contact pads)
 * **Walls / Perimeters**: 5–6 walls
 * **Infill**: 50% Gyroid
 * **Orientation**: Print flat on lateral side for maximum shear strength under clamping load.

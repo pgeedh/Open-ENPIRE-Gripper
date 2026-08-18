@@ -11,7 +11,13 @@
 
 **Democratizing the NVIDIA GEAR ENPIRE gripper design for generalist robotic arms.**
 
-[Video & Research](#-nvidia-gear-enpire-research--video) • [The Story](#-the-story--mission) • [Robotiq Hand-E](#-robotiq-hand-e-adapter-design) • [Compatibility Heatmap](#-robot-compatibility-heatmap) • [Printing Instructions](#-printing-instructions-for-best-results) • [Contributing](#-rules-for-contributing)
+<p align="center">
+  <img src="docs/images/robotiq_hand_e_enpire_gripper.jpg" alt="Robotiq Hand-E ENPIRE Gripper" width="340" />
+  <br>
+  <em>Physical hardware: ENPIRE high-friction compliant finger adapters mounted on a Robotiq Hand-E parallel gripper with wrist perception.</em>
+</p>
+
+[Video & Research](#-nvidia-gear-enpire-research--video) • [The Story](#-the-story--mission) • [Robotiq Hand-E Design](#-robotiq-hand-e-adapter-design) • [Compatibility Heatmap](#-robot-compatibility-heatmap) • [Printing Instructions](#-printing-instructions-for-best-results) • [Contributing](#-rules-for-contributing)
 
 </div>
 
@@ -69,6 +75,10 @@ However, very few roboticists have access to an I2RT YAM arm. Most of the roboti
 
 Our primary contribution adapts the ENPIRE fingertip geometry to the **Robotiq Hand-E** precision parallel electric gripper:
 
+<div align="center">
+  <img src="docs/images/hand_e_enpire_fingers_detail.jpg" alt="Hand-E ENPIRE Finger Detail" width="300" />
+</div>
+
 ```
                   ◄──────────── 50 mm Parallel Stroke ────────────►
              ┌─────────────────┐                       ┌─────────────────┐
@@ -95,7 +105,7 @@ Our primary contribution adapts the ENPIRE fingertip geometry to the **Robotiq H
 * **Target Directory**: [`stl/hand_e_stl/`](stl/hand_e_stl/)
 * **Mounting Standard**: 2× M4 / M3 socket head cap screws per finger (standard Robotiq bracket)
 * **Stroke & Force**: 50 mm parallel stroke | 20 N to 130 N programmable grip force
-* **Contact Surface**: Integrated anti-slip ridges + pocket for snap-in TPU flexible friction pads
+* **Contact Surface**: Dual-material structural beam with integrated anti-slip compliant friction inserts
 
 ---
 
@@ -135,6 +145,7 @@ Open-ENPIRE-Gripper-NVIDIA/
 │   ├── iso_flange_adapters_stl/    # Universal ISO 9409-1 (UR3e/5e/10e, xArm) flange plates
 │   └── accessories_and_pads_stl/   # TPU friction snap-pads & silicone casting molds
 ├── docs/
+│   ├── images/                     # Hardware photos & diagrams
 │   ├── 3D_PRINTING_GUIDE.md        # Slicer profiles, layer heights, materials
 │   └── ROBOT_COMPATIBILITY.md      # Dimensional specs and mounting standards
 ├── scripts/
