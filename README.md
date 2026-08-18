@@ -4,14 +4,8 @@
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![NVIDIA GEAR](https://img.shields.io/badge/NVIDIA-GEAR_Lab-76B900.svg?logo=nvidia&logoColor=white)](https://research.nvidia.com/labs/gear/enpire/)
-[![NVIDIA Isaac Sim](https://img.shields.io/badge/NVIDIA-Isaac_Sim_%7C_Isaac_Lab-76B900.svg?logo=nvidia&logoColor=white)](https://developer.nvidia.com/isaac-sim)
-[![MakerWorld](https://img.shields.io/badge/MakerWorld-Original_Model_%233349177-FF5A00.svg)](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm#profileId-3349177)
-[![Simulation](https://img.shields.io/badge/Simulation-URDF_%7C_MuJoCo_%7C_ROS_2-purple.svg)](scripts/generate_urdf_from_stl.py)
-[![3D Printing](https://img.shields.io/badge/3D_Printing-PA--CF_%7C_PETG--CF_%7C_TPU-orange.svg)](docs/3D_PRINTING_GUIDE.md)
-[![Hardware](https://img.shields.io/badge/Hardware-Open_Source-green.svg)](https://github.com/pgeedh/Open-ENPIRE-Gripper-nvidia)
-[![X/Twitter](https://img.shields.io/badge/X%2FTwitter-@NVIDIA-black.svg?logo=x)](https://twitter.com/NVIDIA)
 [![X/Twitter](https://img.shields.io/badge/X%2FTwitter-@DrJimFan-black.svg?logo=x)](https://twitter.com/DrJimFan)
-[![X/Twitter](https://img.shields.io/badge/X%2FTwitter-@YukeZhu-black.svg?logo=x)](https://twitter.com/YukeZhu)
+[![Hardware](https://img.shields.io/badge/Hardware-Open_Source-green.svg)](https://github.com/pgeedh/Open-ENPIRE-Gripper-nvidia)
 
 ### Democratizing the NVIDIA GEAR ENPIRE Gripper Design for Diverse Robot Arms
 
