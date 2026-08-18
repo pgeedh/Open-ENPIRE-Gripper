@@ -86,15 +86,20 @@ In the open-source community, researchers and builders train policies across div
 
 ## Robotiq Hand-E Adapter Design
 
-Our primary physical adaptation mounts the ENPIRE fingertip geometry directly onto the **Robotiq Hand-E** parallel electric gripper:
-
-<p align="center">
-  <img src="docs/images/enpire_finger_model_render.png" alt="ENPIRE Finger Model Render" width="300" />
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="docs/images/hand_e_enpire_fingers_detail.jpg" alt="Hand-E ENPIRE Finger Detail" width="300" />
-  <br>
-  <em>Left: Dual-material CAD render (blue rigid skeleton + orange compliant lattice). Right: Assembled physical hardware on Robotiq Hand-E.</em>
-</p>
+<table align="center" border="0">
+  <tr>
+    <th align="center" width="50%">Dual-Material CAD Model</th>
+    <th align="center" width="50%">Robotiq Hand-E Physical Hardware</th>
+  </tr>
+  <tr>
+    <td align="center" valign="top">
+      <img src="docs/images/enpire_finger_model_render.png" alt="ENPIRE Finger Model Render" width="100%" />
+    </td>
+    <td align="center" valign="top">
+      <img src="docs/images/hand_e_enpire_fingers_detail.jpg" alt="Hand-E ENPIRE Finger Detail" width="100%" />
+    </td>
+  </tr>
+</table>
 
 | Parameter | Specification |
 | :--- | :--- |
