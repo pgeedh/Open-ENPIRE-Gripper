@@ -20,8 +20,8 @@
 
 <table align="center" border="0">
   <tr>
-    <th align="center" width="50%">🎬 NVIDIA GEAR ENPIRE Research</th>
-    <th align="center" width="50%">🦾 Robotiq Hand-E Physical Adapter</th>
+    <th align="center" width="50%">NVIDIA GEAR ENPIRE Research Video</th>
+    <th align="center" width="50%">Robotiq Hand-E Physical Adapter</th>
   </tr>
   <tr>
     <td align="center" valign="top">
@@ -39,7 +39,7 @@
 
 ---
 
-## 🎯 Purpose & Mission
+## Purpose & Mission
 
 ### Why This Project Exists
 In physical AI manipulation research, grasping reliability is fundamentally determined by hardware contact mechanics—surface friction, structural compliance, and tactile geometry. When NVIDIA's GEAR lab published **ENPIRE** (*Agentic Robot Policy Self-Improvement in the Real World*), co-led by **Dr. Jim Fan** ([@DrJimFan](https://twitter.com/DrJimFan)) and **Dr. Yuke Zhu**, the physical robot achieved remarkable grasping reliability using a custom-engineered 3D-printable finger designed by **Wenli Xiao** (CMU & NVIDIA GEAR) for the **I2RT YAM** robotic arm.
@@ -68,7 +68,7 @@ In the real world, the robotics community builds and trains policies on **genera
 
 ---
 
-## 🦾 Robotiq Hand-E Adapter Design
+## Robotiq Hand-E Adapter Design
 
 Our primary physical adaptation mounts the ENPIRE fingertip geometry directly onto the **Robotiq Hand-E** parallel electric gripper:
 
@@ -89,44 +89,44 @@ Our primary physical adaptation mounts the ENPIRE fingertip geometry directly on
 
 ---
 
-## 🔥 Robot Compatibility Heatmap
+## Robot Compatibility Matrix
 
-| Robot Platform | Arm Type | Status | Precision | Bimanual Support | High-Force Grip | Ease of 3D Print | Target STL Folder |
+| Robot Platform | Arm Type | Status | Precision | Bimanual Support | Grip Force Rating | Ease of Print | Target STL Folder |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **Robotiq Hand-E** | Precision Electric Gripper | 🟢 **Active** | 🟢 High | 🟢 Full | 🟢 130 N | 🟢 Easy | [`stl/hand_e_stl/`](stl/hand_e_stl/) |
-| **ALOHA / Mobile ALOHA** | Bimanual Imitation Rig | 🟡 *In Progress* | 🟢 High | 🟢 Dual | 🟡 40 N | 🟢 Easy | [`stl/aloha_stl/`](stl/aloha_stl/) |
-| **Open Arm** | Open-Source Robotic Arm | 🟡 *In Progress* | 🟡 Med | 🟡 Dual | 🟡 35 N | 🟢 Easy | [`stl/open_arm_stl/`](stl/open_arm_stl/) |
-| **AgileX (Piper)** | Lightweight Bimanual Arm | 🟡 *In Progress* | 🟢 High | 🟢 Dual | 🟡 35 N | 🟢 Easy | [`stl/agilex_stl/`](stl/agilex_stl/) |
-| **Seeed Studio reBot** | AI Robotic Arm | 🟡 *In Progress* | 🟡 Med | 🟡 Dual | 🟡 25 N | 🟢 Easy | [`stl/seeed_rebot_stl/`](stl/seeed_rebot_stl/) |
-| **Robotiq 2F-85 / 2F-140** | Industrial Cobot Gripper | 🟡 *In Progress* | 🟢 High | 🟡 Single | 🟢 235 N | 🟢 Easy | [`stl/robotiq_2f85_2f140_stl/`](stl/robotiq_2f85_2f140_stl/) |
-| **Franka Panda / FR3** | 7-DoF AI Research Cobot | 🟡 *In Progress* | 🟢 High | 🟡 Single | 🟢 70 N | 🟢 Easy | [`stl/franka_panda_stl/`](stl/franka_panda_stl/) |
-| **ARX5** | Bimanual Research Arm | 🟡 *In Progress* | 🟢 High | 🟢 Dual | 🟡 40 N | 🟢 Easy | [`stl/arx5_stl/`](stl/arx5_stl/) |
-| **I2RT YAM** | AI Research Arm | 🟢 *Original* | 🟢 High | 🟢 Dual | 🟡 45 N | 🟢 Easy | [`stl/enpire_i2rt_yam_stl/`](stl/enpire_i2rt_yam_stl/) |
-| **ISO 9409-1 (UR / xArm)** | Universal Tool Flanges | 🟡 *In Progress* | 🟢 High | 🟡 Single | 🟢 150 N | 🟢 Easy | [`stl/iso_flange_adapters_stl/`](stl/iso_flange_adapters_stl/) |
+| **Robotiq Hand-E** | Precision Electric Gripper | **Available** | High | Dual & Single | 130 N | High | [`stl/hand_e_stl/`](stl/hand_e_stl/) |
+| **ALOHA / Mobile ALOHA** | Bimanual Imitation Rig | *In Progress* | High | Dual | 40 N | High | [`stl/aloha_stl/`](stl/aloha_stl/) |
+| **Open Arm** | Open-Source Robotic Arm | *In Progress* | Moderate | Dual | 35 N | High | [`stl/open_arm_stl/`](stl/open_arm_stl/) |
+| **AgileX (Piper)** | Lightweight Bimanual Arm | *In Progress* | High | Dual | 35 N | High | [`stl/agilex_stl/`](stl/agilex_stl/) |
+| **Seeed Studio reBot** | AI Robotic Arm | *In Progress* | Moderate | Dual | 25 N | High | [`stl/seeed_rebot_stl/`](stl/seeed_rebot_stl/) |
+| **Robotiq 2F-85 / 2F-140** | Industrial Cobot Gripper | *In Progress* | High | Single | 235 N | High | [`stl/robotiq_2f85_2f140_stl/`](stl/robotiq_2f85_2f140_stl/) |
+| **Franka Panda / FR3** | 7-DoF AI Research Cobot | *In Progress* | High | Single | 70 N | High | [`stl/franka_panda_stl/`](stl/franka_panda_stl/) |
+| **ARX5** | Bimanual Research Arm | *In Progress* | High | Dual | 40 N | High | [`stl/arx5_stl/`](stl/arx5_stl/) |
+| **I2RT YAM** | AI Research Arm | *Baseline* | High | Dual | 45 N | High | [`stl/enpire_i2rt_yam_stl/`](stl/enpire_i2rt_yam_stl/) |
+| **ISO 9409-1 (UR / xArm)** | Universal Tool Flanges | *In Progress* | High | Single | 150 N | High | [`stl/iso_flange_adapters_stl/`](stl/iso_flange_adapters_stl/) |
 
-*Legend: 🟢 Available &nbsp;|&nbsp; 🟡 Community Contribution Open*
+*Status: Available (Ready for print) | In Progress (Community Contributions Welcome)*
 
 ---
 
-## 🖨️ Detailed 3D Printing Instructions
+## 3D Printing Specifications & Guide
 
 To achieve maximum grasping friction, layer adhesion, and durability:
 
-### 1. Print Orientation (CRITICAL FOR STRENGTH)
+### 1. Print Orientation (Critical for Structural Integrity)
 ```
-      ✅ CORRECT: Print flat on lateral side (Layer lines run parallel to tension)
-      ┌──────────────────────────────────────────────────────────┐
-      │  Base Mount  =================> Structural Fingertip     │
-      └──────────────────────────────────────────────────────────┘
-      ════════════════════════════════════════════════════════════ (Build Plate)
+      [RECOMMENDED]: Print flat on lateral side (Layer lines run parallel to tension)
+      +----------------------------------------------------------+
+      |  Base Mount  =================> Structural Fingertip     |
+      +----------------------------------------------------------+
+      ============================================================ (Build Plate)
 
-      ❌ WRONG: Print standing vertically (Shear forces will snap layer boundaries)
+      [AVOID]: Print standing vertically (Shear forces will cause layer delamination)
 ```
 
 ### 2. Dual-Material & Multi-Color Recommendations
 * **Blue Outer Frame (Rigid)**: Print in **PETG-CF**, **PLA-CF**, or **PA12-CF (Nylon-CF)** for extreme beam stiffness and sharp mounting tolerances.
 * **Orange Grip Core (Compliant)**: Print in **TPU 85A** or **TPU 95A** (flexible filament) for high-friction tactile compliance ($\mu > 0.8$) against smooth or irregular objects.
-* *Single-Extruder Printers*: The design can also be printed as a single solid piece in PETG or PLA with 100% functionality.
+* *Single-Extruder Printers*: The design can also be printed as a single solid piece in PETG or PLA with 100% mechanical functionality.
 
 ### 3. Slicer Parameter Table (Bambu Studio / PrusaSlicer / OrcaSlicer)
 
@@ -145,7 +145,7 @@ To achieve maximum grasping friction, layer adhesion, and durability:
 
 ---
 
-## 🤖 Generating URDF Simulation Models from STL
+## URDF Simulation Models & STL Automation
 
 We provide an automated script in `scripts/generate_urdf_from_stl.py` that parses any pair of finger STL files, calculates center-of-mass, inertia, scales from millimeters to meters, and outputs a physics-ready **URDF** for **NVIDIA Isaac Sim, MuJoCo, PyBullet, and ROS 2**:
 
@@ -162,7 +162,7 @@ python3 scripts/generate_urdf_from_stl.py \
 
 ---
 
-## 📋 Rules for Contributing
+## Rules for Contributing
 
 1. **Watertight Mesh**: Export binary STL files in **Millimeters (mm)** with zero non-manifold edges. Verify using:
    ```bash
@@ -176,7 +176,7 @@ python3 scripts/generate_urdf_from_stl.py \
 
 ---
 
-## 📚 Citation & Attribution
+## Citation & Attribution
 
 If you use this gripper design or its multi-arm adapters in your research, please cite both the foundational ENPIRE paper and this open-source hardware project:
 
@@ -204,6 +204,6 @@ If you use this gripper design or its multi-arm adapters in your research, pleas
 
 ---
 
-## 📄 License
+## License
 
 Licensed under the [Apache License, Version 2.0](LICENSE).
