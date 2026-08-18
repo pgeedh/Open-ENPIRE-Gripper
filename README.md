@@ -24,7 +24,7 @@
         <img src="docs/images/enpire_research_demo.gif" alt="NVIDIA GEAR ENPIRE Autonomous Manipulation" width="100%" />
       </a>
       <br>
-      <a href="https://research.nvidia.com/labs/gear/enpire/">▶️ <b>Watch NVIDIA ENPIRE Video Demos</b></a>
+      <a href="https://research.nvidia.com/labs/gear/enpire/">▶️ <b>Watch NVIDIA ENPIRE Research Video</b></a>
     </td>
     <td align="center" valign="top">
       <img src="docs/images/robotiq_hand_e_enpire_gripper.jpg" alt="Robotiq Hand-E ENPIRE Gripper" width="100%" />
@@ -55,7 +55,7 @@ In the real world, the robotics community builds and trains policies on **genera
 * **Robotiq 2F-85 & 2F-140** (Universal Robots, Kinova, AUBO)
 * **ARX5** (Bimanual manipulation arms)
 
-### Our Mission: Democratizing Frontier Gripper Design
+### Our Mission
 > **Hardware breakthroughs in robotics should not be locked to a single proprietary arm.**
 > 
 > The mission of **Open-ENPIRE-Gripper-NVIDIA** is to bridge the gap between frontier physical AI research and the global robotics community:
@@ -67,41 +67,20 @@ In the real world, the robotics community builds and trains policies on **genera
 
 ---
 
-## 🦾 Robotiq Hand-E Adapter Design
+## 🦾 Robotiq Hand-E Adapter
 
 Our primary physical adaptation mounts the ENPIRE fingertip geometry directly onto the **Robotiq Hand-E** parallel electric gripper:
 
-<div align="center">
-  <img src="docs/images/hand_e_enpire_fingers_detail.jpg" alt="Hand-E ENPIRE Finger Detail" width="300" />
-</div>
+<p align="center">
+  <img src="docs/images/hand_e_enpire_fingers_detail.jpg" alt="Hand-E ENPIRE Finger Detail" width="320" />
+</p>
 
-```
-                  ◄──────────── 50 mm Parallel Stroke ────────────►
-             ┌─────────────────┐                       ┌─────────────────┐
-             │  Left Finger    │                       │  Right Finger   │
-             │                 │                       │                 │
-             │  ┌───────────┐  │                       │  ┌───────────┐  │
-             │  │ Ribbed    │  │ ◄─── High Friction ──►│  │ Ribbed    │  │
-             │  │ Grip Face │  │      Contact Zone     │  │ Grip Face │  │
-             │  │ (TPU/CF)  │  │      (μ > 0.8)        │  │ (TPU/CF)  │  │
-             │  └───────────┘  │                       │  └───────────┘  │
-             │                 │                       │                 │
-             │  (M4 Counter-   │                       │  (M4 Counter-   │
-             │   bore Holes)   │                       │   bore Holes)   │
-             └────────┬────────┘                       └────────┬────────┘
-                      │                                         │
-        ┌─────────────┴─────────────────────────────────────────┴─────────────┐
-        │                 Robotiq Hand-E Gripper Chassis                     │
-        └──────────────────────────────────┬──────────────────────────────────┘
-                                           │
-                                  [ Robot Wrist Flange ]
-```
-
-### Design Specifications
-* **Target Directory**: [`stl/hand_e_stl/`](stl/hand_e_stl/)
-* **Mounting Interface**: Standard 2× M4 / M3 counterbore bracket per finger
-* **Stroke & Force**: 50 mm linear parallel stroke | 20 N to 130 N programmable grip force
-* **Contact Surface**: Dual-material structural beam with integrated anti-slip compliant friction inserts
+| Parameter | Specification |
+| :--- | :--- |
+| **Target Directory** | [`stl/hand_e_stl/`](stl/hand_e_stl/) |
+| **Mounting Interface** | Standard 2× M4 / M3 counterbore bracket per finger |
+| **Stroke & Force** | 50 mm linear parallel stroke | 20 N to 130 N programmable grip force |
+| **Contact Surface** | Dual-material structural beam with integrated anti-slip compliant friction inserts |
 
 ---
 
@@ -120,11 +99,11 @@ Our primary physical adaptation mounts the ENPIRE fingertip geometry directly on
 | **I2RT YAM** | AI Research Arm | 🟢 *Original* | 🟢 High | 🟢 Dual | 🟡 45 N | 🟢 Easy | [`stl/enpire_i2rt_yam_stl/`](stl/enpire_i2rt_yam_stl/) |
 | **ISO 9409-1 (UR / xArm)** | Universal Tool Flanges | 🟡 *In Progress* | 🟢 High | 🟡 Single | 🟢 150 N | 🟢 Easy | [`stl/iso_flange_adapters_stl/`](stl/iso_flange_adapters_stl/) |
 
-*Legend: 🟢 Excellent / Available &nbsp;|&nbsp; 🟡 Moderate / Community Slot &nbsp;|&nbsp; 🔵 Planned*
+*Legend: 🟢 Available &nbsp;|&nbsp; 🟡 Community Contribution Open*
 
 ---
 
-## 📁 Repository STL Ecosystem
+## 📁 Repository Structure
 
 ```
 Open-ENPIRE-Gripper-NVIDIA/
@@ -142,7 +121,7 @@ Open-ENPIRE-Gripper-NVIDIA/
 │   └── accessories_and_pads_stl/   # TPU friction snap-pads & silicone casting molds
 ├── docs/
 │   ├── images/                     # Hardware photos & animated demos
-│   ├── 3D_PRINTING_GUIDE.md        # Slicer profiles, layer heights, materials
+│   ├── 3D_PRINTING_GUIDE.md        # Detailed slicer profiles & materials
 │   └── ROBOT_COMPATIBILITY.md      # Dimensional specs and mounting standards
 ├── scripts/
 │   └── validate_mesh.py            # Automated STL watertightness & bounding box validator
@@ -154,40 +133,16 @@ Open-ENPIRE-Gripper-NVIDIA/
 
 ## 🖨️ Printing Instructions for Best Results
 
-### 1. Print Orientation (CRITICAL)
-```
-      ✅ CORRECT: Print flat on lateral side (Layer lines parallel to tension)
-      ┌──────────────────────────────────────────────────────────┐
-      │  Base Mount  =================> Structural Fingertip     │
-      └──────────────────────────────────────────────────────────┘
-      ════════════════════════════════════════════════════════════ (Build Plate)
-
-      ❌ WRONG: Print standing vertically (Shear force snaps layer lines)
-```
-
-### 2. Slicer Settings (Bambu Studio / PrusaSlicer / OrcaSlicer)
-
-| Setting | Structural Finger Body | Flexible Friction Pad |
-| :--- | :--- | :--- |
-| **Filament** | **PETG-CF / PLA-CF / PA12-CF** | **TPU 85A or TPU 95A** |
-| **Layer Height** | **0.16 mm** (or 0.20 mm) | **0.16 mm** |
-| **Wall Loops / Perimeters** | **5 to 6 walls** (Critical for strength) | **4 walls** |
-| **Top / Bottom Solid Layers** | 5 Top, 5 Bottom | 4 Top, 4 Bottom |
-| **Infill Density & Pattern** | **50% Gyroid or Cubic** | **40% Gyroid** |
-| **Supports** | Tree supports (45° threshold) | None |
-
-### 3. Assembly Tips
-* **Heat-Set Inserts**: Set soldering iron to **230°C** for PETG/PLA or **275°C** for PA-CF. Press M3/M4 inserts until flush.
-* **Fasteners**: Use ISO 4762 Grade 12.9 M3/M4 socket head cap screws with medium blue threadlocker (Loctite 243).
+* **Print Orientation**: Always print fingers **flat on their lateral side** to align layer lines parallel with clamping forces and prevent shear failure.
+* **Filament**: **PETG-CF / PLA-CF / PA12-CF** for finger bodies + **TPU 85A/95A** for friction pads.
+* **Slicer Settings**: **5 to 6 wall perimeters** | **50% Gyroid infill** | **0.16 mm layer height**.
+* **Fasteners**: Standard M3/M4 socket head cap screws with medium blue threadlocker (Loctite 243).
 
 ---
 
 ## 📋 Rules for Contributing
 
-1. **Watertight Mesh**: Export binary STL files in **Millimeters (mm)** with zero non-manifold edges. Verify using:
-   ```bash
-   python3 scripts/validate_mesh.py
-   ```
+1. **Watertight Mesh**: Export binary STL files in **Millimeters (mm)** with zero non-manifold edges. Verify using `python3 scripts/validate_mesh.py`.
 2. **Standard Orientation**: Coordinate frames must align ($+Z$ finger length, $+Y$ inward contact face). Export oriented flat on its side.
 3. **Physical Test Print Required**: You must physically print the part and verify full stroke closure without binding before submitting a PR.
 4. **PR Checklist**: Attach clear photos of the 3D-printed part installed on your robot arm and list your slicer settings.
