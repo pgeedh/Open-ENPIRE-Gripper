@@ -1,16 +1,20 @@
 # High-Friction Pads & Silicone Molds STL Models
 
-This directory contains auxiliary STL models for flexible snap-in friction pads and 2-piece casting molds.
+> 🚧 **Work in Progress**: We are actively developing and test-printing snap-in TPU pads and silicone casting molds and will update this folder shortly!
+>
+> 💡 **Already have a working design?** If you have already designed or tested a custom high-friction pad or mold, we would love your contribution! Feel free to **[submit a Pull Request](https://github.com/pgeedh/Open-ENPIRE-Gripper-nvidia/pulls)** to help make this available to the community.
+>
+> *Please check our [Rules for Contributing](../../CONTRIBUTING.md) for STL formatting, coordinate orientation, and physical verification guidelines.*
 
 ---
 
 ## Model Descriptions
-* **TPU Snap-In Friction Pads**: Designed to print in flexible TPU 85A/95A and snap directly into the finger face recess.
-* **Silicone Casting Molds**: 2-piece molds to cast high-friction soft silicone fingertips using Smooth-On Dragon Skin or Ecoflex.
+* **TPU Snap-In Friction Pads**: Flexible pads (TPU 85A/95A) that snap into the finger contact recess.
+* **Silicone Casting Molds**: 2-piece molds to cast high-friction soft silicone fingertips (Smooth-On Dragon Skin / Ecoflex).
 
 ---
 
-## STL File Naming
+## Target STL Naming
 * `tpu_snap_pad_standard.stl`
 * `tpu_snap_pad_ridged.stl`
 * `silicone_mold_cavity.stl`

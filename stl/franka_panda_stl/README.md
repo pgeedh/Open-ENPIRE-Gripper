@@ -1,6 +1,10 @@
 # Franka Emika Panda / FR3 STL Models
 
-This directory contains the 3D printable STL models for the **Franka Emika Panda / FR3 Hand** parallel gripper.
+> 🚧 **Work in Progress**: We are actively developing and test-printing the ENPIRE dovetail adapter models for the **Franka Emika Panda / FR3 Hand** and will update this folder shortly!
+>
+> 💡 **Already have a working design?** If you have already designed, 3D-printed, or tested an ENPIRE adapter for Franka Panda, we would love your contribution! Feel free to **[submit a Pull Request](https://github.com/pgeedh/Open-ENPIRE-Gripper-nvidia/pulls)** to help make this available to the community.
+>
+> *Please check our [Rules for Contributing](../../CONTRIBUTING.md) for STL formatting, coordinate orientation, and physical verification guidelines.*
 
 ---
 
@@ -13,7 +17,7 @@ This directory contains the 3D printable STL models for the **Franka Emika Panda
 
 ---
 
-## STL File Naming
+## Target STL Naming
 * `franka_panda_enpire_finger_left.stl`
 * `franka_panda_enpire_finger_right.stl`
 * `franka_panda_enpire_finger_soft_tip.stl`

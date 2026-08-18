@@ -1,6 +1,10 @@
 # Open Arm STL Models
 
-This directory contains the 3D printable STL models for the **Open Arm** open-source robotics platform.
+> 🚧 **Work in Progress**: We are actively developing and test-printing the ENPIRE finger adapter models for **Open Arm** platforms and will update this folder shortly!
+>
+> 💡 **Already have a working design?** If you have already designed, 3D-printed, or tested an ENPIRE adapter for Open Arm, we would love your contribution! Feel free to **[submit a Pull Request](https://github.com/pgeedh/Open-ENPIRE-Gripper-nvidia/pulls)** to help make this available to the community.
+>
+> *Please check our [Rules for Contributing](../../CONTRIBUTING.md) for STL formatting, coordinate orientation, and physical verification guidelines.*
 
 ---
 
@@ -12,6 +16,6 @@ This directory contains the 3D printable STL models for the **Open Arm** open-so
 
 ---
 
-## STL File Naming
+## Target STL Naming
 * `open_arm_enpire_finger_left.stl`
 * `open_arm_enpire_finger_right.stl`

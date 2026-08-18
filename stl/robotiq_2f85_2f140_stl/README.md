@@ -1,6 +1,10 @@
 # Robotiq 2F-85 / 2F-140 STL Models
 
-This directory contains the 3D printable STL models for **Robotiq 2F-85** and **Robotiq 2F-140** industrial collaborative grippers.
+> 🚧 **Work in Progress**: We are actively developing and test-printing the ENPIRE bracket adapter models for **Robotiq 2F-85 & 2F-140** grippers and will update this folder shortly!
+>
+> 💡 **Already have a working design?** If you have already designed, 3D-printed, or tested an ENPIRE adapter for Robotiq 2F-85/140, we would love your contribution! Feel free to **[submit a Pull Request](https://github.com/pgeedh/Open-ENPIRE-Gripper-nvidia/pulls)** to help make this available to the community.
+>
+> *Please check our [Rules for Contributing](../../CONTRIBUTING.md) for STL formatting, coordinate orientation, and physical verification guidelines.*
 
 ---
 
@@ -12,7 +16,7 @@ This directory contains the 3D printable STL models for **Robotiq 2F-85** and **
 
 ---
 
-## STL File Naming
+## Target STL Naming
 * `robotiq_2f_enpire_finger_left.stl`
 * `robotiq_2f_enpire_finger_right.stl`
 * `robotiq_2f_enpire_finger_extended.stl`

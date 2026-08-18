@@ -1,6 +1,10 @@
 # Seeed Studio reBot STL Models
 
-This directory contains the 3D printable STL models for the **Seeed Studio reBot** AI robotic arm platform.
+> 🚧 **Work in Progress**: We are actively developing and test-printing the ENPIRE finger adapter models for the **Seeed Studio reBot** AI arm and will update this folder shortly!
+>
+> 💡 **Already have a working design?** If you have already designed, 3D-printed, or tested an ENPIRE adapter for Seeed Studio reBot, we would love your contribution! Feel free to **[submit a Pull Request](https://github.com/pgeedh/Open-ENPIRE-Gripper-nvidia/pulls)** to help make this available to the community.
+>
+> *Please check our [Rules for Contributing](../../CONTRIBUTING.md) for STL formatting, coordinate orientation, and physical verification guidelines.*
 
 ---
 
@@ -11,6 +15,6 @@ This directory contains the 3D printable STL models for the **Seeed Studio reBot
 
 ---
 
-## STL File Naming
+## Target STL Naming
 * `seeed_rebot_enpire_finger_left.stl`
 * `seeed_rebot_enpire_finger_right.stl`
