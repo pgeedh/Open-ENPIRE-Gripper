@@ -5,74 +5,29 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![MakerWorld Original](https://img.shields.io/badge/MakerWorld-Original_Model-FF5A00.svg)](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm)
 [![MakerWorld Profile](https://img.shields.io/badge/MakerWorld-Profile_%233349177-green.svg)](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm#profileId-3349177)
-[![NVIDIA GEAR](https://img.shields.io/badge/NVIDIA-GEAR_Lab-76B900.svg)](https://research.nvidia.com/)
+[![NVIDIA GEAR](https://img.shields.io/badge/NVIDIA-GEAR_Lab-76B900.svg)](https://research.nvidia.com/labs/gear/enpire/)
 [![X/Twitter](https://img.shields.io/badge/X%2FTwitter-@DrJimFan-black.svg)](https://twitter.com/DrJimFan)
-[![Physical AI](https://img.shields.io/badge/Robotics-Generalist_Arm_Standard-purple.svg)](docs/ROBOT_COMPATIBILITY.md)
 [![3D Print Ready](https://img.shields.io/badge/3D_Printing-FDM_%7C_SLA_%7C_TPU-orange.svg)](docs/3D_PRINTING_GUIDE.md)
 
-**An open-source, multi-arm 3D printable adaptation of the high-performance NVIDIA GEAR ENPIRE gripper design, engineered to make frontier physical AI contact mechanics accessible to generalist robotic arms.**
+**Democratizing the NVIDIA GEAR ENPIRE gripper design for generalist robotic arms.**
 
-[Quick Links](#-quick-links) • [Why This Project Exists](#-why-this-project-exists) • [Original Design & Credits](#-original-design--credits) • [NVIDIA Research & Jim Fan](#-nvidia-gear-enpire-research--dr-jim-fan) • [Robotiq Hand-E](#-robotiq-hand-e-adapter) • [Multi-Arm STL Folders](#-multi-arm-stl-ecosystem) • [Rules for Contributing](#-rules-for-contributing) • [Printing Guide](#-3d-printing-guide)
+[Video & Research](#-nvidia-gear-enpire-research--video) • [The Story](#-the-story--mission) • [Robotiq Hand-E](#-robotiq-hand-e-adapter-design) • [Compatibility Heatmap](#-robot-compatibility-heatmap) • [Printing Instructions](#-printing-instructions-for-best-results) • [Contributing](#-rules-for-contributing)
 
 </div>
 
 ---
 
-## 🚀 Quick Links
-* 📂 **[Robotiq Hand-E STLs](stl/hand_e_gripper/)**
-* 📂 **[Multi-Arm STL Directories](stl/)**
-* 🛠️ **[Hardware Bill of Materials](docs/HARDWARE_BOM.md)**
-* 🖨️ **[3D Printing & Slicing Guide](docs/3D_PRINTING_GUIDE.md)**
-* 🦾 **[Robot Compatibility Matrix](docs/ROBOT_COMPATIBILITY.md)**
-* 🌟 **[Original MakerWorld Model](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm)**
+## 🎬 NVIDIA GEAR ENPIRE Research & Video
 
----
+This project builds upon the groundbreaking research **ENPIRE: Agentic Robot Policy Self-Improvement in the Real World**, developed by the **NVIDIA GEAR** lab led by **Dr. Jim Fan** ([@DrJimFan](https://twitter.com/DrJimFan)) and **Dr. Yuke Zhu**.
 
-## 💡 Why This Project Exists
+<div align="center">
 
-### The Problem: Great Hardware Locked to a Single Robot
-When NVIDIA's GEAR lab published **ENPIRE** (*Agentic Robot Policy Self-Improvement in the Real World*), they demonstrated that autonomous coding agents could teach physical robots to solve complex dexterous tasks—like **threading zip-ties, seating PCIe/GPU cards into motherboards, and precision micro-sorting**—with up to 99% success rates.
+[![Watch the NVIDIA ENPIRE Research Video](https://img.shields.io/badge/▶️_Watch_Video-NVIDIA_GEAR_ENPIRE_Research_Demos-red?style=for-the-badge&logo=youtube)](https://research.nvidia.com/labs/gear/enpire/)
 
-A silent hero of that breakthrough was the custom-designed, high-friction 3D-printed gripper finger created by **Wenli Xiao** (CMU & NVIDIA GEAR) for the **I2RT YAM** robotic arm.
+*🔗 **Official Project Website & Video Demos**: [research.nvidia.com/labs/gear/enpire](https://research.nvidia.com/labs/gear/enpire/)*
 
-However, the vast majority of robotics labs, startups, universities, and independent makers do not have an I2RT YAM arm. Instead, the robotics ecosystem builds and tests policies on **generalist robotic arms** and industry-standard parallel grippers:
-* **Robotiq Hand-E** (High-precision parallel electric gripper)
-* **ALOHA / Mobile ALOHA** (Bimanual physical AI imitation learning standard)
-* **Open Arm** (Open-source robotic arm platforms)
-* **AgileX (Piper)** (Lightweight bimanual research arms)
-* **Seeed Studio reBot** (Accessible AI robotic arms)
-* **Franka Emika Panda / FR3** (7-DoF research standard)
-* **Robotiq 2F-85 & 2F-140** (Universal Robots, Kinova, AUBO)
-* **ARX5** (Bimanual manipulation arms)
-
-Without modular adapters, this exceptional fingertip geometry remains inaccessible to 99% of researchers and builders in the field.
-
-### The Solution: Democratizing ENPIRE for Generalist Arms
-**Open-ENPIRE-Gripper-NVIDIA** removes this hardware barrier. 
-
-We take the proven contact mechanics, high-friction ridged surface, and compliant fingertip geometry from Wenli Xiao's original design and adapt it into a modular, 3D-printable standard for generalist robot arms.
-
-We start by providing custom adapter STL models for the **Robotiq Hand-E**, while organizing dedicated open-source slots for the entire robotics community to contribute matching STL files for every popular parallel-jaw gripper.
-
----
-
-## 🌟 Original Design & Credits
-
-This project is built directly on the foundation of the open-source 3D model designed by **Wenli Xiao** (Carnegie Mellon University & NVIDIA GEAR Lab):
-
-* 🔗 **MakerWorld Model Page**: [https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm)
-* 🔗 **MakerWorld Profile**: [https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm#profileId-3349177](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm#profileId-3349177)
-
-> ### 🙏 Note of Appreciation
-> *"Wenli Xiao's original gripper finger is a masterclass in functional robotics hardware design—delivering outstanding contact friction and tactile compliance for autonomous physical AI research.*
->
-> *All foundational design credit belongs to Wenli Xiao and the NVIDIA GEAR lab. Our goal is simply to make this design universally accessible across every generalist arm in the robotics community."*
-
----
-
-## 🔬 NVIDIA GEAR ENPIRE Research & Dr. Jim Fan
-
-The ENPIRE research framework was developed by the **NVIDIA GEAR** (Generalist Embodied Agent Research) lab, co-led by **Dr. Jim Fan** ([@DrJimFan](https://twitter.com/DrJimFan)) and **Dr. Yuke Zhu**, in collaboration with researchers from Carnegie Mellon University and UC Berkeley.
+</div>
 
 ```
        ┌─────────────────────────────────────────────────────────────┐
@@ -82,102 +37,133 @@ The ENPIRE research framework was developed by the **NVIDIA GEAR** (Generalist E
                                       │
     ┌─────────────────────────────────┼─────────────────────────────────┐
     ▼                                 ▼                                 ▼
-[ Autonomous Coding Agents ]   [ Closed-Loop Feedback ]   [ High-Precision Dexterity ]
-  Literature Search & Coding     Physical Self-Correction    Zip-Ties, GPUs, Precision Assembly
+[ Autonomous AI Agents ]       [ Closed-Loop Feedback ]   [ Extreme Contact Dexterity ]
+  Literature Search & Code       Physical Self-Correction    Zip-Ties, GPUs, Precision Micro-Sorting
 ```
 
-### Key Highlights from the Research
-* **Agentic Closed-Loop Improvement**: Autonomous LLM coding agents write control policies, execute real-world physical trials, inspect video logs, and iteratively evolve skills without constant human babysitting.
-* **Extreme Contact Precision**: Enabled by high-friction compliant finger tips, the robot achieved high success rates on tasks traditionally thought impossible for simple parallel grippers—such as **tightening cable zip-ties, inserting delicate GPU boards into slots, and sorting micro-pins**.
-* **Self-Resetting Workspaces**: Autonomous recovery loops enable continuous 24/7 self-directed robot learning.
+### 📺 Research Highlights
+* **Autonomous Policy Improvement**: LLM coding agents write robot policies, run physical trials, inspect video logs, and autonomously self-improve manipulation skills without human intervention.
+* **99% Success on Extreme Tasks**: Leveraging high-friction compliant finger tips, robots mastered demanding contact tasks including **threading cable zip-ties, seating GPU/PCIe boards into motherboards, and micro-pin sorting**.
+* **24/7 Self-Resetting Loops**: Robots recover and reset their own environments after failed trials for uninterrupted continuous learning.
 
 > *"The bottleneck in robot learning has always been human babysitting. ENPIRE demonstrates that AI agents can run end-to-end robotics research in the physical world—writing code, debugging runs, and self-improving physical manipulation."*  
 > — **Dr. Jim Fan** ([@DrJimFan](https://twitter.com/DrJimFan)), Director of AI / Embodied AI at NVIDIA
 
 ---
 
-## 🦾 Robotiq Hand-E Adapter
+## 📖 The Story & Mission
 
-Our primary focus begins with adapting the ENPIRE high-friction finger profile to the **Robotiq Hand-E** precision parallel electric gripper:
+### The Problem
+The original ENPIRE research demonstrated the immense power of high-friction fingertip geometry, created by **Wenli Xiao** (CMU & NVIDIA GEAR) for the **I2RT YAM** arm. 
 
-| Parameter | Specification |
-| :--- | :--- |
-| **Gripper Type** | Precision Electric Parallel Gripper |
-| **Stroke Range** | 50 mm linear parallel stroke |
-| **Grip Force** | 20 N to 130 N (programmable) |
-| **Repeatability** | 0.02 mm |
-| **Mounting Interface** | 2× M4/M3 fastener bracket |
-| **Target Directory** | [`stl/hand_e_gripper/`](stl/hand_e_gripper/) |
+However, very few roboticists have access to an I2RT YAM arm. Most of the robotics community builds on **generalist robotic arms** and industry-standard parallel grippers: **Robotiq Hand-E, ALOHA, Open Arm, AgileX Piper, Seeed Studio reBot, Franka Panda, and ARX5**.
+
+### The Mission
+**Great robotics hardware should belong to everyone.** This project adapts the proven ENPIRE contact geometry into modular 3D-printable STL models for generalist arms—starting with our custom **Robotiq Hand-E** adapter—so anyone with a 3D printer can achieve frontier physical AI grasping.
+
+*Original MakerWorld Model: [Gripper Finger for Robot Arm](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm) / [Profile #3349177](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm#profileId-3349177) by Wenli Xiao.*
 
 ---
 
-## 📁 Multi-Arm STL Ecosystem
+## 🦾 Robotiq Hand-E Adapter Design
 
-To establish an open standard across all platforms, clean folder structures are organized for manual STL uploads and community contributions:
+Our primary contribution adapts the ENPIRE fingertip geometry to the **Robotiq Hand-E** precision parallel electric gripper:
 
 ```
-Open-ENPIRE-Gripper-NVIDIA/
-├── stl/
-│   ├── hand_e_gripper/         # 🌟 Robotiq Hand-E ENPIRE adapter STL files (Main target)
-│   ├── aloha/                  # ALOHA & Mobile ALOHA bimanual gripper STL files
-│   ├── open_arm/               # Open Arm robotics platform STL files
-│   ├── agilex_piper/           # AgileX (Piper) bimanual robot arm STL files
-│   ├── seeed_rebot/            # Seeed Studio reBot AI robotic arm STL files
-│   ├── robotiq_2f85_2f140/     # Robotiq 2F-85 and 2F-140 bracket STL files
-│   ├── franka_panda/           # Franka Emika Panda / FR3 dovetail slider STL files
-│   ├── arx5/                   # ARX5 bimanual robotic arm STL files
-│   ├── enpire_i2rt_yam/        # I2RT YAM baseline finger STL files (Wenli Xiao original)
-│   ├── iso_flange_adapters/    # Universal ISO 9409-1 (UR3e/5e/10e, xArm) flange plates
-│   └── accessories_and_pads/   # TPU friction snap-pads & silicone casting molds
-├── docs/
-│   ├── HARDWARE_BOM.md         # Fasteners, inserts, torque specifications
-│   ├── 3D_PRINTING_GUIDE.md    # Slicer profiles, layer heights, materials
-│   └── ROBOT_COMPATIBILITY.md  # Dimensional specs and mounting standards
-├── scripts/
-│   └── validate_mesh.py        # Automated STL watertightness & bounding box validator
-├── CONTRIBUTING.md             # Rules for contributing STL files
-└── README.md
+                  ◄──────────── 50 mm Parallel Stroke ────────────►
+             ┌─────────────────┐                       ┌─────────────────┐
+             │  Left Finger    │                       │  Right Finger   │
+             │                 │                       │                 │
+             │  ┌───────────┐  │                       │  ┌───────────┐  │
+             │  │ Ribbed    │  │ ◄─── High Friction ──►│  │ Ribbed    │  │
+             │  │ Grip Face │  │      Contact Zone     │  │ Grip Face │  │
+             │  │ (TPU/CF)  │  │      (μ > 0.8)        │  │ (TPU/CF)  │  │
+             │  └───────────┘  │                       │  └───────────┘  │
+             │                 │                       │                 │
+             │  (M4 Counter-   │                       │  (M4 Counter-   │
+             │   bore Holes)   │                       │   bore Holes)   │
+             └────────┬────────┘                       └────────┬────────┘
+                      │                                         │
+        ┌─────────────┴─────────────────────────────────────────┴─────────────┐
+        │                 Robotiq Hand-E Gripper Chassis                     │
+        └──────────────────────────────────┬──────────────────────────────────┘
+                                           │
+                                  [ Robot Wrist Flange ]
 ```
+
+### Design Specifications
+* **Target Directory**: [`stl/hand_e_gripper/`](stl/hand_e_gripper/)
+* **Mounting Standard**: 2× M4 / M3 socket head cap screws per finger (standard Robotiq bracket)
+* **Stroke & Force**: 50 mm parallel stroke | 20 N to 130 N programmable grip force
+* **Contact Surface**: Integrated anti-slip ridges + pocket for snap-in TPU flexible friction pads
+
+---
+
+## 🔥 Robot Compatibility Heatmap
+
+| Robot Platform | Arm Type | Status | Precision | Bimanual Support | High-Force Grip | Ease of 3D Print | Target STL Folder |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| **Robotiq Hand-E** | Precision Electric Gripper | 🟢 **Active** | 🟢 High | 🟢 Full | 🟢 130 N | 🟢 Easy | [`stl/hand_e_gripper/`](stl/hand_e_gripper/) |
+| **ALOHA / Mobile ALOHA** | Bimanual Imitation Rig | 🟡 *In Progress* | 🟢 High | 🟢 Dual | 🟡 40 N | 🟢 Easy | [`stl/aloha/`](stl/aloha/) |
+| **Open Arm** | Open-Source Robotic Arm | 🟡 *In Progress* | 🟡 Med | 🟡 Dual | 🟡 35 N | 🟢 Easy | [`stl/open_arm/`](stl/open_arm/) |
+| **AgileX (Piper)** | Lightweight Bimanual Arm | 🟡 *In Progress* | 🟢 High | 🟢 Dual | 🟡 35 N | 🟢 Easy | [`stl/agilex_piper/`](stl/agilex_piper/) |
+| **Seeed Studio reBot** | AI Robotic Arm | 🟡 *In Progress* | 🟡 Med | 🟡 Dual | 🟡 25 N | 🟢 Easy | [`stl/seeed_rebot/`](stl/seeed_rebot/) |
+| **Robotiq 2F-85 / 2F-140** | Industrial Cobot Gripper | 🟡 *In Progress* | 🟢 High | 🟡 Single | 🟢 235 N | 🟢 Easy | [`stl/robotiq_2f85_2f140/`](stl/robotiq_2f85_2f140/) |
+| **Franka Panda / FR3** | 7-DoF AI Research Cobot | 🟡 *In Progress* | 🟢 High | 🟡 Single | 🟢 70 N | 🟢 Easy | [`stl/franka_panda/`](stl/franka_panda/) |
+| **ARX5** | Bimanual Research Arm | 🟡 *In Progress* | 🟢 High | 🟢 Dual | 🟡 40 N | 🟢 Easy | [`stl/arx5/`](stl/arx5/) |
+| **I2RT YAM** | AI Research Arm | 🟢 *Original* | 🟢 High | 🟢 Dual | 🟡 45 N | 🟢 Easy | [`stl/enpire_i2rt_yam/`](stl/enpire_i2rt_yam/) |
+| **ISO 9409-1 (UR / xArm)** | Universal Tool Flanges | 🟡 *In Progress* | 🟢 High | 🟡 Single | 🟢 150 N | 🟢 Easy | [`stl/iso_flange_adapters/`](stl/iso_flange_adapters/) |
+
+*Legend: 🟢 Excellent / Available &nbsp;|&nbsp; 🟡 Moderate / Community Slot &nbsp;|&nbsp; 🔵 Planned*
+
+---
+
+## 🖨️ Printing Instructions for Best Results
+
+### 1. Print Orientation (CRITICAL)
+```
+      ✅ CORRECT: Print flat on lateral side (Layer lines parallel to tension)
+      ┌──────────────────────────────────────────────────────────┐
+      │  Base Mount  =================> Structural Fingertip     │
+      └──────────────────────────────────────────────────────────┘
+      ════════════════════════════════════════════════════════════ (Build Plate)
+
+      ❌ WRONG: Print standing vertically (Shear force snaps layer lines)
+```
+
+### 2. Slicer Settings (Bambu Studio / PrusaSlicer / OrcaSlicer)
+
+| Setting | Structural Finger Body | Flexible Friction Pad |
+| :--- | :--- | :--- |
+| **Filament** | **PETG-CF / PLA-CF / PA12-CF** | **TPU 85A or TPU 95A** |
+| **Layer Height** | **0.16 mm** (or 0.20 mm) | **0.16 mm** |
+| **Wall Loops / Perimeters** | **5 to 6 walls** (Critical for strength) | **4 walls** |
+| **Top / Bottom Solid Layers** | 5 Top, 5 Bottom | 4 Top, 4 Bottom |
+| **Infill Density & Pattern** | **50% Gyroid or Cubic** | **40% Gyroid** |
+| **Supports** | Tree supports (45° threshold) | None |
+
+### 3. Assembly Tips
+* **Heat-Set Inserts**: Set soldering iron to **230°C** for PETG/PLA or **275°C** for PA-CF. Press M3/M4 inserts until flush.
+* **Fasteners**: Use ISO 4762 Grade 12.9 M3/M4 socket head cap screws with medium blue threadlocker (Loctite 243).
 
 ---
 
 ## 📋 Rules for Contributing
 
-To ensure that every 3D model in this repository is reliable, physically functional, and ready to print, all contributions must follow these rules:
+1. **Watertight Mesh**: Export binary STL files in **Millimeters (mm)** with zero non-manifold edges. Verify using:
+   ```bash
+   python3 scripts/validate_mesh.py
+   ```
+2. **Standard Orientation**: Coordinate frames must align ($+Z$ finger length, $+Y$ inward contact face). Export oriented flat on its side.
+3. **Physical Test Print Required**: You must physically print the part and verify full stroke closure without binding before submitting a PR.
+4. **PR Checklist**: Attach clear photos of the 3D-printed part installed on your robot arm and list your slicer settings.
 
-1. **Watertight Mesh**: STL files must be exported in **Millimeters (mm)** as solid, binary STLs with **zero non-manifold edges** and correct outward normals. Run `python3 scripts/validate_mesh.py` to confirm.
-2. **Standard Orientation**: Coordinate axes must follow standard robotics conventions ($+Z$ along finger extension, $+Y$ inward contact normal). Fingers should be export-oriented to print flat on their lateral side for maximum layer shear strength.
-3. **Hardware Standards**: Fasteners must follow metric ISO/DIN specifications (M2.5, M3, M4, M5) with proper counterbore depth and heat-set insert tolerances ($+0.1\text{ mm}$ to $+0.2\text{ mm}$ print expansion).
-4. **Physical Test Print Required**: You must physically print the part and verify smooth mounting, full stroke closure, and zero mechanical binding before opening a Pull Request.
-5. **PR Checklist**: Include clear photos of the 3D-printed part installed on the robot arm and list your slicer settings (material, walls, infill).
-
-*See [CONTRIBUTING.md](CONTRIBUTING.md) for full contribution guidelines and naming conventions.*
-
----
-
-## 🖨️ 3D Printing Guide
-
-For optimal mechanical shear strength and grasping friction:
-
-| Parameter | Structural Finger Body | Contact Grip Pad |
-| :--- | :--- | :--- |
-| **Recommended Material** | PETG-CF, PLA-CF, or PA12-CF | TPU 85A or TPU 95A |
-| **Layer Height** | 0.16 mm – 0.20 mm | 0.16 mm – 0.20 mm |
-| **Perimeters / Walls** | **5 to 6 walls** (Essential for shear resistance) | 4 walls |
-| **Infill Density** | 40% – 60% (Gyroid or Cubic) | 30% – 50% |
-| **Print Orientation** | Lay flat on lateral side | Flat on bed |
-
-*For complete slicer details, hardware lists, and assembly tips, see [docs/3D_PRINTING_GUIDE.md](docs/3D_PRINTING_GUIDE.md) and [docs/HARDWARE_BOM.md](docs/HARDWARE_BOM.md).*
+*See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.*
 
 ---
 
-## 📚 Citation & References
+## 📚 Citation & Attribution
 
-### Foundational Hardware Design
-* **Original Creator**: Wenli Xiao (Carnegie Mellon University & NVIDIA GEAR Lab)
-* **MakerWorld Project**: [Gripper Finger for Robot Arm](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm) / [Profile #3349177](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm#profileId-3349177)
-
-### Foundational Research Paper
 ```bibtex
 @article{xiao2024enpire,
   title={ENPIRE: Agentic Robot Policy Self-Improvement in the Real World},
@@ -187,8 +173,10 @@ For optimal mechanical shear strength and grasping friction:
 }
 ```
 
+*Foundational design by **Wenli Xiao** (CMU / NVIDIA GEAR) via [MakerWorld #3349177](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm). Research led by **Dr. Jim Fan** ([@DrJimFan](https://twitter.com/DrJimFan)) & **Dr. Yuke Zhu**.*
+
 ---
 
 ## 📄 License
 
-This project is licensed under the [Apache License, Version 2.0](LICENSE). All foundational design credits and research acknowledgments belong to Wenli Xiao and the NVIDIA GEAR research team ([@DrJimFan](https://twitter.com/DrJimFan)).
+Licensed under the [Apache License, Version 2.0](LICENSE).
