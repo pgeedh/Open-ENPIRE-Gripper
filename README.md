@@ -9,13 +9,14 @@
 [![X/Twitter](https://img.shields.io/badge/X%2FTwitter-@DrJimFan-black.svg)](https://twitter.com/DrJimFan)
 [![3D Print Ready](https://img.shields.io/badge/3D_Printing-FDM_%7C_SLA_%7C_TPU-orange.svg)](docs/3D_PRINTING_GUIDE.md)
 
-**Democratizing the NVIDIA GEAR ENPIRE gripper design for generalist robotic arms.**
+### Democratizing the NVIDIA GEAR ENPIRE Gripper Design for Generalist Robot Arms
+*Robotiq Hand-E • ALOHA • Open Arm • AgileX Piper • Seeed Studio reBot • Franka Panda • ARX5*
 
 <br>
 
 <table align="center" border="0">
   <tr>
-    <th align="center" width="50%">🎬 NVIDIA GEAR ENPIRE Research Video</th>
+    <th align="center" width="50%">🎬 NVIDIA GEAR ENPIRE Research</th>
     <th align="center" width="50%">🦾 Robotiq Hand-E Physical Adapter</th>
   </tr>
   <tr>
