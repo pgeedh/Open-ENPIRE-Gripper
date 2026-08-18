@@ -35,19 +35,22 @@
 ## Purpose & Mission
 
 ### Why This Project Exists
-In physical AI manipulation research, grasping reliability is fundamentally determined by hardware contact mechanics—surface friction, structural compliance, and tactile geometry. When NVIDIA's GEAR lab published **ENPIRE** (*Agentic Robot Policy Self-Improvement in the Real World*), co-led by **Dr. Jim Fan** ([@DrJimFan](https://twitter.com/DrJimFan)) and **Dr. Yuke Zhu**, the physical robot achieved remarkable grasping reliability using a custom-engineered 3D-printable finger designed by **Wenli Xiao** (CMU & NVIDIA GEAR) for the **I2RT YAM** robotic arm.
+In physical AI manipulation research, grasping reliability is fundamentally determined by hardware contact mechanics—surface friction, passive compliance, and tactile geometry. When NVIDIA's GEAR lab published **ENPIRE** (*Agentic Robot Policy Self-Improvement in the Real World*), co-led by **Dr. Jim Fan** ([@DrJimFan](https://twitter.com/DrJimFan)) and **Dr. Yuke Zhu**, the physical robot achieved remarkable grasping reliability using a custom-engineered 3D-printable finger designed by **Wenli Xiao** (CMU & NVIDIA GEAR) for the **I2RT YAM** robotic arm.
 
 However, the I2RT YAM is a specialized research arm that very few universities, startups, independent makers, or robotics labs own.
 
-In the real world, the robotics community builds and trains policies on **generalist robotic arms** and industry-standard parallel grippers:
-* **Robotiq Hand-E** (Precision electric parallel gripper)
-* **ALOHA / Mobile ALOHA** (Bimanual imitation learning standard)
-* **Open Arm** (Open-source accessible robotics)
-* **AgileX (Piper)** (Lightweight bimanual research arms)
-* **Seeed Studio reBot** (Accessible AI robotics)
-* **Franka Emika Panda / FR3** (7-DoF research standard)
-* **Robotiq 2F-85 & 2F-140** (Universal Robots, Kinova, AUBO)
-* **ARX5** (Bimanual manipulation arms)
+### The Rise of Generalist Grippers in Physical AI
+Across the frontier robotics industry, leading physical AI labs and humanoid teams—including **[Physical Intelligence (Pi)](https://twitter.com/Physical_Int)**, **[Figure AI](https://twitter.com/Figure_robot)**, **[1X Technologies](https://twitter.com/1x_tech)**, **[Skild AI](https://twitter.com/Skild_AI)**, **[Tesla Optimus](https://twitter.com/Tesla_Optimus)**, **[AgileX Robotics](https://twitter.com/AgilexRobotics)**, and **[Toyota Research Institute (TRI)](https://www.tri.global/)**—are converging on a shared principle: **generalist manipulation requires versatile, compliant, high-friction parallel fingertips that can handle diverse, delicate, and high-force tasks without tool-changers**.
+
+In the open-source community, researchers and builders train policies across diverse robotic arms:
+* **Robotiq Hand-E**: Precision electric parallel gripper for industrial and research cobots.
+* **ALOHA / Mobile ALOHA**: Stanford/Trossen bimanual imitation learning standard.
+* **Open Arm**: Accessible open-source robotics platform.
+* **AgileX (Piper)**: Lightweight 6-DoF bimanual research arms.
+* **Seeed Studio reBot**: Low-cost edge AI vision-language-action (VLA) testbed.
+* **Franka Emika Panda / FR3**: 7-DoF contact-physics research standard.
+* **Robotiq 2F-85 & 2F-140**: High-payload parallel grippers for Universal Robots, Kinova, and AUBO.
+* **ARX5**: Bimanual mobile manipulation arms.
 
 ### Mission: Democratizing Frontier Gripper Design
 > **Hardware breakthroughs in robotics should not be locked to a single proprietary arm.**
@@ -84,20 +87,20 @@ Our primary physical adaptation mounts the ENPIRE fingertip geometry directly on
 
 ## Robot Compatibility Matrix
 
-| Robot Platform | Arm Type | Status | Precision | Bimanual Support | Grip Force Rating | Ease of Print | Target STL Folder |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **Robotiq Hand-E** | Precision Electric Gripper | **Available** | High | Dual & Single | 130 N | High | [`stl/hand_e_stl/`](stl/hand_e_stl/) |
-| **ALOHA / Mobile ALOHA** | Bimanual Imitation Rig | *In Progress* | High | Dual | 40 N | High | [`stl/aloha_stl/`](stl/aloha_stl/) |
-| **Open Arm** | Open-Source Robotic Arm | *In Progress* | Moderate | Dual | 35 N | High | [`stl/open_arm_stl/`](stl/open_arm_stl/) |
-| **AgileX (Piper)** | Lightweight Bimanual Arm | *In Progress* | High | Dual | 35 N | High | [`stl/agilex_stl/`](stl/agilex_stl/) |
-| **Seeed Studio reBot** | AI Robotic Arm | *In Progress* | Moderate | Dual | 25 N | High | [`stl/seeed_rebot_stl/`](stl/seeed_rebot_stl/) |
-| **Robotiq 2F-85 / 2F-140** | Industrial Cobot Gripper | *In Progress* | High | Single | 235 N | High | [`stl/robotiq_2f85_2f140_stl/`](stl/robotiq_2f85_2f140_stl/) |
-| **Franka Panda / FR3** | 7-DoF AI Research Cobot | *In Progress* | High | Single | 70 N | High | [`stl/franka_panda_stl/`](stl/franka_panda_stl/) |
-| **ARX5** | Bimanual Research Arm | *In Progress* | High | Dual | 40 N | High | [`stl/arx5_stl/`](stl/arx5_stl/) |
-| **I2RT YAM** | AI Research Arm | *Baseline* | High | Dual | 45 N | High | [`stl/enpire_i2rt_yam_stl/`](stl/enpire_i2rt_yam_stl/) |
-| **ISO 9409-1 (UR / xArm)** | Universal Tool Flanges | *In Progress* | High | Single | 150 N | High | [`stl/iso_flange_adapters_stl/`](stl/iso_flange_adapters_stl/) |
+| Robot Platform | Arm Type / Gripper Interface | Status | Target STL Folder |
+| :--- | :--- | :---: | :--- |
+| **Robotiq Hand-E** | Precision Electric Parallel Gripper | **Available** | [`stl/hand_e_stl/`](stl/hand_e_stl/) |
+| **ALOHA / Mobile ALOHA** | ViperX Parallel Jaw Carriage | *In Progress* | [`stl/aloha_stl/`](stl/aloha_stl/) |
+| **Open Arm** | Modular Open-Source Parallel Mount | *In Progress* | [`stl/open_arm_stl/`](stl/open_arm_stl/) |
+| **AgileX (Piper)** | Dual Pin + M3 Fastener Slider | *In Progress* | [`stl/agilex_stl/`](stl/agilex_stl/) |
+| **Seeed Studio reBot** | AI Arm Parallel Gripper Slider | *In Progress* | [`stl/seeed_rebot_stl/`](stl/seeed_rebot_stl/) |
+| **Robotiq 2F-85 / 2F-140** | 2× M4 Bracket Mount (10 mm spacing) | *In Progress* | [`stl/robotiq_2f85_2f140_stl/`](stl/robotiq_2f85_2f140_stl/) |
+| **Franka Panda / FR3** | Quick-Mount Dovetail / M4 Slider | *In Progress* | [`stl/franka_panda_stl/`](stl/franka_panda_stl/) |
+| **ARX5** | Direct Dual Lug M3 Pattern | *In Progress* | [`stl/arx5_stl/`](stl/arx5_stl/) |
+| **I2RT YAM** | Native Dual M3 Clamp (Wenli Xiao Baseline) | *Baseline* | [`stl/enpire_i2rt_yam_stl/`](stl/enpire_i2rt_yam_stl/) |
+| **ISO 9409-1 (UR / xArm)** | Universal Tool Flange Adapter Plates | *In Progress* | [`stl/iso_flange_adapters_stl/`](stl/iso_flange_adapters_stl/) |
 
-*Status: Available (Ready for print) | In Progress (Community Contributions Welcome)*
+*Status: Available (Ready to print) | In Progress (Community Contributions Welcome)*
 
 ---
 
