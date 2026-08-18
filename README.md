@@ -67,7 +67,7 @@ In the open-source community, researchers and builders train policies across div
 > **Hardware breakthroughs in robotics should not be locked to a single proprietary arm.**
 > 
 > The mission of **Open-ENPIRE-Gripper-NVIDIA** is to bridge the gap between frontier physical AI research and the global robotics community:
-> 1. **Universal Accessibility**: Translate the proven high-friction, compliant contact profile into 3D-printable STL adapters for popular generalist robotic arms.
+> 1. **Universal Accessibility**: Translate the proven high-friction, compliant contact profile into 3D-printable STL adapters for popular generalist robotic arms. All printable models can be found in the [`grippers-stl/`](grippers-stl/) folder.
 > 2. **Physical AI for Everyone**: Enable anyone with a standard 3D printer to achieve frontier-grade contact mechanics on their existing robot without purchasing expensive custom end-effectors.
 > 3. **Community-Driven Standardization**: Establish this geometry as an open-source standard across all parallel-jaw robotic grippers, starting with our physical adaptation for the **Robotiq Hand-E**.
 
@@ -89,7 +89,7 @@ Our primary physical adaptation mounts the ENPIRE fingertip geometry directly on
 
 | Parameter | Specification |
 | :--- | :--- |
-| **Target Directory** | [`stl/hand_e_stl/`](stl/hand_e_stl/) |
+| **Target Directory** | [`grippers-stl/hand_e_stl/`](grippers-stl/hand_e_stl/) |
 | **Mounting Interface** | Standard 2× M4 / M3 counterbore bracket per finger |
 | **Stroke & Force** | 50 mm linear parallel stroke | 20 N to 130 N programmable grip force |
 | **Contact Surface** | Dual-material structural beam with integrated anti-slip compliant friction inserts |
@@ -98,18 +98,20 @@ Our primary physical adaptation mounts the ENPIRE fingertip geometry directly on
 
 ## Robot Compatibility Matrix
 
+> 💡 **3D Printable Files**: All different gripper STL models for the supported robotic arms can be found in the [`grippers-stl/`](grippers-stl/) folder.
+
 | Robot Platform | Arm Type / Gripper Interface | Status | Target STL Folder |
 | :--- | :--- | :---: | :--- |
-| **Robotiq Hand-E** | Precision Electric Parallel Gripper | **Available** | [`stl/hand_e_stl/`](stl/hand_e_stl/) |
-| **ALOHA / Mobile ALOHA** | ViperX Parallel Jaw Carriage | *In Progress* | [`stl/aloha_stl/`](stl/aloha_stl/) |
-| **Open Arm** | Modular Open-Source Parallel Mount | *In Progress* | [`stl/open_arm_stl/`](stl/open_arm_stl/) |
-| **AgileX (Piper)** | Dual Pin + M3 Fastener Slider | *In Progress* | [`stl/agilex_stl/`](stl/agilex_stl/) |
-| **Seeed Studio reBot** | AI Arm Parallel Gripper Slider | *In Progress* | [`stl/seeed_rebot_stl/`](stl/seeed_rebot_stl/) |
-| **Robotiq 2F-85 / 2F-140** | 2× M4 Bracket Mount (10 mm spacing) | *In Progress* | [`stl/robotiq_2f85_2f140_stl/`](stl/robotiq_2f85_2f140_stl/) |
-| **Franka Panda / FR3** | Quick-Mount Dovetail / M4 Slider | *In Progress* | [`stl/franka_panda_stl/`](stl/franka_panda_stl/) |
-| **ARX5** | Direct Dual Lug M3 Pattern | *In Progress* | [`stl/arx5_stl/`](stl/arx5_stl/) |
-| **I2RT YAM** | Native Dual M3 Clamp (Wenli Xiao Baseline) | *Baseline* | [`stl/enpire_i2rt_yam_stl/`](stl/enpire_i2rt_yam_stl/) |
-| **ISO 9409-1 (UR / xArm)** | Universal Tool Flange Adapter Plates | *In Progress* | [`stl/iso_flange_adapters_stl/`](stl/iso_flange_adapters_stl/) |
+| **Robotiq Hand-E** | Precision Electric Parallel Gripper | **Available** | [`grippers-stl/hand_e_stl/`](grippers-stl/hand_e_stl/) |
+| **ALOHA / Mobile ALOHA** | ViperX Parallel Jaw Carriage | *In Progress* | [`grippers-stl/aloha_stl/`](grippers-stl/aloha_stl/) |
+| **Open Arm** | Modular Open-Source Parallel Mount | *In Progress* | [`grippers-stl/open_arm_stl/`](grippers-stl/open_arm_stl/) |
+| **AgileX (Piper)** | Dual Pin + M3 Fastener Slider | *In Progress* | [`grippers-stl/agilex_stl/`](grippers-stl/agilex_stl/) |
+| **Seeed Studio reBot** | AI Arm Parallel Gripper Slider | *In Progress* | [`grippers-stl/seeed_rebot_stl/`](grippers-stl/seeed_rebot_stl/) |
+| **Robotiq 2F-85 / 2F-140** | 2× M4 Bracket Mount (10 mm spacing) | *In Progress* | [`grippers-stl/robotiq_2f85_2f140_stl/`](grippers-stl/robotiq_2f85_2f140_stl/) |
+| **Franka Panda / FR3** | Quick-Mount Dovetail / M4 Slider | *In Progress* | [`grippers-stl/franka_panda_stl/`](grippers-stl/franka_panda_stl/) |
+| **ARX5** | Direct Dual Lug M3 Pattern | *In Progress* | [`grippers-stl/arx5_stl/`](grippers-stl/arx5_stl/) |
+| **I2RT YAM** | Native Dual M3 Clamp (Wenli Xiao Baseline) | *Baseline* | [`grippers-stl/enpire_i2rt_yam_stl/`](grippers-stl/enpire_i2rt_yam_stl/) |
+| **ISO 9409-1 (UR / xArm)** | Universal Tool Flange Adapter Plates | *In Progress* | [`grippers-stl/iso_flange_adapters_stl/`](grippers-stl/iso_flange_adapters_stl/) |
 
 *Status: Available (Ready to print) | In Progress (Community Contributions Welcome)*
 
@@ -156,14 +158,14 @@ All parts shown were printed and verified on a **Bambu Lab P1S** using **Bambu S
 
 ## URDF Simulation Models & STL Automation
 
-We provide an automated script in `scripts/generate_urdf_from_stl.py` that parses any pair of finger STL files, calculates center-of-mass, inertia, scales from millimeters to meters, and outputs a physics-ready **URDF** for **NVIDIA Isaac Sim, MuJoCo, PyBullet, and ROS 2**:
+We provide an automated script in `scripts/generate_urdf_from_stl.py` that parses any pair of finger STL files from [`grippers-stl/`](grippers-stl/), calculates center-of-mass, inertia, scales from millimeters to meters, and outputs a physics-ready **URDF** for **NVIDIA Isaac Sim, MuJoCo, PyBullet, and ROS 2**:
 
 ```bash
 # Generate a URDF from your STL files:
 python3 scripts/generate_urdf_from_stl.py \
   --name hand_e_enpire_gripper \
-  --left_stl stl/hand_e_stl/hand_e_enpire_finger_left.stl \
-  --right_stl stl/hand_e_stl/hand_e_enpire_finger_right.stl \
+  --left_stl grippers-stl/hand_e_stl/hand_e_enpire_finger_left.stl \
+  --right_stl grippers-stl/hand_e_stl/hand_e_enpire_finger_right.stl \
   --stroke_mm 50.0 \
   --force_n 130.0 \
   --out hand_e_enpire_gripper.urdf

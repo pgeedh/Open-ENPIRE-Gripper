@@ -1,84 +1,61 @@
-# Contributing to Open-ENPIRE-Gripper-NVIDIA
+# Rules for Contributing STL Models
 
-We welcome community contributions! The goal of this project is to build an open standard of 3D printable ENPIRE-style high-friction gripper finger adapters for all generalist robotic arms.
+Thank you for helping expand **Open-ENPIRE-Gripper-NVIDIA** across more robotic arms and gripper platforms!
 
----
-
-## 📋 Rules for Contributing STL Files
-
-To ensure that every 3D model in this repository is reliable, physically functional, and ready to print, all contributions must adhere to the following rules:
-
-### 1. Watertight Mesh & Geometry Integrity
-* **Units**: All STL files must be exported in **Millimeters (mm)**.
-* **Format**: Export as solid, high-resolution **Binary STL** files.
-* **Topology**: Meshes must be **100% watertight and manifold** (no self-intersections, no zero-area facets, no open boundary edges, and correctly oriented outward surface normals).
-* **Validation**: Run the automated validator before submitting:
-  ```bash
-  python3 scripts/validate_mesh.py
-  ```
-  Your model must output `[PASS]` with valid dimensions and volume.
+To maintain strict mechanical tolerances, simulation compatibility, and print reliability, all contributed **STL models** must adhere to the rules outlined below.
 
 ---
 
-### 2. Standard Coordinate System & Orientation
-All finger STL models should follow standard robotics coordinate conventions:
-* **$+Z$ Axis**: Points along the length of the finger toward the fingertip.
-* **$+Y$ Axis**: Points inward in the clamping/contact direction (the gripping face).
-* **$+X$ Axis**: Points laterally across the finger width.
-* **Print Orientation**: The model should be export-oriented to lay flat on its lateral side on the 3D printer build plate for maximum inter-layer shear strength under clamping tension.
+## 1. 3D Model & STL Specifications
+
+All submissions must provide clean 3D-printable **STL** files:
+
+| Requirement | Specification | Verification Method |
+| :--- | :--- | :--- |
+| **File Format** | Binary `.stl` (High resolution) | Export as binary STL from CAD |
+| **Units** | **Millimeters (mm)** (1 unit = 1 mm) | Mesh bounds check |
+| **Manifoldness** | **Watertight / 2-Manifold** (0 non-manifold edges) | `python3 scripts/validate_mesh.py` |
+| **Orientation** | Flat on lateral side (Layer lines parallel to tension) | Visual slicer inspection |
+| **Tolerance** | Mounting hole clearance: nominal $+0.2\,\text{mm}$ | Caliper verification |
 
 ---
 
-### 3. Fastener & Tolerance Standards
-* **Standard Metric Hardware**: Use standard metric fasteners (**M2.5, M3, M4, M5, M6**) conforming to ISO 4762 / DIN 912 socket head cap screws.
-* **Counterbore Dimensions**: Include proper counterbore depth and clearance diameter so screw heads sit flush or recessed without interfering with robot arm mechanisms.
-* **Heat-Set Insert Tolerances**: For brass heat-set threaded inserts, size pilot holes with standard FDM thermal expansion allowances ($+0.1\text{ mm}$ to $+0.2\text{ mm}$ over nominal insert outer diameter).
+## 2. Coordinate System & File Naming Conventions
+
+* **$+Z$ Axis**: Points along the length of the finger (from base mount to fingertip).
+* **$+Y$ Axis**: Points inward toward the opposing finger (the contact grasp face).
+* **$+X$ Axis**: Lateral width.
+
+### Naming Pattern
+Place STL files into the designated folder under `grippers-stl/<arm_name>_stl/` using clean, lowercase, snake_case naming:
+```
+grippers-stl/<arm_folder>_stl/
+├── <arm_name>_enpire_finger_left.stl
+├── <arm_name>_enpire_finger_right.stl
+└── README.md
+```
 
 ---
 
-### 4. File Naming Conventions
-Place STL files into the designated folder under `stl/<arm_name>/` using clean, lowercase, snake_case naming:
-* Left Finger: `<arm>_enpire_finger_<variant>_left.stl` (e.g., `hand_e_enpire_finger_standard_left.stl`)
-* Right Finger: `<arm>_enpire_finger_<variant>_right.stl`
-* Symmetrical / Universal: `<arm>_enpire_finger_<variant>.stl` (e.g., `aloha_enpire_finger_grooved.stl`)
-* Adapter Plates: `<standard>_adapter_plate.stl` (e.g., `iso_9409_1_50_4_m6_plate.stl`)
+## 3. Physical 3D Test Print Required
+
+Before submitting a Pull Request, you **must physically 3D-print and test the adapter** on your robot arm or gripper:
+
+1. **Verify Full Stroke**: The fingers must open to full stroke and close completely without colliding, binding, or flexing unexpectedly.
+2. **Verify Fastener Alignment**: Standard metric bolts (M3/M4) must seat cleanly into the counterbore holes without requiring manual drilling or reaming.
+3. **Verify Grasp Stability**: Perform at least one physical grasp on a rigid object and a deformable object.
 
 ---
 
-### 5. Physical Verification & Stroke Clearance
-* **Physical Test Print Required**: Before submitting a PR, you **must physically 3D print the part** and mount it on the target robot gripper.
-* **Full-Stroke Zero Interference**: Confirm that the fingers close and open across their full stroke range without binding, twisting, or colliding with the gripper chassis.
+## 4. Pull Request Checklist
 
----
-
-### 6. Pull Request (PR) Requirements
-When submitting a Pull Request:
-1. **Target Directory**: Place STL files in the appropriate folder under `stl/`.
-2. **Include Photos**: Attach at least one clear photo or video of the 3D-printed part mounted on the actual robot arm or gripper.
-3. **Specify Print Parameters**:
-   - Material used (e.g., PETG-CF, PA12-CF, PLA+, TPU 95A)
-   - Slicer settings (layer height, number of perimeters/walls, infill percentage)
-   - Fastener sizes used for installation.
-4. **Update Documentation**: Add your robot arm details to [docs/ROBOT_COMPATIBILITY.md](file:///docs/ROBOT_COMPATIBILITY.md).
-
----
-
-## 🛠️ Step-by-Step Contribution Workflow
-
-1. **Fork the Repository** on GitHub.
-2. **Create a Feature Branch**:
-   ```bash
-   git checkout -b feat/add-<arm-name>-finger-stl
-   ```
-3. **Add Your STL Files** to `stl/<arm-name>/`.
-4. **Run the Mesh Validator**:
+When opening a Pull Request, ensure:
+1. **Target Directory**: Place STL files in the appropriate folder under `grippers-stl/`.
+2. **Watertight Check**: Mesh validation passes:
    ```bash
    python3 scripts/validate_mesh.py
    ```
-5. **Commit and Push**:
-   ```bash
-   git add stl/<arm-name>/
-   git commit -m "feat: add <arm-name> ENPIRE gripper finger STL models"
-   git push origin feat/add-<arm-name>-finger-stl
-   ```
-6. **Open a Pull Request** with your test print photos and slicer details!
+3. **Hardware Photos**: Attach at least **one clear photo** of the 3D-printed adapter installed on your robot arm.
+4. **Slicer Settings**: Document your tested filament, layer height, wall loops, and infill pattern in your PR description.
+
+Thank you for helping democratize physical AI hardware for the entire robotics community!

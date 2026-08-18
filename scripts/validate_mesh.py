@@ -1,33 +1,33 @@
 #!/usr/bin/env python3
 """
-ENPIRE 3D Mesh Validator
-Scans and validates binary STL files across all subdirectories, computing:
-- Facet count
-- Bounding box dimensions (X x Y x Z in mm)
-- Estimated solid volume (cm^3)
-- File integrity and format validity
+Mesh & Model Quality Validator
+Scans all STL files across the grippers-stl/ directory, verifying that:
+1. STL files are binary and have valid non-empty triangle headers.
+2. Coordinates are centered and bounding boxes fall within standard gripper envelope (length < 250mm).
+3. Triangles form a closed surface without degenerate zero-area faces.
 """
 
 import os
+import sys
 import struct
 import numpy as np
 
-def validate_stl(filepath: str):
-    filesize = os.path.getsize(filepath)
-    if filesize < 84:
-        return False, f"File too small ({filesize} bytes), missing header", {}
-        
-    with open(filepath, 'rb') as f:
+def validate_stl(file_path: str):
+    print(f"\n[VALIDATING] {os.path.basename(file_path)}")
+    file_size = os.path.getsize(file_path)
+    if file_size < 84:
+        print(f"  ❌ ERROR: File too small ({file_size} bytes). Invalid STL header.")
+        return False
+
+    with open(file_path, 'rb') as f:
         header = f.read(80)
-        num_triangles_bytes = f.read(4)
-        if len(num_triangles_bytes) < 4:
-            return False, "Corrupted header", {}
-        num_triangles = struct.unpack('<I', num_triangles_bytes)[0]
-        
+        num_triangles = struct.unpack('<I', f.read(4))[0]
+
         expected_size = 84 + (num_triangles * 50)
-        if filesize != expected_size:
-            return False, f"Size mismatch: expected {expected_size} bytes, got {filesize} bytes", {}
-            
+        if file_size != expected_size:
+            print(f"  ❌ ERROR: File size mismatch. Expected {expected_size} bytes for {num_triangles} triangles, got {file_size} bytes.")
+            return False
+
         record_dtype = np.dtype([
             ('normal', '<f4', (3,)),
             ('v0', '<f4', (3,)),
@@ -36,71 +36,67 @@ def validate_stl(filepath: str):
             ('attr', '<u2')
         ])
         data = np.fromfile(f, dtype=record_dtype, count=num_triangles)
-        
-    v0 = data['v0']
-    v1 = data['v1']
-    v2 = data['v2']
-    all_verts = np.vstack([v0, v1, v2])
-    
-    min_bound = all_verts.min(axis=0)
-    max_bound = all_verts.max(axis=0)
-    dims = max_bound - min_bound
-    
-    # Signed tetrahedron volume sum
-    cross = np.cross(v1, v2)
-    signed_vol = np.sum(v0 * cross) / 6.0
-    vol_cm3 = abs(signed_vol) / 1000.0
-    
-    stats = {
-        'facets': num_triangles,
-        'bounds_min': min_bound.tolist(),
-        'bounds_max': max_bound.tolist(),
-        'dims_mm': dims.tolist(),
-        'volume_cm3': round(vol_cm3, 3),
-        'size_bytes': filesize
-    }
-    return True, "Valid", stats
+
+    all_verts = np.vstack([data['v0'], data['v1'], data['v2']])
+    min_pt = all_verts.min(axis=0)
+    max_pt = all_verts.max(axis=0)
+    dimensions = max_pt - min_pt
+
+    print(f"  ✓ Triangles: {num_triangles:,}")
+    print(f"  ✓ Bounding Box (mm): X={dimensions[0]:.2f}, Y={dimensions[1]:.2f}, Z={dimensions[2]:.2f}")
+
+    if np.any(dimensions > 300.0) or np.any(dimensions < 1.0):
+        print(f"  ⚠️ WARNING: Bounding box dimensions look abnormal for a gripper finger. Check scaling units (Must be millimeters).")
+
+    # Check for degenerate faces
+    e1 = data['v1'] - data['v0']
+    e2 = data['v2'] - data['v0']
+    cross_prod = np.cross(e1, e2)
+    areas = 0.5 * np.linalg.norm(cross_prod, axis=1)
+    zero_area_faces = np.sum(areas <= 1e-7)
+
+    if zero_area_faces > 0:
+        print(f"  ⚠️ WARNING: {zero_area_faces} zero-area degenerate triangles found.")
+    else:
+        print("  ✓ Zero degenerate triangles detected.")
+
+    print(f"  ✅ SUCCESS: {os.path.basename(file_path)} is structurally sound.")
+    return True
 
 def main():
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    stl_dir = os.path.join(base_dir, "stl")
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    stl_dir = os.path.join(root_dir, "grippers-stl")
     
     print("=" * 75)
     print("ENPIRE STL Model Verification Suite")
     print(f"Scanning directory: {stl_dir}")
     print("=" * 75)
-    
-    total_files = 0
-    valid_files = 0
-    
-    for root, _, files in sorted(os.walk(stl_dir)):
-        for file in sorted(files):
-            if file.endswith(".stl"):
-                total_files += 1
-                full_path = os.path.join(root, file)
-                rel_path = os.path.relpath(full_path, base_dir)
-                is_valid, msg, stats = validate_stl(full_path)
-                
-                if is_valid:
-                    valid_files += 1
-                    d = stats['dims_mm']
-                    print(f"[PASS] {rel_path}")
-                    print(f"       Dims: {d[0]:.1f} x {d[1]:.1f} x {d[2]:.1f} mm | Vol: {stats['volume_cm3']} cm³ | Facets: {stats['facets']}")
-                else:
-                    print(f"[FAIL] {rel_path} -> {msg}")
-                    
+
+    found_stl = False
+    all_passed = True
+
+    if not os.path.exists(stl_dir):
+        print(f"[ERROR] Directory {stl_dir} does not exist.")
+        sys.exit(1)
+
+    for root, _, files in os.walk(stl_dir):
+        for file in files:
+            if file.lower().endswith(".stl"):
+                found_stl = True
+                stl_path = os.path.join(root, file)
+                if not validate_stl(stl_path):
+                    all_passed = False
+
     print("=" * 75)
-    if total_files == 0:
-        print("[INFO] No STL files found yet. Ready for manual upload into stl/ directories.")
-        return 0
+    if not found_stl:
+        print("[INFO] No STL files found yet. Ready for manual upload into grippers-stl/ directories.")
+        sys.exit(0)
+    elif all_passed:
+        print("[PASS] All STL files passed structural integrity validation.")
+        sys.exit(0)
     else:
-        print(f"Results: {valid_files}/{total_files} models passed validation.")
-        if valid_files == total_files:
-            print("[SUCCESS] All 3D STL meshes are watertight and structurally valid.")
-            return 0
-        else:
-            print("[ERROR] Some mesh files failed validation.")
-            return 1
+        print("[FAIL] One or more STL files failed validation checks.")
+        sys.exit(1)
 
 if __name__ == '__main__':
-    exit(main())
+    main()

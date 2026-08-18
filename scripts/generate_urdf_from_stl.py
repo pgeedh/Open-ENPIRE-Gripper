@@ -182,8 +182,8 @@ def generate_urdf(robot_name: str, left_stl: str, right_stl: str, stroke_mm: flo
 def main():
     parser = argparse.ArgumentParser(description="Generate simulation URDF from gripper STL files")
     parser.add_argument("--name", default="hand_e_enpire_gripper", help="Robot gripper name")
-    parser.add_argument("--left_stl", default="stl/hand_e_stl/hand_e_enpire_finger_left.stl", help="Path to left finger STL")
-    parser.add_argument("--right_stl", default="stl/hand_e_stl/hand_e_enpire_finger_right.stl", help="Path to right finger STL")
+    parser.add_argument("--left_stl", default="grippers-stl/hand_e_stl/hand_e_enpire_finger_left.stl", help="Path to left finger STL")
+    parser.add_argument("--right_stl", default="grippers-stl/hand_e_stl/hand_e_enpire_finger_right.stl", help="Path to right finger STL")
     parser.add_argument("--stroke_mm", type=float, default=50.0, help="Total parallel stroke in mm")
     parser.add_argument("--force_n", type=float, default=130.0, help="Maximum grip force in Newtons")
     parser.add_argument("--out", default="hand_e_enpire_gripper.urdf", help="Output URDF file path")
