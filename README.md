@@ -37,22 +37,25 @@
 ### Why This Project Exists
 In physical AI manipulation research, grasping reliability is fundamentally determined by hardware contact mechanics, including surface friction, passive compliance, and tactile geometry. When NVIDIA's GEAR lab published **ENPIRE** (*Agentic Robot Policy Self-Improvement in the Real World*), co-led by **Dr. Jim Fan** ([@DrJimFan](https://twitter.com/DrJimFan)) and **Dr. Yuke Zhu**, the physical robot achieved remarkable grasping reliability using a custom-engineered 3D-printable finger designed by **Wenli Xiao** (CMU & NVIDIA GEAR) for the **I2RT YAM** robotic arm.
 
-<p align="center">
-  <img src="docs/images/original_enpire_yam_gripper.jpg" alt="Original NVIDIA ENPIRE I2RT YAM Gripper" width="380" />
-  <br>
-  <em>Original ENPIRE compliant finger design in action on the I2RT YAM research arm (NVIDIA GEAR).</em>
-</p>
+<table align="center" border="0">
+  <tr>
+    <th align="center" width="50%">Original NVIDIA ENPIRE (I2RT YAM)</th>
+    <th align="center" width="50%">Generalist AI (Bimanual Manipulation)</th>
+  </tr>
+  <tr>
+    <td align="center" valign="top">
+      <img src="docs/images/original_enpire_yam_gripper.jpg" alt="Original NVIDIA ENPIRE I2RT YAM Gripper" width="100%" />
+    </td>
+    <td align="center" valign="top">
+      <img src="docs/images/generalist_ai_manipulation.jpg" alt="Generalist AI Bimanual Manipulation" width="100%" />
+    </td>
+  </tr>
+</table>
 
 However, the I2RT YAM is a specialized research arm that very few universities, startups, independent makers, or robotics labs own.
 
 ### The Rise of Generalist Grippers in Physical AI
 Across the frontier robotics industry, leading physical AI companies and research teams (including **[Generalist AI](https://generalistai.com/blog/research-preview)**, **[Physical Intelligence (Pi)](https://twitter.com/Physical_Int)**, **[Figure AI](https://twitter.com/Figure_robot)**, **[1X Technologies](https://twitter.com/1x_tech)**, **[Skild AI](https://twitter.com/Skild_AI)**, **[Tesla Optimus](https://twitter.com/Tesla_Optimus)**, **[AgileX Robotics](https://twitter.com/AgilexRobotics)**, and **[Toyota Research Institute (TRI)](https://www.tri.global/)**) are converging on a shared thesis: **deploying general-purpose robots requires versatile, compliant, high-friction parallel fingertips that can handle diverse, delicate, and high-force interactions without tool-changers**.
-
-<p align="center">
-  <img src="docs/images/generalist_ai_manipulation.jpg" alt="Generalist AI Bimanual Manipulation" width="440" />
-  <br>
-  <em>Bimanual dexterous manipulation: high-friction compliant fingertips handling delicate deformable fabrics and articulated tasks (Generalist AI Research Preview).</em>
-</p>
 
 ### The Core Thesis: Generalist Manipulation Needs Generalist Contact
 Modern robot learning policies—ranging from 100Hz end-to-end sensorimotor networks to **Vision-Language-Action (VLA) models** (e.g., OpenVLA, Octo, RT-2), **VLMs**, and **World Models**—must interact with an expansive distribution of physical objects: folding fabrics, tensioning flexible zip-ties, sorting thin fasteners, handling micro-pins, and seating rigid PCBs.
