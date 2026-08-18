@@ -1,34 +1,35 @@
-# Robotiq Hand-E STL Models
+# Robotiq Hand-E ENPIRE Gripper Finger Models
 
-<div align="center">
-  <img src="../../docs/images/robotiq_hand_e_enpire_gripper.jpg" alt="Robotiq Hand-E ENPIRE Gripper" width="320" />
-  <br>
-  <em>Robotiq Hand-E gripper equipped with custom ENPIRE-style compliant fingers and wrist perception mount.</em>
-</div>
+This directory contains the production-ready **3D-printable binary STL files** for mounting the ENPIRE high-friction compliant finger geometry directly onto the **Robotiq Hand-E** electric parallel gripper.
 
 ---
 
-## Gripper Specifications
-* **Gripper Model**: Robotiq Hand-E Electric Parallel Gripper
-* **Stroke**: 50 mm linear parallel stroke
-* **Grip Force**: 20 N to 130 N (programmable)
-* **Mounting Interface**: 2× M4/M3 mounting screws per finger (standard Robotiq bracket)
-* **Repeatability**: 0.02 mm
-* **Best Applications**: Precision manipulation, electronic assembly, PCB/GPU insertion, and Physical AI benchmarks.
+## 📦 Files in this Directory
+
+* **`hand_e_enpire_finger_left.stl`** (Left finger adapter)
+* **`hand_e_enpire_finger_right.stl`** (Right finger adapter)
 
 ---
 
-## STL File Naming
-Drop your 3D printable `.stl` files here:
-* `hand_e_enpire_finger_left.stl`
-* `hand_e_enpire_finger_right.stl`
-* `hand_e_enpire_finger_grooved.stl`
-* `hand_e_enpire_finger_tpu_slot.stl`
+## 📐 Mechanical Specifications
+
+| Parameter | Value |
+| :--- | :--- |
+| **Gripper Compatibility** | Robotiq Hand-E (Linear Parallel Stroke) |
+| **Mounting Fasteners** | 2× M4 / M3 socket head cap screws per finger |
+| **Fastener Spacing** | Standard Robotiq 10 mm PCD pattern |
+| **Overall Length ($+Z$)** | 96.0 mm |
+| **Base Width ($+X$)** | 22.0 mm |
+| **Linear Stroke** | 50.0 mm parallel travel |
+| **Target Clamping Force** | Up to 130 N programmable force |
+| **Friction Grip Face** | Ribbed compliant contact zone with dual-material core |
 
 ---
 
-## 3D Printing Recommendations
-* **Material**: PETG-CF, PLA-CF, or PA12-CF (Structural body) + TPU 85A/95A (Contact pads)
-* **Walls / Perimeters**: 5–6 walls
-* **Infill**: 50% Gyroid
-* **Orientation**: Print flat on lateral side for maximum shear strength under clamping load.
+## 🖨️ Recommended 3D Printing Settings (Bambu Lab P1S)
+
+* **Material**: **PETG-CF** or **PA12-CF** for the rigid body, **TPU 85A/95A** for the grip ribs.
+* **Layer Height**: **0.16 mm**
+* **Wall Loops**: **5 – 6 walls** (Crucial for screw counterbore strength)
+* **Infill**: **50% – 60% Gyroid**
+* **Supports**: Tree (Auto), 40° threshold, 0.20 mm Top Z distance
