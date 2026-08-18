@@ -3,8 +3,9 @@
 <div align="center">
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![NVIDIA GEAR](https://img.shields.io/badge/NVIDIA-GEAR_Lab-76B900.svg)](https://research.nvidia.com/labs/gear/enpire/)
-[![X/Twitter](https://img.shields.io/badge/X%2FTwitter-@DrJimFan-black.svg)](https://twitter.com/DrJimFan)
+[![NVIDIA GEAR](https://img.shields.io/badge/NVIDIA-GEAR_Lab-76B900.svg?logo=nvidia&logoColor=white)](https://research.nvidia.com/labs/gear/enpire/)
+[![X/Twitter](https://img.shields.io/badge/X%2FTwitter-@NVIDIA-black.svg?logo=x)](https://twitter.com/NVIDIA)
+[![X/Twitter](https://img.shields.io/badge/X%2FTwitter-@DrJimFan-black.svg?logo=x)](https://twitter.com/DrJimFan)
 
 ### Democratizing the NVIDIA GEAR ENPIRE Gripper Design for more diverse Robot Arms
 *Robotiq Hand-E • ALOHA • Open Arm • AgileX Piper • Seeed Studio reBot • Franka Panda • ARX5*
@@ -21,13 +22,9 @@
       <a href="https://research.nvidia.com/labs/gear/enpire/">
         <img src="docs/images/enpire_research_demo.gif" alt="NVIDIA GEAR ENPIRE Autonomous Manipulation" width="100%" />
       </a>
-      <br>
-      <a href="https://research.nvidia.com/labs/gear/enpire/">▶️ <b>Watch NVIDIA ENPIRE Research Video</b></a>
     </td>
     <td align="center" valign="top">
       <img src="docs/images/robotiq_hand_e_enpire_gripper.jpg" alt="Robotiq Hand-E ENPIRE Gripper" width="100%" />
-      <br>
-      <em>ENPIRE compliant fingers mounted on Robotiq Hand-E</em>
     </td>
   </tr>
 </table>
