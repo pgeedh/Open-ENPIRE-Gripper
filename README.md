@@ -3,13 +3,10 @@
 <div align="center">
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![MakerWorld Original](https://img.shields.io/badge/MakerWorld-Original_Model-FF5A00.svg)](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm)
-[![MakerWorld Profile](https://img.shields.io/badge/MakerWorld-Profile_%233349177-green.svg)](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm#profileId-3349177)
 [![NVIDIA GEAR](https://img.shields.io/badge/NVIDIA-GEAR_Lab-76B900.svg)](https://research.nvidia.com/labs/gear/enpire/)
 [![X/Twitter](https://img.shields.io/badge/X%2FTwitter-@DrJimFan-black.svg)](https://twitter.com/DrJimFan)
-[![3D Print Ready](https://img.shields.io/badge/3D_Printing-FDM_%7C_SLA_%7C_TPU-orange.svg)](docs/3D_PRINTING_GUIDE.md)
 
-### Democratizing the NVIDIA GEAR ENPIRE Gripper Design for Generalist Robot Arms
+### Democratizing the NVIDIA GEAR ENPIRE Gripper Design for more diverse Robot Arms
 *Robotiq Hand-E • ALOHA • Open Arm • AgileX Piper • Seeed Studio reBot • Franka Panda • ARX5*
 
 <br>
@@ -56,7 +53,7 @@ In the real world, the robotics community builds and trains policies on **genera
 * **Robotiq 2F-85 & 2F-140** (Universal Robots, Kinova, AUBO)
 * **ARX5** (Bimanual manipulation arms)
 
-### Our Mission: Democratizing Frontier Gripper Design
+### Mission: Democratizing Frontier Gripper Design
 > **Hardware breakthroughs in robotics should not be locked to a single proprietary arm.**
 > 
 > The mission of **Open-ENPIRE-Gripper-NVIDIA** is to bridge the gap between frontier physical AI research and the global robotics community:
