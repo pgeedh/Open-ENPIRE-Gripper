@@ -4,7 +4,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![NVIDIA GEAR](https://img.shields.io/badge/NVIDIA-GEAR_Lab-76B900.svg?logo=nvidia&logoColor=white)](https://research.nvidia.com/labs/gear/enpire/)
-[![X/Twitter](https://img.shields.io/badge/X%2FTwitter-@DrJimFan-black.svg?logo=x)](https://twitter.com/DrJimFan)
+[![X/Twitter](https://img.shields.io/badge/X%2FTwitter-@DrJimFan-black.svg)](https://twitter.com/DrJimFan)
 [![Hardware](https://img.shields.io/badge/Hardware-Open_Source-green.svg)](https://github.com/pgeedh/Open-ENPIRE-Gripper-nvidia)
 
 ### Democratizing the NVIDIA GEAR ENPIRE Gripper Design for Diverse Robot Arms
@@ -36,6 +36,12 @@
 
 ### Why This Project Exists
 In physical AI manipulation research, grasping reliability is fundamentally determined by hardware contact mechanics—surface friction, passive compliance, and tactile geometry. When NVIDIA's GEAR lab published **ENPIRE** (*Agentic Robot Policy Self-Improvement in the Real World*), co-led by **Dr. Jim Fan** ([@DrJimFan](https://twitter.com/DrJimFan)) and **Dr. Yuke Zhu**, the physical robot achieved remarkable grasping reliability using a custom-engineered 3D-printable finger designed by **Wenli Xiao** (CMU & NVIDIA GEAR) for the **I2RT YAM** robotic arm.
+
+<p align="center">
+  <img src="docs/images/original_enpire_yam_gripper.jpg" alt="Original NVIDIA ENPIRE I2RT YAM Gripper" width="380" />
+  <br>
+  <em>Original ENPIRE compliant finger design in action on the I2RT YAM research arm (NVIDIA GEAR).</em>
+</p>
 
 However, the I2RT YAM is a specialized research arm that very few universities, startups, independent makers, or robotics labs own.
 
