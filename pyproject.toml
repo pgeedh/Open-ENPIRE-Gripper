@@ -18,6 +18,6 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/pgeedh/robot_Rave"
-Documentation = "https://github.com/pgeedh/robot_Rave/tree/main/docs"
-Repository = "https://github.com/pgeedh/robot_Rave"
+Homepage = "https://github.com/pgeedh/Open-ENPIRE-Gripper-nvidia"
+Documentation = "https://github.com/pgeedh/Open-ENPIRE-Gripper-nvidia/tree/main/docs"
+Repository = "https://github.com/pgeedh/Open-ENPIRE-Gripper-nvidia"
