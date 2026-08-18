@@ -11,11 +11,28 @@
 
 **Democratizing the NVIDIA GEAR ENPIRE gripper design for generalist robotic arms.**
 
-<p align="center">
-  <img src="docs/images/robotiq_hand_e_enpire_gripper.jpg" alt="Robotiq Hand-E ENPIRE Gripper" width="340" />
-  <br>
-  <em>Physical hardware: ENPIRE high-friction compliant finger adapters mounted on a Robotiq Hand-E parallel gripper with wrist perception.</em>
-</p>
+<br>
+
+<table align="center" border="0">
+  <tr>
+    <th align="center" width="50%">🎬 NVIDIA GEAR ENPIRE Research Video</th>
+    <th align="center" width="50%">🦾 Robotiq Hand-E Physical Adapter</th>
+  </tr>
+  <tr>
+    <td align="center" valign="top">
+      <a href="https://research.nvidia.com/labs/gear/enpire/">
+        <img src="docs/images/enpire_research_demo.gif" alt="NVIDIA GEAR ENPIRE Autonomous Manipulation" width="100%" />
+      </a>
+      <br>
+      <a href="https://research.nvidia.com/labs/gear/enpire/">▶️ <b>Watch NVIDIA ENPIRE Video Demos</b></a>
+    </td>
+    <td align="center" valign="top">
+      <img src="docs/images/robotiq_hand_e_enpire_gripper.jpg" alt="Robotiq Hand-E ENPIRE Gripper" width="100%" />
+      <br>
+      <em>ENPIRE compliant fingers mounted on Robotiq Hand-E</em>
+    </td>
+  </tr>
+</table>
 
 [Video & Research](#-nvidia-gear-enpire-research--video) • [The Story](#-the-story--mission) • [Robotiq Hand-E Design](#-robotiq-hand-e-adapter-design) • [Compatibility Heatmap](#-robot-compatibility-heatmap) • [Printing Instructions](#-printing-instructions-for-best-results) • [Contributing](#-rules-for-contributing)
 
@@ -26,14 +43,6 @@
 ## 🎬 NVIDIA GEAR ENPIRE Research & Video
 
 This project builds upon the groundbreaking research **ENPIRE: Agentic Robot Policy Self-Improvement in the Real World**, developed by the **NVIDIA GEAR** lab led by **Dr. Jim Fan** ([@DrJimFan](https://twitter.com/DrJimFan)) and **Dr. Yuke Zhu**.
-
-<div align="center">
-
-[![Watch the NVIDIA ENPIRE Research Video](https://img.shields.io/badge/▶️_Watch_Video-NVIDIA_GEAR_ENPIRE_Research_Demos-red?style=for-the-badge&logo=youtube)](https://research.nvidia.com/labs/gear/enpire/)
-
-*🔗 **Official Project Website & Video Demos**: [research.nvidia.com/labs/gear/enpire](https://research.nvidia.com/labs/gear/enpire/)*
-
-</div>
 
 ```
        ┌─────────────────────────────────────────────────────────────┐
