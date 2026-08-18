@@ -7,7 +7,7 @@
 [![X/Twitter](https://img.shields.io/badge/X%2FTwitter-@DrJimFan-black.svg)](https://twitter.com/DrJimFan)
 [![Hardware](https://img.shields.io/badge/Hardware-Open_Source-green.svg)](https://github.com/pgeedh/Open-ENPIRE-Gripper-nvidia)
 
-### Democratizing the NVIDIA GEAR ENPIRE Gripper Design for Diverse Robot Arms
+### Universal Compliant Gripper (UCG) Adapters for Robot Learning & Physical AI
 
 <br>
 
@@ -54,13 +54,23 @@ In physical AI manipulation research, grasping reliability is fundamentally dete
 
 However, the I2RT YAM is a specialized research arm that very few universities, startups, independent makers, or robotics labs own.
 
-### The Rise of Generalist Grippers in Physical AI
-Across the frontier robotics industry, leading physical AI companies and research teams (including **[Generalist AI](https://generalistai.com/blog/research-preview)**, **[Physical Intelligence (Pi)](https://twitter.com/Physical_Int)**, **[Figure AI](https://twitter.com/Figure_robot)**, **[1X Technologies](https://twitter.com/1x_tech)**, **[Skild AI](https://twitter.com/Skild_AI)**, **[Tesla Optimus](https://twitter.com/Tesla_Optimus)**, **[AgileX Robotics](https://twitter.com/AgilexRobotics)**, and **[Toyota Research Institute (TRI)](https://www.tri.global/)**) are converging on a shared thesis: **deploying general-purpose robots requires versatile, compliant, high-friction parallel fingertips that can handle diverse, delicate, and high-force interactions without tool-changers**.
+### The Rise of Universal Compliant Grippers (UCG) in Physical AI
+Across the frontier robotics industry, leading physical AI companies and research teams (including **[Generalist AI](https://generalistai.com/blog/research-preview)**, **[Physical Intelligence (Pi)](https://twitter.com/Physical_Int)**, **[Figure AI](https://twitter.com/Figure_robot)**, **[1X Technologies](https://twitter.com/1x_tech)**, **[Skild AI](https://twitter.com/Skild_AI)**, **[Tesla Optimus](https://twitter.com/Tesla_Optimus)**, **[AgileX Robotics](https://twitter.com/AgilexRobotics)**, and **[Toyota Research Institute (TRI)](https://www.tri.global/)**) are converging on a shared thesis: **deploying general-purpose physical AI requires versatile, compliant, high-friction parallel fingertips that can handle diverse, delicate, and high-force interactions without tool-changers**.
 
-### The Core Thesis: Generalist Manipulation Needs Generalist Contact
-Modern robot learning policies—ranging from 100Hz end-to-end sensorimotor networks to **Vision-Language-Action (VLA) models** (e.g., OpenVLA, Octo, RT-2), **VLMs**, and **World Models**—must interact with an expansive distribution of physical objects: folding fabrics, tensioning flexible zip-ties, sorting thin fasteners, handling micro-pins, and seating rigid PCBs.
+We refer to this design paradigm as the **Universal Compliant Gripper (UCG)**.  
+*(Note: UCG is not an official industry acronym, but rather our term to describe this class of cross-platform, passively compliant, high-friction parallel hardware).*
 
-The core aim of this project is to deliver a **gripper finger architecture versatile enough to master this broad spectrum of manipulation tasks** to **enhance the capabilities of existing robot hardware** and **democratize frontier physical AI for everyone**.
+### Empowering Modern Robot Learning: $\pi_0$, GR00T, Diffusion Policy, & ACT
+State-of-the-art robot learning policies and foundation models require hardware that can absorb physical uncertainty:
+* **$\pi_0$ (Pi-Zero by Physical Intelligence)**: Flow-matching / diffusion generalist physical AI model requiring robust non-slip tactile dynamics across complex multi-task domains.
+* **GR00T (NVIDIA Generalist Robot 00T)**: Multimodal foundation model driving humanoid and bimanual dexterous manipulation.
+* **Diffusion Policy (DP / Chi et al.)**: Visuomotor action diffusion executing high-frequency continuous action trajectories.
+* **ACT (Action Chunking with Transformers / Zhao et al.)**: High-frequency bimanual imitation learning powering ALOHA and tabletop learning rigs.
+* **OpenVLA, Octo, RT-1 & RT-2**: Vision-Language-Action models mapping tokens to spatial end-effector displacements.
+
+When training these policies, robots encounter an expansive distribution of physical objects: folding delicate fabrics, tensioning flexible zip-ties, sorting thin fasteners, handling micro-pins, and seating rigid PCBs.
+
+The core aim of this project is to deliver a **Universal Compliant Gripper (UCG) finger architecture versatile enough to master this broad spectrum of manipulation tasks** to **enhance the capabilities of existing robot hardware** and **democratize frontier physical AI for everyone**.
 
 In the open-source community, researchers and builders train policies across diverse robotic arms:
 * **Robotiq Hand-E**: Precision electric parallel gripper for industrial and research cobots.
@@ -76,7 +86,7 @@ In the open-source community, researchers and builders train policies across div
 > **Hardware breakthroughs in robotics should not be locked to a single proprietary arm.**
 > 
 > The mission of **Open-ENPIRE-Gripper-NVIDIA** is to bridge the gap between frontier physical AI research and the global robotics community:
-> 1. **Universal Accessibility**: Translate the proven high-friction, compliant contact profile into 3D-printable STL adapters for popular generalist robotic arms. All printable models can be found in the [`grippers-stl/`](grippers-stl/) folder.
+> 1. **Universal Accessibility**: Translate the proven high-friction, compliant contact profile into 3D-printable STL adapters for popular robot arms. All printable models can be found in the [`grippers-stl/`](grippers-stl/) folder.
 > 2. **Physical AI for Everyone**: Enable anyone with a standard 3D printer to achieve frontier-grade contact mechanics on their existing robot without purchasing expensive custom end-effectors.
 > 3. **Community-Driven Standardization**: Establish this geometry as an open-source standard across all parallel-jaw robotic grippers, starting with our physical adaptation for the **Robotiq Hand-E**.
 
@@ -85,6 +95,8 @@ In the open-source community, researchers and builders train policies across div
 ---
 
 ## Robotiq Hand-E Adapter Design
+
+Our primary physical adaptation mounts the ENPIRE fingertip geometry directly onto the **Robotiq Hand-E** parallel electric gripper:
 
 <table align="center" border="0">
   <tr>
@@ -218,7 +230,7 @@ If you use this gripper design or its multi-arm adapters in your research, pleas
 ### 2. Open-ENPIRE-Gripper-NVIDIA Repository & Design Adaptation
 ```bibtex
 @misc{open_enpire_gripper_2026,
-  title={Open-ENPIRE-Gripper-NVIDIA: Democratizing the ENPIRE High-Friction Gripper Design for Generalist Robot Arms},
+  title={Open-ENPIRE-Gripper-NVIDIA: Universal Compliant Gripper (UCG) Adapters for Robot Learning and Physical AI},
   author={Geedh, Pruthvi Omkar and Open Source Robotics Community},
   howpublished={\url{https://github.com/pgeedh/Open-ENPIRE-Gripper-nvidia}},
   year={2026}
