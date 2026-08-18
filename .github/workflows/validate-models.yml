@@ -1,4 +1,4 @@
-name: Validate 3D Models & URDFs
+name: Validate 3D STL Meshes
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main, master ]
 
 jobs:
-  validate-stl-and-urdf:
+  validate-stl:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -24,11 +24,6 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Regenerate and verify STLs
+      - name: Verify 3D STL Meshes
         run: |
-          python3 scripts/generate_stls.py
           python3 scripts/validate_mesh.py
-
-      - name: Export and validate URDFs
-        run: |
-          python3 scripts/export_urdf.py

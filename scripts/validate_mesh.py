@@ -90,13 +90,17 @@ def main():
                     print(f"[FAIL] {rel_path} -> {msg}")
                     
     print("=" * 75)
-    print(f"Results: {valid_files}/{total_files} models passed validation.")
-    if valid_files == total_files:
-        print("[SUCCESS] All 3D STL meshes are watertight and structurally valid.")
+    if total_files == 0:
+        print("[INFO] No STL files found yet. Ready for manual upload into stl/ directories.")
         return 0
     else:
-        print("[ERROR] Some mesh files failed validation.")
-        return 1
+        print(f"Results: {valid_files}/{total_files} models passed validation.")
+        if valid_files == total_files:
+            print("[SUCCESS] All 3D STL meshes are watertight and structurally valid.")
+            return 0
+        else:
+            print("[ERROR] Some mesh files failed validation.")
+            return 1
 
 if __name__ == '__main__':
     exit(main())
