@@ -46,12 +46,18 @@ In physical AI manipulation research, grasping reliability is fundamentally dete
 However, the I2RT YAM is a specialized research arm that very few universities, startups, independent makers, or robotics labs own.
 
 ### The Rise of Generalist Grippers in Physical AI
-Across the frontier robotics industry, leading physical AI labs and humanoid teams (including **[Physical Intelligence (Pi)](https://twitter.com/Physical_Int)**, **[Figure AI](https://twitter.com/Figure_robot)**, **[1X Technologies](https://twitter.com/1x_tech)**, **[Skild AI](https://twitter.com/Skild_AI)**, **[Tesla Optimus](https://twitter.com/Tesla_Optimus)**, **[AgileX Robotics](https://twitter.com/AgilexRobotics)**, and **[Toyota Research Institute (TRI)](https://www.tri.global/)**) are converging on a shared principle: **generalist manipulation requires versatile, compliant, high-friction parallel fingertips that can handle diverse, delicate, and high-force tasks without tool-changers**.
+Across the frontier robotics industry, leading physical AI companies and research teams (including **[Generalist AI](https://generalistai.com/blog/research-preview)**, **[Physical Intelligence (Pi)](https://twitter.com/Physical_Int)**, **[Figure AI](https://twitter.com/Figure_robot)**, **[1X Technologies](https://twitter.com/1x_tech)**, **[Skild AI](https://twitter.com/Skild_AI)**, **[Tesla Optimus](https://twitter.com/Tesla_Optimus)**, **[AgileX Robotics](https://twitter.com/AgilexRobotics)**, and **[Toyota Research Institute (TRI)](https://www.tri.global/)**) are converging on a shared thesis: **deploying general-purpose robots requires versatile, compliant, high-friction parallel fingertips that can handle diverse, delicate, and high-force interactions without tool-changers**.
 
-### Empowering Robot Learning: VLAs, VLMs, & World Models
-Modern robotic foundation models, including **Vision-Language-Action (VLA) models** (e.g., OpenVLA, Octo, RT-2), **Vision-Language Models (VLMs)**, and **World Models / Physical AI Dynamics**, are fundamentally bottlenecked by real-world contact mechanics. When training generalist policies, robots encounter an extremely diverse spectrum of objects: deformable cables, slippery connectors, micro-pins, delicate zip-ties, rigid PCBs, and heavy tools.
+<p align="center">
+  <img src="docs/images/generalist_ai_manipulation.jpg" alt="Generalist AI Bimanual Manipulation" width="440" />
+  <br>
+  <em>Bimanual dexterous manipulation: high-friction compliant fingertips handling delicate deformable fabrics and articulated tasks (Generalist AI Research Preview).</em>
+</p>
 
-The aim of this project is to deliver a **gripper finger architecture diverse and versatile enough to handle an expansive range of manipulation tasks** to **enhance the capabilities of existing robot hardware** and **democratize frontier physical AI for everyone**.
+### The Core Thesis: Generalist Manipulation Needs Generalist Contact
+Modern robot learning policies—ranging from 100Hz end-to-end sensorimotor networks to **Vision-Language-Action (VLA) models** (e.g., OpenVLA, Octo, RT-2), **VLMs**, and **World Models**—must interact with an expansive distribution of physical objects: folding fabrics, tensioning flexible zip-ties, sorting thin fasteners, handling micro-pins, and seating rigid PCBs.
+
+The core aim of this project is to deliver a **gripper finger architecture versatile enough to master this broad spectrum of manipulation tasks** to **enhance the capabilities of existing robot hardware** and **democratize frontier physical AI for everyone**.
 
 In the open-source community, researchers and builders train policies across diverse robotic arms:
 * **Robotiq Hand-E**: Precision electric parallel gripper for industrial and research cobots.
