@@ -1,34 +1,75 @@
-# Robotiq Hand-E STL Models
-
 <div align="center">
-  <img src="../../docs/images/robotiq_hand_e_enpire_gripper.jpg" alt="Robotiq Hand-E ENPIRE Gripper" width="320" />
-  <br>
-  <em>Robotiq Hand-E gripper equipped with custom ENPIRE-style compliant fingers and wrist perception mount.</em>
+
+<a href="https://robotiq.com/products/hand-e-adaptive-robot-gripper">
+  <img src="../../docs/images/robotiq_logo.png" alt="Robotiq Logo" width="180" />
+</a>
+
+# Robotiq Hand-E Universal Compliant Gripper (UCG)
+
+### Transforming the Standard Industrial Robotiq Hand-E into a Frontier High-Friction Compliant Gripper for Robot Learning & Physical AI
+
+<br>
+
+<table align="center" border="0">
+  <tr>
+    <th align="center" width="50%">
+      <a href="https://robotiq.com/products/hand-e-adaptive-robot-gripper">Standard OEM Robotiq Hand-E</a>
+    </th>
+    <th align="center" width="50%">Robotiq Hand-E + ENPIRE UCG Compliant Fingers</th>
+  </tr>
+  <tr>
+    <td align="center" valign="top">
+      <a href="https://robotiq.com/products/hand-e-adaptive-robot-gripper">
+        <img src="../../docs/images/robotiq_hand_e_standard.jpg" alt="Standard OEM Robotiq Hand-E" width="100%" />
+      </a>
+    </td>
+    <td align="center" valign="top">
+      <img src="../../docs/images/robotiq_hand_e_ucg_mounted.jpg" alt="Robotiq Hand-E with ENPIRE UCG Fingers" width="100%" />
+    </td>
+  </tr>
+</table>
+
 </div>
 
 ---
 
-## Gripper Specifications
-* **Gripper Model**: Robotiq Hand-E Electric Parallel Gripper
-* **Stroke**: 50 mm linear parallel stroke
-* **Grip Force**: 20 N to 130 N (programmable)
-* **Mounting Interface**: 2× M4/M3 mounting screws per finger (standard Robotiq bracket)
-* **Repeatability**: 0.02 mm
-* **Best Applications**: Precision manipulation, electronic assembly, PCB/GPU insertion, and Physical AI benchmarks.
+## 🔗 Official Hardware Reference
+* 🌐 **Official Product Page**: [Robotiq Hand-E Adaptive Robot Gripper](https://robotiq.com/products/hand-e-adaptive-robot-gripper)
+* 📖 **Robotiq Support & Manuals**: [support.robotiq.com](https://support.robotiq.com)
 
 ---
 
-## STL File Naming
-Drop your 3D printable `.stl` files here:
-* `hand_e_enpire_finger_left.stl`
-* `hand_e_enpire_finger_right.stl`
-* `hand_e_enpire_finger_grooved.stl`
-* `hand_e_enpire_finger_tpu_slot.stl`
+## 📦 Production-Ready STL Files
+
+This directory contains the production-ready **3D-printable binary STL files** for mounting the ENPIRE Universal Compliant Gripper (UCG) fingertip geometry directly onto the **Robotiq Hand-E** electric parallel gripper:
+
+* **`Robotiq_UCG_Hard_Hand_E.stl`** — Primary rigid structural skeleton adapter (print in PETG-CF / PA-CF / PLA-CF)
+* **`Robotiq_UCG_Soft_Hand_E.stl`** — Compliant high-friction tactile grip insert (print in TPU 85A / TPU 95A)
 
 ---
 
-## 3D Printing Recommendations
-* **Material**: PETG-CF, PLA-CF, or PA12-CF (Structural body) + TPU 85A/95A (Contact pads)
-* **Walls / Perimeters**: 5–6 walls
-* **Infill**: 50% Gyroid
-* **Orientation**: Print flat on lateral side for maximum shear strength under clamping load.
+## 📐 Mechanical Specifications
+
+| Parameter | Specification |
+| :--- | :--- |
+| **Gripper Platform** | [**Robotiq Hand-E**](https://robotiq.com/products/hand-e-adaptive-robot-gripper) (Linear Parallel Stroke) |
+| **Finger Design Paradigm** | **Universal Compliant Gripper (UCG)** |
+| **Mounting Fasteners** | 2× M4 / M3 socket head cap screws per finger |
+| **Fastener Spacing** | Standard Robotiq 10 mm PCD pattern |
+| **Overall Length ($+Z$)** | 96.0 mm |
+| **Base Width ($+X$)** | 22.0 mm |
+| **Linear Stroke** | 50.0 mm parallel travel |
+| **Programmable Clamping Force** | 20 N to 130 N |
+| **Contact Surface** | Dual-material rigid backbone with ribbed compliant high-friction core ($\mu > 0.8$) |
+
+---
+
+## 🖨️ Tested 3D Printing Profile (Bambu Lab P1S)
+
+* **Materials**:
+  * **Outer Rigid Backbone**: **PETG-CF**, **PLA-CF**, or **PA12-CF (Nylon-CF)** (Blue)
+  * **Compliant Friction Core**: **TPU 85A** or **TPU 95A** (Orange)
+* **Layer Height**: **0.16 mm** (Optimal for screw counterbores)
+* **Wall Loops / Perimeters**: **5 to 6 walls** (Critical for bolt clamp strength)
+* **Infill Pattern & Density**: **50% – 60% Gyroid** (Rigid frame) / **30% – 40% Gyroid** (TPU core)
+* **Support Configuration**: Tree (Auto), 40° threshold, 0.20 mm Top Z distance
