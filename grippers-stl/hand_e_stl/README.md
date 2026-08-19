@@ -1,6 +1,8 @@
 <div align="center">
 
-<img src="../../docs/images/robotiq_logo.png" alt="Robotiq Logo" width="180" />
+<a href="https://robotiq.com/products/hand-e-adaptive-robot-gripper">
+  <img src="../../docs/images/robotiq_logo.png" alt="Robotiq Logo" width="180" />
+</a>
 
 # Robotiq Hand-E Universal Compliant Gripper (UCG)
 
@@ -10,12 +12,16 @@
 
 <table align="center" border="0">
   <tr>
-    <th align="center" width="50%">Standard OEM Robotiq Hand-E</th>
+    <th align="center" width="50%">
+      <a href="https://robotiq.com/products/hand-e-adaptive-robot-gripper">Standard OEM Robotiq Hand-E</a>
+    </th>
     <th align="center" width="50%">Robotiq Hand-E + ENPIRE UCG Compliant Fingers</th>
   </tr>
   <tr>
     <td align="center" valign="top">
-      <img src="../../docs/images/robotiq_hand_e_standard.jpg" alt="Standard OEM Robotiq Hand-E" width="100%" />
+      <a href="https://robotiq.com/products/hand-e-adaptive-robot-gripper">
+        <img src="../../docs/images/robotiq_hand_e_standard.jpg" alt="Standard OEM Robotiq Hand-E" width="100%" />
+      </a>
     </td>
     <td align="center" valign="top">
       <img src="../../docs/images/robotiq_hand_e_ucg_mounted.jpg" alt="Robotiq Hand-E with ENPIRE UCG Fingers" width="100%" />
@@ -24,6 +30,12 @@
 </table>
 
 </div>
+
+---
+
+## 🔗 Official Hardware Reference
+* 🌐 **Official Product Page**: [Robotiq Hand-E Adaptive Robot Gripper](https://robotiq.com/products/hand-e-adaptive-robot-gripper)
+* 📖 **Robotiq Support & Manuals**: [support.robotiq.com](https://support.robotiq.com)
 
 ---
 
@@ -40,7 +52,7 @@ This directory contains the production-ready **3D-printable binary STL files** f
 
 | Parameter | Specification |
 | :--- | :--- |
-| **Gripper Platform** | **Robotiq Hand-E** (Linear Parallel Stroke) |
+| **Gripper Platform** | [**Robotiq Hand-E**](https://robotiq.com/products/hand-e-adaptive-robot-gripper) (Linear Parallel Stroke) |
 | **Finger Design Paradigm** | **Universal Compliant Gripper (UCG)** |
 | **Mounting Fasteners** | 2× M4 / M3 socket head cap screws per finger |
 | **Fastener Spacing** | Standard Robotiq 10 mm PCD pattern |
