@@ -42,8 +42,6 @@ This directory houses the baseline documentation and reference models for the fo
 ## 📦 Reference File Structure
 * `enpire_yam_finger_standard_left.stl` - Standard left finger adapter
 * `enpire_yam_finger_standard_right.stl` - Standard right finger adapter
-* `enpire_yam_finger_grooved.stl` - High-friction grooved variant for cylindrical objects
-* `enpire_yam_finger_pinch.stl` - Tapered precision pinch variant for thin fasteners
 
 ---
 
