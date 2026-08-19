@@ -94,43 +94,6 @@ In the open-source community, researchers and builders train policies across div
 
 ---
 
-## Robotiq Hand-E Universal Compliant Gripper (UCG) Adapter
-
-Our primary physical adaptation mounts the ENPIRE UCG fingertip geometry directly onto the [**Robotiq Hand-E Adaptive Gripper**](https://robotiq.com/products/hand-e-adaptive-robot-gripper):
-
-<table align="center" border="0">
-  <tr>
-    <th align="center" width="33%">
-      <a href="https://robotiq.com/products/hand-e-adaptive-robot-gripper">Standard OEM Hand-E</a>
-    </th>
-    <th align="center" width="33%">Dual-Material CAD Model</th>
-    <th align="center" width="33%">Mounted Hand-E UCG Gripper</th>
-  </tr>
-  <tr>
-    <td align="center" valign="top">
-      <a href="https://robotiq.com/products/hand-e-adaptive-robot-gripper">
-        <img src="docs/images/robotiq_hand_e_standard.jpg" alt="Standard OEM Robotiq Hand-E" width="100%" />
-      </a>
-    </td>
-    <td align="center" valign="top">
-      <img src="docs/images/enpire_finger_model_render.png" alt="ENPIRE Finger Model Render" width="100%" />
-    </td>
-    <td align="center" valign="top">
-      <img src="docs/images/robotiq_hand_e_ucg_mounted.jpg" alt="Robotiq Hand-E with ENPIRE UCG Fingers" width="100%" />
-    </td>
-  </tr>
-</table>
-
-| Parameter | Specification |
-| :--- | :--- |
-| **Target Directory** | [`grippers-stl/hand_e_stl/`](grippers-stl/hand_e_stl/) |
-| **Official Product Page** | [Robotiq Hand-E Adaptive Robot Gripper](https://robotiq.com/products/hand-e-adaptive-robot-gripper) |
-| **Mounting Interface** | Standard 2× M4 / M3 counterbore bracket per finger |
-| **Stroke & Force** | 50 mm linear parallel stroke | 20 N to 130 N programmable grip force |
-| **Contact Surface** | Dual-material structural beam with integrated anti-slip compliant friction inserts |
-
----
-
 ## Robot Compatibility Matrix
 
 > 💡 **3D Printable Files**: All different gripper STL models for the supported robotic arms can be found in the [`grippers-stl/`](grippers-stl/) folder.
