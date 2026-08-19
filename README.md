@@ -94,21 +94,25 @@ In the open-source community, researchers and builders train policies across div
 
 ---
 
-## Robotiq Hand-E Adapter Design
+## Robotiq Hand-E Universal Compliant Gripper (UCG) Adapter
 
-Our primary physical adaptation mounts the ENPIRE fingertip geometry directly onto the **Robotiq Hand-E** parallel electric gripper:
+Our primary physical adaptation mounts the ENPIRE UCG fingertip geometry directly onto the **Robotiq Hand-E** parallel electric gripper:
 
 <table align="center" border="0">
   <tr>
-    <th align="center" width="50%">Dual-Material CAD Model</th>
-    <th align="center" width="50%">Robotiq Hand-E Physical Hardware</th>
+    <th align="center" width="33%">Standard OEM Hand-E</th>
+    <th align="center" width="33%">Dual-Material CAD Model</th>
+    <th align="center" width="33%">Mounted Hand-E UCG Gripper</th>
   </tr>
   <tr>
+    <td align="center" valign="top">
+      <img src="docs/images/robotiq_hand_e_standard.jpg" alt="Standard OEM Robotiq Hand-E" width="100%" />
+    </td>
     <td align="center" valign="top">
       <img src="docs/images/enpire_finger_model_render.png" alt="ENPIRE Finger Model Render" width="100%" />
     </td>
     <td align="center" valign="top">
-      <img src="docs/images/hand_e_enpire_fingers_detail.jpg" alt="Hand-E ENPIRE Finger Detail" width="100%" />
+      <img src="docs/images/robotiq_hand_e_ucg_mounted.jpg" alt="Robotiq Hand-E with ENPIRE UCG Fingers" width="100%" />
     </td>
   </tr>
 </table>
