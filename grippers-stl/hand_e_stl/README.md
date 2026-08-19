@@ -43,8 +43,8 @@
 
 This directory contains the production-ready **3D-printable binary STL files** for mounting the ENPIRE Universal Compliant Gripper (UCG) fingertip geometry directly onto the **Robotiq Hand-E** electric parallel gripper:
 
-* **`hand_e_enpire_finger_left.stl`** (Left finger adapter)
-* **`hand_e_enpire_finger_right.stl`** (Right finger adapter)
+* **`Robotiq_UCG_Hard_Hand_E.stl`** — Primary rigid structural skeleton adapter (print in PETG-CF / PA-CF / PLA-CF)
+* **`Robotiq_UCG_Soft_Hand_E.stl`** — Compliant high-friction tactile grip insert (print in TPU 85A / TPU 95A)
 
 ---
 

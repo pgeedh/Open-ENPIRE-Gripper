@@ -32,16 +32,19 @@ def compute_mesh_properties(stl_path: str):
     v2 = data['v2']
     all_verts = np.vstack([v0, v1, v2])
     
-    # Scale from mm to meters
-    min_pt_m = all_verts.min(axis=0) * 0.001
-    max_pt_m = all_verts.max(axis=0) * 0.001
+    # Auto-detect units: if bounding box max dimension < 1.0, mesh is already in meters; otherwise mm
+    raw_span = all_verts.max(axis=0) - all_verts.min(axis=0)
+    scale_to_m = 1.0 if np.max(raw_span) < 1.0 else 0.001
+
+    min_pt_m = all_verts.min(axis=0) * scale_to_m
+    max_pt_m = all_verts.max(axis=0) * scale_to_m
     center_m = (min_pt_m + max_pt_m) / 2.0
     dims_m = max_pt_m - min_pt_m
     
     # Volume calculation
     cross = np.cross(v1, v2)
     signed_vol = np.sum(v0 * cross) / 6.0
-    vol_m3 = abs(signed_vol) * 1e-9
+    vol_m3 = abs(signed_vol) * (scale_to_m ** 3)
     
     # Approximate mass (Plastic density ~1200 kg/m3)
     mass_kg = max(0.025, round(vol_m3 * 1200.0, 4))
@@ -56,7 +59,8 @@ def compute_mesh_properties(stl_path: str):
         'dims_m': dims_m,
         'center_m': center_m,
         'mass_kg': mass_kg,
-        'inertia': (ixx, iyy, izz)
+        'inertia': (ixx, iyy, izz),
+        'scale_to_m': scale_to_m
     }
 
 def generate_urdf(robot_name: str, left_stl: str, right_stl: str, stroke_mm: float = 50.0, force_n: float = 130.0) -> str:
@@ -182,8 +186,8 @@ def generate_urdf(robot_name: str, left_stl: str, right_stl: str, stroke_mm: flo
 def main():
     parser = argparse.ArgumentParser(description="Generate simulation URDF from gripper STL files")
     parser.add_argument("--name", default="hand_e_enpire_gripper", help="Robot gripper name")
-    parser.add_argument("--left_stl", default="grippers-stl/hand_e_stl/hand_e_enpire_finger_left.stl", help="Path to left finger STL")
-    parser.add_argument("--right_stl", default="grippers-stl/hand_e_stl/hand_e_enpire_finger_right.stl", help="Path to right finger STL")
+    parser.add_argument("--left_stl", default="grippers-stl/hand_e_stl/Robotiq_UCG_Hard_Hand_E.stl", help="Path to left finger STL")
+    parser.add_argument("--right_stl", default="grippers-stl/hand_e_stl/Robotiq_UCG_Hard_Hand_E.stl", help="Path to right finger STL")
     parser.add_argument("--stroke_mm", type=float, default=50.0, help="Total parallel stroke in mm")
     parser.add_argument("--force_n", type=float, default=130.0, help="Maximum grip force in Newtons")
     parser.add_argument("--out", default="hand_e_enpire_gripper.urdf", help="Output URDF file path")

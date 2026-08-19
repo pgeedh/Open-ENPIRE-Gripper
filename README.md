@@ -162,8 +162,8 @@ We provide an automated script in `scripts/generate_urdf_from_stl.py` that parse
 # Generate a URDF from your STL files:
 python3 scripts/generate_urdf_from_stl.py \
   --name hand_e_enpire_gripper \
-  --left_stl grippers-stl/hand_e_stl/hand_e_enpire_finger_left.stl \
-  --right_stl grippers-stl/hand_e_stl/hand_e_enpire_finger_right.stl \
+  --left_stl grippers-stl/hand_e_stl/Robotiq_UCG_Hard_Hand_E.stl \
+  --right_stl grippers-stl/hand_e_stl/Robotiq_UCG_Hard_Hand_E.stl \
   --stroke_mm 50.0 \
   --force_n 130.0 \
   --out hand_e_enpire_gripper.urdf

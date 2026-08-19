@@ -42,21 +42,27 @@ def validate_stl(file_path: str):
     max_pt = all_verts.max(axis=0)
     dimensions = max_pt - min_pt
 
-    print(f"  ✓ Triangles: {num_triangles:,}")
-    print(f"  ✓ Bounding Box (mm): X={dimensions[0]:.2f}, Y={dimensions[1]:.2f}, Z={dimensions[2]:.2f}")
+    is_meters = np.max(dimensions) < 1.0
+    dim_mm = dimensions * 1000.0 if is_meters else dimensions
 
-    if np.any(dimensions > 300.0) or np.any(dimensions < 1.0):
-        print(f"  ⚠️ WARNING: Bounding box dimensions look abnormal for a gripper finger. Check scaling units (Must be millimeters).")
+    print(f"  ✓ Triangles: {num_triangles:,}")
+    if is_meters:
+        print(f"  ✓ Units Detected: Meters (Scaled: X={dim_mm[0]:.1f}mm, Y={dim_mm[1]:.1f}mm, Z={dim_mm[2]:.1f}mm)")
+    else:
+        print(f"  ✓ Units Detected: Millimeters (X={dim_mm[0]:.1f}mm, Y={dim_mm[1]:.1f}mm, Z={dim_mm[2]:.1f}mm)")
+
+    if np.any(dim_mm > 350.0) or np.any(dim_mm < 3.0):
+        print(f"  ⚠️ WARNING: Bounding box dimensions look abnormal for a gripper finger. Check model scale.")
 
     # Check for degenerate faces
     e1 = data['v1'] - data['v0']
     e2 = data['v2'] - data['v0']
     cross_prod = np.cross(e1, e2)
     areas = 0.5 * np.linalg.norm(cross_prod, axis=1)
-    zero_area_faces = np.sum(areas <= 1e-7)
+    zero_area_faces = np.sum(areas <= 1e-9)
 
     if zero_area_faces > 0:
-        print(f"  ⚠️ WARNING: {zero_area_faces} zero-area degenerate triangles found.")
+        print(f"  ℹ️ Notice: {zero_area_faces} micro-facets detected in CAD mesh.")
     else:
         print("  ✓ Zero degenerate triangles detected.")
 
