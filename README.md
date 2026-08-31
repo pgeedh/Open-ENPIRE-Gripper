@@ -74,12 +74,13 @@ The core aim of this project is to deliver a **Universal Compliant Gripper (UCG)
 
 In the open-source community, researchers and builders train policies across diverse robotic arms:
 * **Robotiq Hand-E**: Precision electric parallel gripper for industrial and research cobots.
-* **ALOHA / Mobile ALOHA**: Stanford/Trossen bimanual imitation learning standard.
+* **Robotiq 2F-85 & 2F-140**: High-payload adaptive parallel grippers for Universal Robots, Kinova, and AUBO.
 * **Open Arm**: Accessible open-source robotics platform.
+* **I2RT YAM**: Foundational research platform from NVIDIA GEAR ENPIRE.
+* **ALOHA / Mobile ALOHA**: Stanford/Trossen bimanual imitation learning standard.
 * **AgileX (Piper)**: Lightweight 6-DoF bimanual research arms.
 * **Seeed Studio reBot**: Low-cost edge AI vision-language-action (VLA) testbed.
 * **Franka Emika Panda / FR3**: 7-DoF contact-physics research standard.
-* **Robotiq 2F-85 & 2F-140**: High-payload parallel grippers for Universal Robots, Kinova, and AUBO.
 * **ARX5**: Bimanual mobile manipulation arms.
 
 ### Mission: Democratizing Frontier Gripper Design
@@ -88,30 +89,85 @@ In the open-source community, researchers and builders train policies across div
 > The mission of **Open-ENPIRE-Gripper-NVIDIA** is to bridge the gap between frontier physical AI research and the global robotics community:
 > 1. **Universal Accessibility**: Translate the proven high-friction, compliant contact profile into 3D-printable STL adapters for popular robot arms. All printable models can be found in the [`grippers-stl/`](grippers-stl/) folder.
 > 2. **Physical AI for Everyone**: Enable anyone with a standard 3D printer to achieve frontier-grade contact mechanics on their existing robot without purchasing expensive custom end-effectors.
-> 3. **Community-Driven Standardization**: Establish this geometry as an open-source standard across all parallel-jaw robotic grippers, starting with our physical adaptation for the **Robotiq Hand-E**.
+> 3. **Community-Driven Standardization**: Establish this geometry as an open-source standard across all parallel-jaw robotic grippers, starting with our physical adaptations for **Robotiq Hand-E**, **Robotiq 2F-140**, **Open Arm**, and **I2RT YAM**.
 
 *Original MakerWorld Project: [Gripper Finger for Robot Arm](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm) / [Profile #3349177](https://makerworld.com/en/models/2984746-gripper-finger-for-robot-arm#profileId-3349177) by Wenli Xiao.*
 
 ---
 
+## 🎨 3D STL Model Visual Gallery
+
+<table align="center" border="0">
+  <tr>
+    <th align="center" width="25%">Robotiq Hand-E UCG</th>
+    <th align="center" width="25%">Robotiq 2F-140 UCG</th>
+    <th align="center" width="25%">Open Arm UCG</th>
+    <th align="center" width="25%">I2RT YAM Baseline</th>
+  </tr>
+  <tr>
+    <td align="center" valign="top">
+      <a href="grippers-stl/hand_e_stl/">
+        <img src="docs/images/renders/robotiq_hand_e_ucg_render.png" alt="Robotiq Hand-E UCG Render" width="100%" />
+      </a>
+    </td>
+    <td align="center" valign="top">
+      <a href="grippers-stl/robotiq_2f85_2f140_stl/">
+        <img src="docs/images/renders/robotiq_2f140_ucg_render.png" alt="Robotiq 2F-140 UCG Render" width="100%" />
+      </a>
+    </td>
+    <td align="center" valign="top">
+      <a href="grippers-stl/open_arm_stl/">
+        <img src="docs/images/renders/openarm_ucg_render.png" alt="Open Arm UCG Render" width="100%" />
+      </a>
+    </td>
+    <td align="center" valign="top">
+      <a href="grippers-stl/enpire_i2rt_yam_stl/">
+        <img src="docs/images/renders/i2rt_yam_ucg_render.png" alt="I2RT YAM Baseline Render" width="100%" />
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Robotiq Hand-E</strong></td>
+    <td align="center"><strong>Robotiq 2F-140 / 2F-85</strong></td>
+    <td align="center"><strong>Open Arm</strong></td>
+    <td align="center"><strong>I2RT YAM Baseline</strong></td>
+  </tr>
+</table>
+
+---
+
 ## Robot Compatibility Matrix
 
-> 💡 **3D Printable Files**: All different gripper STL models for the supported robotic arms can be found in the [`grippers-stl/`](grippers-stl/) folder.
+> 💡 **3D Printable Files**: All gripper STL models for supported robotic arms are available in the [`grippers-stl/`](grippers-stl/) directory.
 
 | Robot Platform | Arm Type / Gripper Interface | Status | Target STL Folder |
 | :--- | :--- | :---: | :--- |
 | [**Robotiq Hand-E**](https://robotiq.com/products/hand-e-adaptive-robot-gripper) | Precision Electric Parallel Gripper | **Available** | [`grippers-stl/hand_e_stl/`](grippers-stl/hand_e_stl/) |
+| [**Robotiq 2F-85 / 2F-140**](https://robotiq.com/products/2f85-140-adaptive-robot-gripper) | 2× M4 Bracket Mount (10 mm spacing) | **Available** | [`grippers-stl/robotiq_2f85_2f140_stl/`](grippers-stl/robotiq_2f85_2f140_stl/) |
+| **Open Arm** | Modular Open-Source Parallel Mount | **Available** | [`grippers-stl/open_arm_stl/`](grippers-stl/open_arm_stl/) |
+| **I2RT YAM** | Native Dual M3 Clamp (Wenli Xiao Baseline) | **Available** | [`grippers-stl/enpire_i2rt_yam_stl/`](grippers-stl/enpire_i2rt_yam_stl/) |
 | **ALOHA / Mobile ALOHA** | ViperX Parallel Jaw Carriage | *In Progress* | [`grippers-stl/aloha_stl/`](grippers-stl/aloha_stl/) |
-| **Open Arm** | Modular Open-Source Parallel Mount | *In Progress* | [`grippers-stl/open_arm_stl/`](grippers-stl/open_arm_stl/) |
 | **AgileX (Piper)** | Dual Pin + M3 Fastener Slider | *In Progress* | [`grippers-stl/agilex_stl/`](grippers-stl/agilex_stl/) |
 | **Seeed Studio reBot** | AI Arm Parallel Gripper Slider | *In Progress* | [`grippers-stl/seeed_rebot_stl/`](grippers-stl/seeed_rebot_stl/) |
-| **Robotiq 2F-85 / 2F-140** | 2× M4 Bracket Mount (10 mm spacing) | *In Progress* | [`grippers-stl/robotiq_2f85_2f140_stl/`](grippers-stl/robotiq_2f85_2f140_stl/) |
 | **Franka Panda / FR3** | Quick-Mount Dovetail / M4 Slider | *In Progress* | [`grippers-stl/franka_panda_stl/`](grippers-stl/franka_panda_stl/) |
 | **ARX5** | Direct Dual Lug M3 Pattern | *In Progress* | [`grippers-stl/arx5_stl/`](grippers-stl/arx5_stl/) |
-| **I2RT YAM** | Native Dual M3 Clamp (Wenli Xiao Baseline) | *Baseline* | [`grippers-stl/enpire_i2rt_yam_stl/`](grippers-stl/enpire_i2rt_yam_stl/) |
 | **ISO 9409-1 (UR / xArm)** | Universal Tool Flange Adapter Plates | *In Progress* | [`grippers-stl/iso_flange_adapters_stl/`](grippers-stl/iso_flange_adapters_stl/) |
 
-*Status: Available (Ready to print) | In Progress (Community Contributions Welcome)*
+*Status: Available (Production-ready STL models available) | In Progress (Community Contributions Welcome)*
+
+---
+
+## 📦 Production STL Model Catalog
+
+| Target Gripper Platform | Model Filename | Role & Material | Bounding Box Dimensions |
+| :--- | :--- | :--- | :--- |
+| **Robotiq Hand-E** | [`Robotiq_UCG_Hard_Hand_E.stl`](grippers-stl/hand_e_stl/Robotiq_UCG_Hard_Hand_E.stl) | Rigid Structural Frame (PETG-CF / PA-CF) | 28.9 × 109.5 × 32.6 mm |
+| **Robotiq Hand-E** | [`Robotiq_UCG_Soft_Hand_E.stl`](grippers-stl/hand_e_stl/Robotiq_UCG_Soft_Hand_E.stl) | Compliant Grip Core (TPU 85A/95A) | 15.0 × 81.0 × 29.8 mm |
+| **Robotiq 2F-140 / 2F-85** | [`Robotiq_2F-140-UCG_Hard.stl`](grippers-stl/robotiq_2f85_2f140_stl/Robotiq_2F-140-UCG_Hard.stl) | High-Strength Jaw Adapter (PETG-CF / PA-CF) | 28.9 × 107.4 × 45.4 mm |
+| **Robotiq 2F-140 / 2F-85** | [`Robotiq_2F-140-UCG_soft.stl`](grippers-stl/robotiq_2f85_2f140_stl/Robotiq_2F-140-UCG_soft.stl) | Compliant Grip Core (TPU 85A/95A) | 15.0 × 81.0 × 29.8 mm |
+| **Open Arm** | [`OpenArm_UCG_left_hard.stl`](grippers-stl/open_arm_stl/OpenArm_UCG_left_hard.stl) | Rigid Left Jaw Mount (PETG-CF / PA-CF) | 121.7 × 61.0 × 32.6 mm |
+| **I2RT YAM** | [`i2rt_UCG_Hard.stl`](grippers-stl/enpire_i2rt_yam_stl/i2rt_UCG_Hard.stl) | Baseline Rigid Frame (PETG-CF / PA-CF) | 31.6 × 114.9 × 32.6 mm |
+| **I2RT YAM** | [`I2RT_UCG_Soft.stl`](grippers-stl/enpire_i2rt_yam_stl/I2RT_UCG_Soft.stl) | Baseline Compliant Core (TPU 85A/95A) | 15.0 × 81.0 × 29.8 mm |
 
 ---
 
@@ -156,10 +212,10 @@ All parts shown were printed and verified on a **Bambu Lab P1S** using **Bambu S
 
 ## URDF Simulation Models & STL Automation
 
-We provide an automated script in `scripts/generate_urdf_from_stl.py` that parses any pair of finger STL files from [`grippers-stl/`](grippers-stl/), calculates center-of-mass, inertia, scales from millimeters to meters, and outputs a physics-ready **URDF** for **NVIDIA Isaac Sim, MuJoCo, PyBullet, and ROS 2**:
+We provide an automated script in `scripts/generate_urdf_from_stl.py` that parses any pair of finger STL files from [`grippers-stl/`](grippers-stl/), calculates center-of-mass, inertia, scales from millimeters to meters, and outputs a physics-ready **URDF** for **NVIDIA Isaac Sim, MuJoCo, PyBullet, and ROS 2** (runs with zero dependencies using standard Python 3):
 
 ```bash
-# Generate a URDF from your STL files:
+# Example 1: Generate URDF for Robotiq Hand-E
 python3 scripts/generate_urdf_from_stl.py \
   --name hand_e_enpire_gripper \
   --left_stl grippers-stl/hand_e_stl/Robotiq_UCG_Hard_Hand_E.stl \
@@ -167,13 +223,31 @@ python3 scripts/generate_urdf_from_stl.py \
   --stroke_mm 50.0 \
   --force_n 130.0 \
   --out hand_e_enpire_gripper.urdf
+
+# Example 2: Generate URDF for Robotiq 2F-140
+python3 scripts/generate_urdf_from_stl.py \
+  --name robotiq_2f140_enpire_gripper \
+  --left_stl grippers-stl/robotiq_2f85_2f140_stl/Robotiq_2F-140-UCG_Hard.stl \
+  --right_stl grippers-stl/robotiq_2f85_2f140_stl/Robotiq_2F-140-UCG_Hard.stl \
+  --stroke_mm 140.0 \
+  --force_n 235.0 \
+  --out robotiq_2f140_enpire_gripper.urdf
+
+# Example 3: Generate URDF for I2RT YAM
+python3 scripts/generate_urdf_from_stl.py \
+  --name enpire_yam_gripper \
+  --left_stl grippers-stl/enpire_i2rt_yam_stl/i2rt_UCG_Hard.stl \
+  --right_stl grippers-stl/enpire_i2rt_yam_stl/i2rt_UCG_Hard.stl \
+  --stroke_mm 50.0 \
+  --force_n 100.0 \
+  --out enpire_yam_gripper.urdf
 ```
 
 ---
 
 ## Rules for Contributing
 
-1. **Watertight Mesh**: Export binary STL files in **Millimeters (mm)** with zero non-manifold edges. Verify using:
+1. **Watertight Mesh**: Export binary STL files with zero non-manifold edges. Verify using:
    ```bash
    python3 scripts/validate_mesh.py
    ```
