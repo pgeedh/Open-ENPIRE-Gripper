@@ -164,6 +164,7 @@ In the open-source community, researchers and builders train policies across div
 | **Robotiq Hand-E** | [`Robotiq_UCG_Hard_Hand_E.stl`](grippers-stl/hand_e_stl/Robotiq_UCG_Hard_Hand_E.stl) | Rigid Structural Frame (PETG-CF / PA-CF) | 28.9 × 109.5 × 32.6 mm |
 | **Robotiq Hand-E** | [`Robotiq_UCG_Soft_Hand_E.stl`](grippers-stl/hand_e_stl/Robotiq_UCG_Soft_Hand_E.stl) | Compliant Grip Core (TPU 85A/95A) | 15.0 × 81.0 × 29.8 mm |
 | **Robotiq 2F-140 / 2F-85** | [`Robotiq_2F-140-UCG_Hard.stl`](grippers-stl/robotiq_2f85_2f140_stl/Robotiq_2F-140-UCG_Hard.stl) | High-Strength Jaw Adapter (PETG-CF / PA-CF) | 28.9 × 107.4 × 45.4 mm |
+| **Robotiq 2F-140 / 2F-85** | [`Robotiq_2F-140-UCG_soft.stl`](grippers-stl/robotiq_2f85_2f140_stl/Robotiq_2F-140-UCG_soft.stl) | Compliant Grip Core (TPU 85A/95A) | 15.0 × 81.0 × 29.8 mm |
 | **Open Arm** | [`OpenArm_UCG_left_hard.stl`](grippers-stl/open_arm_stl/OpenArm_UCG_left_hard.stl) | Rigid Left Jaw Mount (PETG-CF / PA-CF) | 121.7 × 61.0 × 32.6 mm |
 | **I2RT YAM** | [`i2rt_UCG_Hard.stl`](grippers-stl/enpire_i2rt_yam_stl/i2rt_UCG_Hard.stl) | Baseline Rigid Frame (PETG-CF / PA-CF) | 31.6 × 114.9 × 32.6 mm |
 | **I2RT YAM** | [`I2RT_UCG_Soft.stl`](grippers-stl/enpire_i2rt_yam_stl/I2RT_UCG_Soft.stl) | Baseline Compliant Core (TPU 85A/95A) | 15.0 × 81.0 × 29.8 mm |

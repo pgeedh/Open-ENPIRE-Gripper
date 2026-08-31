@@ -31,6 +31,7 @@ The Robotiq 2F series is one of the most widely deployed industrial parallel end
 ## 📦 Production-Ready STL Models
 
 * **`Robotiq_2F-140-UCG_Hard.stl`** — High-strength rigid structural adapter finger for Robotiq 2F-140 (and 2F-85 bracket interfaces), optimized for high clamping forces (up to 235 N).
+* **`Robotiq_2F-140-UCG_soft.stl`** — Compliant high-friction tactile grip insert (print in TPU 85A / TPU 95A).
 
 ---
 
@@ -46,21 +47,28 @@ The Robotiq 2F series is one of the most widely deployed industrial parallel end
 | **Depth ($+Z$)** | 45.4 mm |
 | **Linear Stroke Range** | 85.0 mm (2F-85) to 140.0 mm (2F-140) |
 | **Maximum Grip Force** | Up to 235 N |
-| **Primary Material** | **PETG-CF** / **PA12-CF** / **PLA-CF** (Rigid structural backbone) |
+| **Materials** | Dual-material: Rigid skeleton (PETG/PA-CF) + Compliant core (TPU 85A/95A) |
 | **Best Applications** | Industrial pick-and-place, machine tending, high-payload robot learning, bimanual assembly |
 
 ---
 
 ## 🖨️ Tested 3D Printing Profile (Bambu Lab P1S)
 
-* **Filament**: **PETG-CF**, **PA12-CF (Nylon-CF)**, or **PLA-CF**
-* **Layer Height**: **0.16 mm** (Ensures clean M4 counterbore seating and fine tooth detail)
-* **Wall Loops / Perimeters**: **5 to 6 walls** (Critical for bearing 235 N clamping forces)
-* **Infill Pattern & Density**: **50% – 60% Gyroid** (Isotropic stress distribution)
-* **Support Configuration**: Tree (Auto), 40° threshold, **0.20 mm Top Z distance**
+* **Body (Rigid Frame `Robotiq_2F-140-UCG_Hard.stl`)**:
+  * **Filament**: **PETG-CF**, **PA12-CF (Nylon-CF)**, or **PLA-CF**
+  * **Layer Height**: **0.16 mm** (Ensures clean M4 counterbore seating and fine tooth detail)
+  * **Wall Loops / Perimeters**: **5 to 6 walls** (Critical for bearing 235 N clamping forces)
+  * **Infill Pattern & Density**: **50% – 60% Gyroid** (Isotropic stress distribution)
+  * **Support Configuration**: Tree (Auto), 40° threshold, **0.20 mm Top Z distance**
+* **Grip Pad (Compliant Core `Robotiq_2F-140-UCG_soft.stl`)**:
+  * **Filament**: **TPU 85A** or **TPU 95A**
+  * **Layer Height**: **0.16 mm – 0.20 mm**
+  * **Wall Loops**: **4 walls**
+  * **Infill Pattern & Density**: **30% – 40% Gyroid**
+  * **Supports**: None needed
 
 ---
 
 ## 🤝 Community Contributions
 
-> 💡 **Have an additional variation?** If you have designed a soft TPU friction insert or an extended thin-pinch variant for Robotiq 2F grippers, feel free to **[submit a Pull Request](https://github.com/pgeedh/Open-ENPIRE-Gripper-nvidia/pulls)** following our [Rules for Contributing](../../CONTRIBUTING.md).
+> 💡 **Have an additional variation?** If you have designed an extended thin-pinch variant or alternate mounting bracket for Robotiq 2F grippers, feel free to **[submit a Pull Request](https://github.com/pgeedh/Open-ENPIRE-Gripper-nvidia/pulls)** following our [Rules for Contributing](../../CONTRIBUTING.md).
