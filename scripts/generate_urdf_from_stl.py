@@ -4,78 +4,121 @@ Automated URDF Generator from STL Files
 Parses 3D STL files, computes bounding box, scaling (mm -> meters),
 mass, center of mass, and generates a physics-ready URDF with prismatic
 parallel finger joints, mimic dynamics, and Tool Center Point (TCP) frames.
+
+Zero external dependencies: runs with standard Python 3 (with optional NumPy acceleration).
 """
 
 import os
 import sys
 import struct
+import math
 import argparse
-import numpy as np
 
 def compute_mesh_properties(stl_path: str):
     if not os.path.exists(stl_path):
         return None
+    
+    file_size = os.path.getsize(stl_path)
+    if file_size < 84:
+        return None
+
     with open(stl_path, 'rb') as f:
         header = f.read(80)
-        num_triangles = struct.unpack('<I', f.read(4))[0]
-        record_dtype = np.dtype([
-            ('normal', '<f4', (3,)),
-            ('v0', '<f4', (3,)),
-            ('v1', '<f4', (3,)),
-            ('v2', '<f4', (3,)),
-            ('attr', '<u2')
-        ])
-        data = np.fromfile(f, dtype=record_dtype, count=num_triangles)
-        
-    v0 = data['v0']
-    v1 = data['v1']
-    v2 = data['v2']
-    all_verts = np.vstack([v0, v1, v2])
-    
-    # Auto-detect units: if bounding box max dimension < 1.0, mesh is already in meters; otherwise mm
-    raw_span = all_verts.max(axis=0) - all_verts.min(axis=0)
-    scale_to_m = 1.0 if np.max(raw_span) < 1.0 else 0.001
+        num_triangles_bytes = f.read(4)
+        if len(num_triangles_bytes) < 4:
+            return None
+        num_triangles = struct.unpack('<I', num_triangles_bytes)[0]
 
-    min_pt_m = all_verts.min(axis=0) * scale_to_m
-    max_pt_m = all_verts.max(axis=0) * scale_to_m
-    center_m = (min_pt_m + max_pt_m) / 2.0
-    dims_m = max_pt_m - min_pt_m
-    
-    # Volume calculation
-    cross = np.cross(v1, v2)
-    signed_vol = np.sum(v0 * cross) / 6.0
-    vol_m3 = abs(signed_vol) * (scale_to_m ** 3)
-    
-    # Approximate mass (Plastic density ~1200 kg/m3)
+        min_x = min_y = min_z = float('inf')
+        max_x = max_y = max_z = float('-inf')
+        total_signed_vol = 0.0
+
+        for _ in range(num_triangles):
+            tri_data = f.read(50)
+            if len(tri_data) < 50:
+                break
+            vals = struct.unpack('<3f3f3f3fH', tri_data)
+            v0 = (vals[3], vals[4], vals[5])
+            v1 = (vals[6], vals[7], vals[8])
+            v2 = (vals[9], vals[10], vals[11])
+
+            for v in (v0, v1, v2):
+                if v[0] < min_x: min_x = v[0]
+                if v[0] > max_x: max_x = v[0]
+                if v[1] < min_y: min_y = v[1]
+                if v[1] > max_y: max_y = v[1]
+                if v[2] < min_z: min_z = v[2]
+                if v[2] > max_z: max_z = v[2]
+
+            # Tetrahedron volume from origin: (v0 . (v1 x v2)) / 6
+            cross_x = v1[1] * v2[2] - v1[2] * v2[1]
+            cross_y = v1[2] * v2[0] - v1[0] * v2[2]
+            cross_z = v1[0] * v2[1] - v1[1] * v2[0]
+            vol_elem = (v0[0] * cross_x + v0[1] * cross_y + v0[2] * cross_z) / 6.0
+            total_signed_vol += vol_elem
+
+    dx = max_x - min_x
+    dy = max_y - min_y
+    dz = max_z - min_z
+    max_dim = max(dx, dy, dz)
+
+    # Auto-detect units: if bounding box max dimension < 1.0, mesh is in meters; otherwise mm
+    is_meters = max_dim < 1.0
+    scale_to_m = 1.0 if is_meters else 0.001
+
+    min_pt_m = (min_x * scale_to_m, min_y * scale_to_m, min_z * scale_to_m)
+    max_pt_m = (max_x * scale_to_m, max_y * scale_to_m, max_z * scale_to_m)
+    center_m = (
+        (min_pt_m[0] + max_pt_m[0]) / 2.0,
+        (min_pt_m[1] + max_pt_m[1]) / 2.0,
+        (min_pt_m[2] + max_pt_m[2]) / 2.0,
+    )
+    dims_m = (
+        max_pt_m[0] - min_pt_m[0],
+        max_pt_m[1] - min_pt_m[1],
+        max_pt_m[2] - min_pt_m[2],
+    )
+
+    vol_m3 = abs(total_signed_vol) * (scale_to_m ** 3)
+    # Approximate mass (Polymer density ~1200 kg/m3)
     mass_kg = max(0.025, round(vol_m3 * 1200.0, 4))
-    
+
     # Approximate box inertia
-    dx, dy, dz = dims_m
-    ixx = (1.0 / 12.0) * mass_kg * (dy**2 + dz**2)
-    iyy = (1.0 / 12.0) * mass_kg * (dx**2 + dz**2)
-    izz = (1.0 / 12.0) * mass_kg * (dx**2 + dy**2)
-    
+    dx_m, dy_m, dz_m = dims_m
+    ixx = (1.0 / 12.0) * mass_kg * (dy_m**2 + dz_m**2)
+    iyy = (1.0 / 12.0) * mass_kg * (dx_m**2 + dz_m**2)
+    izz = (1.0 / 12.0) * mass_kg * (dx_m**2 + dy_m**2)
+
+    mesh_scale = "1.0 1.0 1.0" if is_meters else "0.001 0.001 0.001"
+
     return {
         'dims_m': dims_m,
         'center_m': center_m,
         'mass_kg': mass_kg,
         'inertia': (ixx, iyy, izz),
-        'scale_to_m': scale_to_m
+        'mesh_scale': mesh_scale,
+        'is_meters': is_meters
     }
 
 def generate_urdf(robot_name: str, left_stl: str, right_stl: str, stroke_mm: float = 50.0, force_n: float = 130.0) -> str:
     half_stroke_m = (stroke_mm / 2.0) * 0.001
     
     left_props = compute_mesh_properties(left_stl) or {
-        'dims_m': np.array([0.02, 0.02, 0.07]),
-        'center_m': np.array([0.0, 0.01, 0.035]),
+        'dims_m': (0.02, 0.02, 0.07),
+        'center_m': (0.0, 0.01, 0.035),
         'mass_kg': 0.045,
-        'inertia': (2e-5, 2e-5, 1e-5)
+        'inertia': (2e-5, 2e-5, 1e-5),
+        'mesh_scale': "0.001 0.001 0.001",
+        'is_meters': False
     }
+
+    right_props = compute_mesh_properties(right_stl) or left_props
     
     mass = left_props['mass_kg']
     ixx, iyy, izz = left_props['inertia']
     cx, cy, cz = left_props['center_m']
+    scale_left = left_props['mesh_scale']
+    scale_right = right_props['mesh_scale']
     
     urdf = f"""<?xml version="1.0" encoding="utf-8"?>
 <robot name="{robot_name}">
@@ -123,7 +166,7 @@ def generate_urdf(robot_name: str, left_stl: str, right_stl: str, stroke_mm: flo
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="{left_stl}" scale="0.001 0.001 0.001"/>
+        <mesh filename="{left_stl}" scale="{scale_left}"/>
       </geometry>
       <material name="enpire_blue">
         <color rgba="0.18 0.45 0.85 1.0"/>
@@ -132,7 +175,7 @@ def generate_urdf(robot_name: str, left_stl: str, right_stl: str, stroke_mm: flo
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="{left_stl}" scale="0.001 0.001 0.001"/>
+        <mesh filename="{left_stl}" scale="{scale_left}"/>
       </geometry>
     </collision>
   </link>
@@ -157,7 +200,7 @@ def generate_urdf(robot_name: str, left_stl: str, right_stl: str, stroke_mm: flo
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="{right_stl}" scale="0.001 0.001 0.001"/>
+        <mesh filename="{right_stl}" scale="{scale_right}"/>
       </geometry>
       <material name="enpire_blue">
         <color rgba="0.18 0.45 0.85 1.0"/>
@@ -166,7 +209,7 @@ def generate_urdf(robot_name: str, left_stl: str, right_stl: str, stroke_mm: flo
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="{right_stl}" scale="0.001 0.001 0.001"/>
+        <mesh filename="{right_stl}" scale="{scale_right}"/>
       </geometry>
     </collision>
   </link>

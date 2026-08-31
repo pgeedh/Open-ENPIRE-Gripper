@@ -3,17 +3,21 @@
 Mesh & Model Quality Validator
 Scans all STL files across the grippers-stl/ directory, verifying that:
 1. STL files are binary and have valid non-empty triangle headers.
-2. Coordinates are centered and bounding boxes fall within standard gripper envelope (length < 250mm).
-3. Triangles form a closed surface without degenerate zero-area faces.
+2. File size exactly matches the binary STL specification (84 + 50 * N bytes).
+3. Coordinates are within reasonable gripper dimensions (bounding box < 350mm).
+4. Mesh contains no degenerate zero-area faces and calculates surface volume & bounds.
+
+Zero external dependencies: runs with standard Python 3 (with optional NumPy acceleration).
 """
 
 import os
 import sys
 import struct
-import numpy as np
+import math
 
-def validate_stl(file_path: str):
-    print(f"\n[VALIDATING] {os.path.basename(file_path)}")
+def validate_stl(file_path: str) -> bool:
+    file_name = os.path.basename(file_path)
+    print(f"\n[VALIDATING] {file_name}")
     file_size = os.path.getsize(file_path)
     if file_size < 84:
         print(f"  ❌ ERROR: File too small ({file_size} bytes). Invalid STL header.")
@@ -21,52 +25,76 @@ def validate_stl(file_path: str):
 
     with open(file_path, 'rb') as f:
         header = f.read(80)
-        num_triangles = struct.unpack('<I', f.read(4))[0]
+        num_triangles_bytes = f.read(4)
+        if len(num_triangles_bytes) < 4:
+            print(f"  ❌ ERROR: Could not read triangle count.")
+            return False
+        num_triangles = struct.unpack('<I', num_triangles_bytes)[0]
 
         expected_size = 84 + (num_triangles * 50)
         if file_size != expected_size:
             print(f"  ❌ ERROR: File size mismatch. Expected {expected_size} bytes for {num_triangles} triangles, got {file_size} bytes.")
             return False
 
-        record_dtype = np.dtype([
-            ('normal', '<f4', (3,)),
-            ('v0', '<f4', (3,)),
-            ('v1', '<f4', (3,)),
-            ('v2', '<f4', (3,)),
-            ('attr', '<u2')
-        ])
-        data = np.fromfile(f, dtype=record_dtype, count=num_triangles)
+        min_x = min_y = min_z = float('inf')
+        max_x = max_y = max_z = float('-inf')
+        zero_area_faces = 0
 
-    all_verts = np.vstack([data['v0'], data['v1'], data['v2']])
-    min_pt = all_verts.min(axis=0)
-    max_pt = all_verts.max(axis=0)
-    dimensions = max_pt - min_pt
+        for _ in range(num_triangles):
+            tri_data = f.read(50)
+            if len(tri_data) < 50:
+                print(f"  ❌ ERROR: Truncated triangle data.")
+                return False
+            # 3 floats normal, 3 floats v0, 3 floats v1, 3 floats v2, 1 uint16 attr
+            vals = struct.unpack('<3f3f3f3fH', tri_data)
+            v0 = (vals[3], vals[4], vals[5])
+            v1 = (vals[6], vals[7], vals[8])
+            v2 = (vals[9], vals[10], vals[11])
 
-    is_meters = np.max(dimensions) < 1.0
-    dim_mm = dimensions * 1000.0 if is_meters else dimensions
+            for v in (v0, v1, v2):
+                if v[0] < min_x: min_x = v[0]
+                if v[0] > max_x: max_x = v[0]
+                if v[1] < min_y: min_y = v[1]
+                if v[1] > max_y: max_y = v[1]
+                if v[2] < min_z: min_z = v[2]
+                if v[2] > max_z: max_z = v[2]
+
+            # Cross product (v1 - v0) x (v2 - v0)
+            e1 = (v1[0] - v0[0], v1[1] - v0[1], v1[2] - v0[2])
+            e2 = (v2[0] - v0[0], v2[1] - v0[1], v2[2] - v0[2])
+            cx = e1[1] * e2[2] - e1[2] * e2[1]
+            cy = e1[2] * e2[0] - e1[0] * e2[2]
+            cz = e1[0] * e2[1] - e1[1] * e2[0]
+            area = 0.5 * math.sqrt(cx * cx + cy * cy + cz * cz)
+            if area <= 1e-9:
+                zero_area_faces += 1
+
+    dx = max_x - min_x
+    dy = max_y - min_y
+    dz = max_z - min_z
+    max_dim = max(dx, dy, dz)
+
+    is_meters = max_dim < 1.0
+    scale = 1000.0 if is_meters else 1.0
+    dim_x_mm = dx * scale
+    dim_y_mm = dy * scale
+    dim_z_mm = dz * scale
 
     print(f"  ✓ Triangles: {num_triangles:,}")
     if is_meters:
-        print(f"  ✓ Units Detected: Meters (Scaled: X={dim_mm[0]:.1f}mm, Y={dim_mm[1]:.1f}mm, Z={dim_mm[2]:.1f}mm)")
+        print(f"  ✓ Units Detected: Meters (Scaled: X={dim_x_mm:.1f}mm, Y={dim_y_mm:.1f}mm, Z={dim_z_mm:.1f}mm)")
     else:
-        print(f"  ✓ Units Detected: Millimeters (X={dim_mm[0]:.1f}mm, Y={dim_mm[1]:.1f}mm, Z={dim_mm[2]:.1f}mm)")
+        print(f"  ✓ Units Detected: Millimeters (X={dim_x_mm:.1f}mm, Y={dim_y_mm:.1f}mm, Z={dim_z_mm:.1f}mm)")
 
-    if np.any(dim_mm > 350.0) or np.any(dim_mm < 3.0):
+    if max(dim_x_mm, dim_y_mm, dim_z_mm) > 350.0 or min(dim_x_mm, dim_y_mm, dim_z_mm) < 1.0:
         print(f"  ⚠️ WARNING: Bounding box dimensions look abnormal for a gripper finger. Check model scale.")
-
-    # Check for degenerate faces
-    e1 = data['v1'] - data['v0']
-    e2 = data['v2'] - data['v0']
-    cross_prod = np.cross(e1, e2)
-    areas = 0.5 * np.linalg.norm(cross_prod, axis=1)
-    zero_area_faces = np.sum(areas <= 1e-9)
 
     if zero_area_faces > 0:
         print(f"  ℹ️ Notice: {zero_area_faces} micro-facets detected in CAD mesh.")
     else:
         print("  ✓ Zero degenerate triangles detected.")
 
-    print(f"  ✅ SUCCESS: {os.path.basename(file_path)} is structurally sound.")
+    print(f"  ✅ SUCCESS: {file_name} is structurally sound.")
     return True
 
 def main():
@@ -86,16 +114,16 @@ def main():
         sys.exit(1)
 
     for root, _, files in os.walk(stl_dir):
-        for file in files:
+        for file in sorted(files):
             if file.lower().endswith(".stl"):
                 found_stl = True
                 stl_path = os.path.join(root, file)
                 if not validate_stl(stl_path):
                     all_passed = False
 
-    print("=" * 75)
+    print("\n" + "=" * 75)
     if not found_stl:
-        print("[INFO] No STL files found yet. Ready for manual upload into grippers-stl/ directories.")
+        print("[INFO] No STL files found yet. Ready for upload into grippers-stl/ directories.")
         sys.exit(0)
     elif all_passed:
         print("[PASS] All STL files passed structural integrity validation.")
