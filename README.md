@@ -95,6 +95,47 @@ In the open-source community, researchers and builders train policies across div
 
 ---
 
+## 🎨 3D STL Model Visual Gallery
+
+<table align="center" border="0">
+  <tr>
+    <th align="center" width="25%">Robotiq Hand-E UCG</th>
+    <th align="center" width="25%">Robotiq 2F-140 UCG</th>
+    <th align="center" width="25%">Open Arm UCG</th>
+    <th align="center" width="25%">I2RT YAM Baseline</th>
+  </tr>
+  <tr>
+    <td align="center" valign="top">
+      <a href="grippers-stl/hand_e_stl/">
+        <img src="docs/images/renders/robotiq_hand_e_ucg_render.png" alt="Robotiq Hand-E UCG Render" width="100%" />
+      </a>
+    </td>
+    <td align="center" valign="top">
+      <a href="grippers-stl/robotiq_2f85_2f140_stl/">
+        <img src="docs/images/renders/robotiq_2f140_ucg_render.png" alt="Robotiq 2F-140 UCG Render" width="100%" />
+      </a>
+    </td>
+    <td align="center" valign="top">
+      <a href="grippers-stl/open_arm_stl/">
+        <img src="docs/images/renders/openarm_ucg_render.png" alt="Open Arm UCG Render" width="100%" />
+      </a>
+    </td>
+    <td align="center" valign="top">
+      <a href="grippers-stl/enpire_i2rt_yam_stl/">
+        <img src="docs/images/renders/i2rt_yam_ucg_render.png" alt="I2RT YAM Baseline Render" width="100%" />
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Robotiq Hand-E</strong></td>
+    <td align="center"><strong>Robotiq 2F-140 / 2F-85</strong></td>
+    <td align="center"><strong>Open Arm</strong></td>
+    <td align="center"><strong>I2RT YAM Baseline</strong></td>
+  </tr>
+</table>
+
+---
+
 ## Robot Compatibility Matrix
 
 > 💡 **3D Printable Files**: All gripper STL models for supported robotic arms are available in the [`grippers-stl/`](grippers-stl/) directory.

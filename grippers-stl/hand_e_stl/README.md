@@ -12,10 +12,9 @@
 
 <table align="center" border="0">
   <tr>
-    <th align="center" width="50%">
-      <a href="https://robotiq.com/products/hand-e-adaptive-robot-gripper">Standard OEM Robotiq Hand-E</a>
-    </th>
-    <th align="center" width="50%">Robotiq Hand-E + ENPIRE UCG Compliant Fingers</th>
+    <th align="center" width="33%">Standard OEM Robotiq Hand-E</th>
+    <th align="center" width="33%">Physical Hand-E + ENPIRE Fingers</th>
+    <th align="center" width="33%">3D Dual-Material CAD Render</th>
   </tr>
   <tr>
     <td align="center" valign="top">
@@ -25,6 +24,9 @@
     </td>
     <td align="center" valign="top">
       <img src="../../docs/images/robotiq_hand_e_ucg_mounted.jpg" alt="Robotiq Hand-E with ENPIRE UCG Fingers" width="100%" />
+    </td>
+    <td align="center" valign="top">
+      <img src="../../docs/images/renders/robotiq_hand_e_ucg_render.png" alt="Robotiq Hand-E UCG Dual-Material 3D CAD Render" width="100%" />
     </td>
   </tr>
 </table>

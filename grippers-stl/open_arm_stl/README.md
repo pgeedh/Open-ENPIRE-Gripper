@@ -1,8 +1,18 @@
+<div align="center">
+
 # Open Arm Universal Compliant Gripper (UCG) STL Models
 
 ### 3D-Printable High-Friction Compliant Gripper Adapters for Open Arm Platforms
 
 <br>
+
+<img src="../../docs/images/renders/openarm_ucg_render.png" alt="Open Arm ENPIRE UCG Finger 3D CAD Render" width="520" />
+<br>
+<em>High-rigidity Open Arm Universal Compliant Gripper (UCG) left jaw adapter (OpenArm_UCG_left_hard.stl).</em>
+
+</div>
+
+---
 
 ## Overview
 

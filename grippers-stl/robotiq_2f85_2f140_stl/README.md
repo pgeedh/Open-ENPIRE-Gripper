@@ -1,8 +1,18 @@
+<div align="center">
+
 # Robotiq 2F-85 / 2F-140 Universal Compliant Gripper (UCG) STL Models
 
 ### Transforming Heavy-Duty Robotiq 2-Finger Adaptive Grippers for Physical AI Manipulation & Policy Self-Improvement
 
 <br>
+
+<img src="../../docs/images/renders/robotiq_2f140_ucg_render.png" alt="Robotiq 2F-140 ENPIRE UCG Finger 3D CAD Render" width="520" />
+<br>
+<em>Heavy-duty Robotiq 2F-140 Universal Compliant Gripper (UCG) finger adapter (Robotiq_2F-140-UCG_Hard.stl).</em>
+
+</div>
+
+---
 
 ## Overview
 

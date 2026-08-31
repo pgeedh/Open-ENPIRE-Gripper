@@ -6,9 +6,22 @@
 
 <br>
 
-<img src="../../docs/images/original_enpire_yam_gripper.jpg" alt="Original NVIDIA ENPIRE I2RT YAM Gripper" width="420" />
+<table align="center" border="0">
+  <tr>
+    <th align="center" width="50%">Original I2RT YAM Physical Arm</th>
+    <th align="center" width="50%">ENPIRE Dual-Material 3D Model Render</th>
+  </tr>
+  <tr>
+    <td align="center" valign="top">
+      <img src="../../docs/images/original_enpire_yam_gripper.jpg" alt="Original NVIDIA ENPIRE I2RT YAM Gripper" width="100%" />
+    </td>
+    <td align="center" valign="top">
+      <img src="../../docs/images/renders/i2rt_yam_ucg_render.png" alt="I2RT YAM Dual-Material ENPIRE UCG 3D CAD Render" width="100%" />
+    </td>
+  </tr>
+</table>
 <br>
-<em>Original ENPIRE compliant finger design in action on the I2RT YAM research arm (NVIDIA GEAR Lab).</em>
+<em>Left: Original ENPIRE compliant finger on the I2RT YAM arm (NVIDIA GEAR Lab). Right: 3D CAD model rendering of rigid frame (Blue) with compliant TPU core (Orange).</em>
 
 </div>
 
